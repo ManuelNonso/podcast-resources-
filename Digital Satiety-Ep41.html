@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Worksheet — Recovering Your Creative Voice | The Power of LIFE Podcast</title>
+<style>
+  :root {
+    --navy: #1a365d;
+    --navy-light: #2d5a9e;
+    --gold: #f6ad55;
+    --gold-dark: #e69940;
+    --teal: #38b2ac;
+    --teal-light: #e6fffa;
+    --purple: #667eea;
+    --purple-dark: #764ba2;
+    --red: #e53e3e;
+    --red-dark: #c53030;
+    --white: #ffffff;
+    --offwhite: #f7f8fc;
+    --grey: #f0f2f5;
+    --text: #333;
+    --text-light: #666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--offwhite);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .ws-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e4080 50%, var(--navy-light) 100%);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ws-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: rgba(246,173,85,0.08);
+    border-radius: 50%;
+  }
+  .ws-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: rgba(56,178,172,0.08);
+    border-radius: 50%;
+  }
+  .premium-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .ws-title {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .ws-subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    max-width: 560px;
+    margin: 0 auto 16px;
+    line-height: 1.65;
+  }
+  .ep-tag {
+    display: inline-block;
+    border: 1px solid rgba(246,173,85,0.5);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  /* VALUE BAR */
+  .value-bar {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 3px solid var(--gold);
+  }
+  .value-stat {
+    padding: 18px 12px;
+    text-align: center;
+    border-right: 1px solid var(--grey);
+  }
+  .value-stat:last-child { border-right: none; }
+  .stat-num {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+
+  /* NAV BAR */
+  .nav-bar {
+    background: var(--navy);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 12px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .print-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 8px 0;
+  }
+
+  /* CONTENT WRAPPER */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  /* PART HEADERS */
+  .part-header {
+    margin: 48px 0 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--grey);
+  }
+  .part-number {
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .part-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .part-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* EXERCISE CARDS */
+  .exercise {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid #e8ecf2;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .exercise-header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ex-num {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 900;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .ex-title { color: var(--white); font-size: 16px; font-weight: 700; }
+  .ex-subtitle { color: rgba(255,255,255,0.65); font-size: 12px; margin-top: 2px; }
+
+  .exercise-body { padding: 24px; }
+  .exercise-body p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .question-prompt {
+    background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+    border-left: 4px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  .question-prompt p {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.65;
+  }
+  .direction {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 400 !important;
+    font-style: normal !important;
+    margin-top: 6px !important;
+  }
+
+  .write-area {
+    background: var(--offwhite);
+    border: 1.5px solid #dde2ec;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    min-height: 90px;
+  }
+  .write-area label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .write-area .lines {
+    border-bottom: 1px solid #dde2ec;
+    height: 22px;
+    margin-bottom: 2px;
+  }
+
+  .insight-box {
+    background: var(--teal-light);
+    border: 1px solid #b2dfdc;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .insight-box p {
+    font-size: 13px;
+    color: #2d6a67;
+    margin: 0;
+    line-height: 1.65;
+  }
+  .insight-label {
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--teal);
+    margin-bottom: 6px !important;
+  }
+
+  /* BUILDER TOOL */
+  .builder {
+    background: var(--white);
+    border: 2px solid var(--purple);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .builder-header {
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    padding: 16px 24px;
+  }
+  .builder-header h3 { color: var(--white); font-size: 16px; font-weight: 700; }
+  .builder-header p { color: rgba(255,255,255,0.7); font-size: 12px; margin-top: 4px; }
+  .builder-body { padding: 24px; }
+  .builder-field {
+    margin-bottom: 20px;
+  }
+  .field-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .field-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+  .field-input {
+    background: var(--offwhite);
+    border: 1.5px solid #dde2ec;
+    border-radius: 6px;
+    padding: 12px 14px;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  /* SCENARIO CARDS */
+  .scenario {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid #e8ecf2;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .scenario-header {
+    background: linear-gradient(135deg, #f6ad55, #e69940);
+    padding: 12px 20px;
+  }
+  .scenario-header h4 { color: var(--navy); font-size: 14px; font-weight: 800; }
+  .scenario-body { padding: 20px; }
+  .scenario-body p { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 14px; }
+
+  /* COMMITMENT */
+  .commitment {
+    background: linear-gradient(135deg, var(--navy), #1e3a6e);
+    border-radius: 10px;
+    padding: 32px;
+    margin-top: 12px;
+    border: 2px solid var(--gold);
+  }
+  .commitment h3 { color: var(--gold); font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .commitment p { color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+  .commitment-fields { display: grid; gap: 16px; }
+  .c-field label { color: var(--gold); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .c-field .c-input { background: rgba(255,255,255,0.1); border: 1px solid rgba(246,173,85,0.4); border-radius: 6px; padding: 10px 14px; min-height: 44px; }
+
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .audit-item {
+    background: var(--offwhite);
+    border: 1.5px solid #dde2ec;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .audit-num { font-size: 11px; font-weight: 900; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .audit-lines { border-bottom: 1px solid #dde2ec; height: 20px; margin-bottom: 4px; }
+  .audit-check { display: flex; gap: 12px; margin-top: 10px; }
+  .audit-check label { font-size: 11px; color: var(--text-light); display: flex; align-items: center; gap: 5px; cursor: pointer; }
+  .audit-check input { accent-color: var(--teal); }
+
+  /* FOOTER */
+  .ws-footer {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .ws-footer .show-name { color: var(--gold); font-size: 16px; font-weight: 800; letter-spacing: 1px; margin-bottom: 6px; }
+  .ws-footer .tagline { color: rgba(255,255,255,0.6); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .ws-footer .social { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .ws-footer .social a { color: rgba(255,255,255,0.5); font-size: 12px; text-decoration: none; }
+  .ws-footer .premium-note { color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 16px; font-style: italic; }
+
+  @media print {
+    .nav-bar { display: none; }
+    .write-area { min-height: 80px; page-break-inside: avoid; }
+    .exercise { page-break-inside: avoid; }
+    body { background: white; }
+  }
+
+  @media (max-width: 600px) {
+    .value-bar { grid-template-columns: repeat(2, 1fr); }
+    .nav-links a { padding: 12px 8px; font-size: 10px; }
+    .ws-title { font-size: 22px; }
+    .content { padding: 28px 16px 48px; }
+    .audit-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="ws-header">
+  <div class="premium-badge">⭐ Premium Member Worksheet</div>
+  <div class="ws-title">Recovering Your Creative Voice</div>
+  <div class="ws-subtitle">A deep-work session to name where your creative voice has gone — and build a precise, personal framework to get it back.</div>
+  <div class="ep-tag">Episode — Digital Satiety</div>
+</div>
+
+<!-- VALUE BAR -->
+<div class="value-bar">
+  <div class="value-stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Parts</div>
+  </div>
+  <div class="value-stat">
+    <div class="stat-num">~60</div>
+    <div class="stat-label">Minutes</div>
+  </div>
+  <div class="value-stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Exercises</div>
+  </div>
+  <div class="value-stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Sitting</div>
+  </div>
+</div>
+
+<!-- NAV BAR -->
+<div class="nav-bar">
+  <div class="nav-links">
+    <a href="#discover">Discover</a>
+    <a href="#define">Define</a>
+    <a href="#pressure">Pressure Test</a>
+    <a href="#protect">Protect</a>
+  </div>
+  <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <p style="font-size:15px; color:#555; line-height:1.8; margin-bottom:8px;">This worksheet is an extension of the coaching session in this week's episode. It is designed to be done in one sitting — deep, honest, and without interruption. Set aside 60 minutes. Close the tabs. Put the phone face-down. What follows is the real work.</p>
+
+  <!-- ============================
+       PART 1 — DISCOVER
+  ============================= -->
+  <div id="discover" class="part-header">
+    <div class="part-number">Part 1</div>
+    <div class="part-title">Discover — Where Has Your Creative Voice Gone?</div>
+    <div class="part-desc">These exercises surface the pattern without judgment. The goal is clarity, not criticism. Name what is true before you try to change anything.</div>
+  </div>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num">1</div>
+      <div>
+        <div class="ex-title">The First Move Audit</div>
+        <div class="ex-subtitle">Surface awareness — what actually happens in your first sixty seconds</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Think of the last three times you sat down to create something from scratch — a strategy, a piece of content, a presentation, a proposal, a creative piece. For each one, identify your first move in the first sixty seconds.</p>
+
+      <div class="write-area">
+        <label>Creation 1 — What was it? What did you actually do first?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="write-area">
+        <label>Creation 2 — What was it? What did you actually do first?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="write-area">
+        <label>Creation 3 — What was it? What did you actually do first?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="question-prompt">
+        <p>What does the pattern in those first moves tell you about how much you currently trust what is already inside you?</p>
+        <p class="direction">Don't answer this in your head. Write it down. The written answer is almost always sharper than the thought.</p>
+      </div>
+      <div class="write-area">
+        <label>Your honest answer</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="insight-box">
+        <p class="insight-label">📌 Coaching Note</p>
+        <p>The first move is almost always diagnostic. If it is external — a tab, a scroll, a reference file — that is not a workflow preference. It is a trust signal. It tells you something specific about the relationship between your conscious mind and your creative resource. Neither judgment nor shame is required here. Just precision.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num">2</div>
+      <div>
+        <div class="ex-title">The Pride Inventory</div>
+        <div class="ex-subtitle">Root identification — tracing your best work to its source</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Think of the last piece of work you produced that made you genuinely proud — not pleased, not relieved it was done, but proud in your body. The kind of proud that feels different.</p>
+
+      <div class="write-area">
+        <label>What was the work?</label>
+        <div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="question-prompt">
+        <p>How much of that work came directly from inside you — unmediated by anything you had consumed first? Be honest. Not what you wish was true. What was actually true?</p>
+      </div>
+      <div class="write-area">
+        <label>Your honest estimate and what it tells you</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="question-prompt">
+        <p>When did you last produce work that felt genuinely, distinctly yours — like it could only have come from you? How long ago was that?</p>
+        <p class="direction">If the answer is closer than you expected, that is worth noting. If it is further than you expected, that is also worth noting. Both are data.</p>
+      </div>
+      <div class="write-area">
+        <label>Your answer — and what you notice about it</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num">3</div>
+      <div>
+        <div class="ex-title">Naming the Fear</div>
+        <div class="ex-subtitle">Root identification — finding what the scrolling is actually managing</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>The scrolling and referencing before creative work is almost never really about research. It is about managing something. This exercise names it.</p>
+
+      <div class="question-prompt">
+        <p>If you had to begin your most important creative project tomorrow — with no references, no research, no internet, no notes, just you and a blank page — what is the fear? Name it as specifically as you can. Not "I don't know what to say." What specifically are you afraid would happen or be revealed?</p>
+      </div>
+      <div class="write-area">
+        <label>The specific fear underneath the scrolling</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="question-prompt">
+        <p>When did you first learn that this might be true about you? Not in those words — but when did you first absorb the message that your ideas alone might not be enough?</p>
+        <p class="direction">This might go further back than you expect. Let it.</p>
+      </div>
+      <div class="write-area">
+        <label>The origin — as specifically as you can trace it</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="question-prompt">
+        <p>What evidence in your own body of work directly contradicts that fear? Not what you hope is true. What is already demonstrably, verifiably true?</p>
+      </div>
+      <div class="write-area">
+        <label>The evidence that already exists</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="insight-box">
+        <p class="insight-label">📌 Coaching Note</p>
+        <p>The fear that your thinking is not enough is almost always rooted in a specific formative experience — a time when original thinking was judged, compared, or dismissed. That experience is not evidence about your actual creative capacity. It is a data point from a specific moment in a specific context. The evidence in your current body of work tells a different story. That story is the accurate one.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 4 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num">4</div>
+      <div>
+        <div class="ex-title">The Inspiration Audit</div>
+        <div class="ex-subtitle">Surface awareness — measuring your current consumption ratio</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>List the last ten pieces of content you consumed — articles, social posts, videos, podcasts, newsletters, books. For each one, mark whether it genuinely expanded your thinking (introduced something you had not considered before) or confirmed what you already believed.</p>
+
+      <div class="audit-grid">
+        <div class="audit-item">
+          <div class="audit-num">Input 01</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 02</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 03</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 04</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 05</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 06</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 07</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 08</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 09</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-num">Input 10</div>
+          <div class="audit-lines"></div>
+          <div class="audit-check">
+            <label><input type="checkbox"> Expanded</label>
+            <label><input type="checkbox"> Confirmed</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-area">
+        <label>My expansion-to-confirmation ratio and what I notice about it</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="write-area">
+        <label>One deliberate change I will make to my consumption based on this audit</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       PART 2 — DEFINE
+  ============================= -->
+  <div id="define" class="part-header">
+    <div class="part-number">Part 2</div>
+    <div class="part-title">Define — Build Your Personal Creative Protection System</div>
+    <div class="part-desc">Using what you discovered in Part 1, build the framework that is specifically yours. Not a generic productivity system. A precise response to your specific pattern.</div>
+  </div>
+
+  <div class="builder">
+    <div class="builder-header">
+      <h3>🔧 Your Personal Creative Protection Framework</h3>
+      <p>Complete every field. Vague intentions do not survive the week. Specific commitments do.</p>
+    </div>
+    <div class="builder-body">
+
+      <div class="builder-field">
+        <label class="field-label">My Blank Page First Rule — Specifics</label>
+        <div class="field-desc">Define exactly what "create before you consume" looks like in your daily rhythm. What time? What format? What is the minimum viable version of this that you will actually do?</div>
+        <div class="field-input">
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px;"></div>
+        </div>
+      </div>
+
+      <div class="builder-field">
+        <label class="field-label">My Weekly Scarcity Sprint — When and What</label>
+        <div class="field-desc">Name the specific day and time. Name the first problem or project you will take into it. Block it now. Do not leave this exercise without a specific time in your calendar.</div>
+        <div class="field-input">
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px;"></div>
+        </div>
+      </div>
+
+      <div class="builder-field">
+        <label class="field-label">My Consumption Rules — Non-Negotiable Boundaries</label>
+        <div class="field-desc">Based on your audit, name two non-negotiable consumption rules. What will you no longer do by default? What will you only do by intentional choice?</div>
+        <div class="field-input">
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px;"></div>
+        </div>
+      </div>
+
+      <div class="builder-field">
+        <label class="field-label">The Work I Have Been Avoiding — Named</label>
+        <div class="field-desc">What is the most original piece of work you have been avoiding because you have been waiting to feel ready? Name it specifically. Then name the first thirty-minute block this week when you will begin it.</div>
+        <div class="field-input">
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px; margin-bottom:4px;"></div>
+          <div style="border-bottom:1px solid #dde2ec; height:26px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================
+       PART 3 — PRESSURE TEST
+  ============================= -->
+  <div id="pressure" class="part-header">
+    <div class="part-number">Part 3</div>
+    <div class="part-title">Pressure Test — When the Framework Meets Reality</div>
+    <div class="part-desc">These scenarios test your framework against the specific moments when it will be most tempted to collapse. Work through each one before the week begins.</div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <h4>Scenario 1 — The High-Stakes Brief</h4>
+    </div>
+    <div class="scenario-body">
+      <p>You have a major pitch, strategy document, or creative brief due in 48 hours. Your first instinct is to spend the first two hours researching what others have done. Apply the Blank Page First Rule here. What specifically do you do instead?</p>
+      <div class="write-area">
+        <label>My specific response to this scenario</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <h4>Scenario 2 — The Flatness Day</h4>
+    </div>
+    <div class="scenario-body">
+      <p>You sit down to create and feel completely flat. The internal voice seems entirely absent. Everything you put on the page feels generic. You are tempted to open Instagram, LinkedIn, or Pinterest for "a quick look." What do you do instead?</p>
+      <div class="write-area">
+        <label>My specific response — without reaching for external stimulus</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <h4>Scenario 3 — The Comparison Spiral</h4>
+    </div>
+    <div class="scenario-body">
+      <p>You come across someone else's work that is — by every measure — extraordinary. Your own work suddenly feels inadequate by comparison. The instinct is to consume more of their content to understand what they are doing and incorporate it. What is the more useful response?</p>
+      <div class="write-area">
+        <label>My specific response — and the question I ask myself instead</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+
+      <div class="insight-box">
+        <p class="insight-label">📌 Coaching Note</p>
+        <p>Extraordinary work in others is most useful as a signal that it is possible — not as a blueprint to replicate. The question that breaks the comparison spiral: "What does this person's work tell me about what is possible? Not about what I should do — about what can be done?" Then close the tab and return to your own page.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       PART 4 — PROTECT
+  ============================= -->
+  <div id="protect" class="part-header">
+    <div class="part-number">Part 4</div>
+    <div class="part-title">Protect — Commitment, Accountability, and Closing Reflection</div>
+    <div class="part-desc">The work you have done in this session is only as valuable as the follow-through. This section makes it concrete.</div>
+  </div>
+
+  <!-- Commitment Contract -->
+  <div class="commitment">
+    <h3>📋 My Creative Voice Commitment</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is your contract with yourself.</p>
+    <div class="commitment-fields">
+      <div class="c-field">
+        <label>The fear I am no longer allowing to run my creative process:</label>
+        <div class="c-input"><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px; margin-bottom:4px;"></div><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px;"></div></div>
+      </div>
+      <div class="c-field">
+        <label>The evidence I am choosing to lead with instead:</label>
+        <div class="c-input"><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px; margin-bottom:4px;"></div><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px;"></div></div>
+      </div>
+      <div class="c-field">
+        <label>The specific piece of original work I am beginning this week:</label>
+        <div class="c-input"><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px; margin-bottom:4px;"></div><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px;"></div></div>
+      </div>
+      <div class="c-field">
+        <label>The first block I have scheduled for it (day, time):</label>
+        <div class="c-input"><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px;"></div></div>
+      </div>
+      <div class="c-field">
+        <label>My accountability — who I am telling about this commitment and when:</label>
+        <div class="c-input"><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px; margin-bottom:4px;"></div><div style="border-bottom:1px solid rgba(246,173,85,0.3); height:26px;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit Schedule -->
+  <div class="exercise" style="margin-top:24px;">
+    <div class="exercise-header">
+      <div class="ex-num">✓</div>
+      <div>
+        <div class="ex-title">30-Day Check-In Protocol</div>
+        <div class="ex-subtitle">Return to this worksheet in 30 days and answer these three questions</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <div class="write-area">
+        <label>What did I create in the last 30 days that felt genuinely mine?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="write-area">
+        <label>What shifted in my relationship with the blank page?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="write-area">
+        <label>What is the next piece of original work I am committing to?</label>
+        <div class="lines"></div><div class="lines"></div><div class="lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Reflection -->
+  <div style="background:white; border-radius:10px; border:1px solid #e8ecf2; padding:28px; margin-top:24px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+    <div style="font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:2px; color:var(--teal); margin-bottom:12px;">Final Reflection</div>
+    <div style="font-size:18px; font-style:italic; color:var(--navy); font-weight:600; line-height:1.65; margin-bottom:16px;">"The work that is most yours — the work only you can make — is waiting on the other side of the discomfort. You do not need more inspiration. You need more hunger."</div>
+    <p style="font-size:14px; color:#666; line-height:1.75;">You have just spent sixty minutes doing what most people will not do: going inward instead of outward. That is not a small thing. The session you have completed is not the beginning of a system. It is the beginning of a different relationship with your own creative voice. That voice has been there the whole time. It has just been waiting for you to stop reaching for the noise.</p>
+    <p style="font-size:14px; color:#666; line-height:1.75; margin-top:12px;">Now go begin the work.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="ws-footer">
+  <div class="show-name">The Power of LIFE Podcast</div>
+  <div class="tagline">Living In Full Expression</div>
+  <div class="social">
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Spotify</a>
+    <a href="#">Website</a>
+  </div>
+  <div class="premium-note">Premium Member Resource — Please do not distribute without permission.</div>
+</div>
+
+</body>
+</html>
