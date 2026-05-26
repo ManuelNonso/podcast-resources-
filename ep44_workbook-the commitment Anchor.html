@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Commitment Anchor — Premium Worksheet | The LIFE Podcast Ep. 44</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f3d; --navy-mid: #1a365d; --navy-light: #2d4a7a;
+    --gold: #c9922a; --gold-light: #e8b84b; --gold-pale: #fdf3dc;
+    --teal: #1a6b6b; --teal-light: #2a9090; --teal-pale: #e6f5f5;
+    --red: #8b1a1a; --red-light: #c0392b; --red-pale: #fdf0ef;
+    --purple: #3d1a6b; --purple-light: #6b3a9e; --purple-pale: #f3eeff;
+    --green: #1a5c2a; --green-light: #2d8f45; --green-pale: #eafbee;
+    --ink: #1c1c2e; --ink-mid: #3a3a52; --ink-soft: #6b6b85;
+    --paper: #faf9f6; --paper-warm: #f5f1ea; --white: #ffffff; --border: #e2ddd5;
+    --shadow: 0 4px 24px rgba(15,31,61,0.10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .nav-bar { display: none; }
+    section { padding: 40px; }
+    .cover { min-height: auto; padding: 60px 40px; }
+  }
+
+  /* NAV */
+  .nav-bar { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 56px; box-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+  .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 15px; letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 6px; }
+  .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+  .nav-links a:hover { background: rgba(255,255,255,0.1); color: var(--gold-light); }
+  .nav-print { background: var(--gold) !important; color: var(--navy) !important; font-weight: 600 !important; }
+
+  /* COVER */
+  .cover { background: var(--navy); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px; position: relative; overflow: hidden; text-align: center; }
+  .cover::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%); pointer-events: none; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -80px; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(26,107,97,0.08) 0%, transparent 70%); pointer-events: none; }
+  .cover-anchor { font-size: 80px; margin-bottom: 24px; opacity: 0.9; position: relative; z-index: 2; }
+  .cover-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 20px; border-radius: 2px; margin-bottom: 28px; position: relative; z-index: 2; }
+  .cover-ep { color: rgba(255,255,255,0.45); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; font-weight: 300; position: relative; z-index: 2; }
+  .cover h1 { font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(36px, 5.5vw, 62px); font-weight: 900; line-height: 1.1; margin-bottom: 12px; max-width: 720px; position: relative; z-index: 2; }
+  .cover h1 em { color: var(--gold-light); font-style: italic; }
+  .cover-sub { color: rgba(255,255,255,0.6); font-size: 17px; font-weight: 300; max-width: 540px; margin: 0 auto 44px; line-height: 1.6; position: relative; z-index: 2; }
+  .cover-divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 44px; position: relative; z-index: 2; }
+  .cover-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 640px; width: 100%; margin-bottom: 48px; position: relative; z-index: 2; }
+  .cover-stat .num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 6px; }
+  .cover-stat .label { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; }
+  .cover-note { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 18px 24px; max-width: 560px; text-align: left; margin-bottom: 40px; position: relative; z-index: 2; }
+  .cover-note p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.7; font-style: italic; }
+  .cover-scroll { color: rgba(255,255,255,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; position: relative; z-index: 2; }
+  .cover-scroll span { display: block; margin-top: 8px; font-size: 18px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+  /* PART HEADERS */
+  .part-header { position: relative; overflow: hidden; padding: 72px 60px 64px; display: flex; align-items: flex-end; justify-content: space-between; }
+  .part-header-inner { position: relative; z-index: 2; max-width: 620px; }
+  .part-number { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; opacity: 0.7; }
+  .part-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .part-header p { font-size: 16px; line-height: 1.7; opacity: 0.75; font-weight: 300; max-width: 520px; }
+  .part-deco { font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 900; line-height: 1; opacity: 0.07; position: absolute; right: 40px; bottom: -20px; z-index: 1; }
+  .part-1 { background: var(--navy-mid); color: var(--white); }
+  .part-1 .part-number { color: var(--gold-light); }
+  .part-2 { background: var(--teal); color: var(--white); }
+  .part-2 .part-number { color: rgba(255,255,255,0.7); }
+  .part-3 { background: var(--purple); color: var(--white); }
+  .part-3 .part-number { color: rgba(255,255,255,0.7); }
+  .part-4 { background: var(--green); color: var(--white); }
+  .part-4 .part-number { color: rgba(255,255,255,0.7); }
+
+  /* SECTIONS */
+  section { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+
+  /* EXERCISES */
+  .exercise { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 32px; overflow: hidden; border: 1px solid var(--border); }
+  .exercise-header { display: flex; align-items: center; gap: 18px; padding: 24px 28px; border-bottom: 1px solid var(--border); background: var(--paper-warm); }
+  .ex-num { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+  .ex-num.navy { background: var(--navy-mid); }
+  .ex-num.teal { background: var(--teal); }
+  .ex-num.purple { background: var(--purple-light); }
+  .ex-num.green { background: var(--green-light); }
+  .ex-num.gold { background: var(--gold); color: var(--navy); }
+  .ex-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .ex-subtitle { font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-top: 3px; }
+  .exercise-body { padding: 28px; }
+  .exercise-body > p { font-size: 15px; line-height: 1.8; color: var(--ink-mid); margin-bottom: 20px; }
+
+  /* WRITE FIELDS */
+  .write-field { margin-bottom: 18px; }
+  .write-field:last-child { margin-bottom: 0; }
+  .write-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .write-field textarea, .write-field input[type="text"] { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--paper); resize: vertical; line-height: 1.7; transition: border-color 0.2s; }
+  .write-field textarea { min-height: 80px; }
+  .write-field textarea:focus, .write-field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,146,42,0.12); background: var(--white); }
+  .write-field textarea::placeholder, .write-field input::placeholder { color: var(--ink-soft); font-style: italic; font-size: 13px; }
+
+  /* CALLOUTS */
+  .callout { border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+  .callout-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .callout p { font-size: 14px; line-height: 1.7; }
+  .callout.navy { background: var(--navy); color: rgba(255,255,255,0.85); }
+  .callout.navy .callout-title { color: var(--gold-light); }
+  .callout.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; }
+  .callout.gold .callout-title { color: var(--gold); }
+  .callout.gold p { color: var(--ink-mid); }
+  .callout.teal { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; }
+  .callout.teal .callout-title { color: var(--teal); }
+  .callout.teal p { color: var(--ink-mid); }
+  .callout.green { background: var(--green-pale); border-left: 3px solid var(--green-light); border-radius: 0 10px 10px 0; }
+  .callout.green .callout-title { color: var(--green); }
+  .callout.green p { color: var(--ink-mid); }
+  .callout.purple { background: var(--purple-pale); border-left: 3px solid var(--purple-light); border-radius: 0 10px 10px 0; }
+  .callout.purple .callout-title { color: var(--purple-light); }
+  .callout.purple p { color: var(--ink-mid); }
+
+  /* COACHING MOMENT */
+  .coaching-moment { background: var(--purple-pale); border-left: 4px solid var(--purple-light); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 20px 0; }
+  .coaching-moment-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 12px; }
+  .coaching-q p { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.65; font-style: italic; margin-bottom: 6px; }
+  .direction { font-size: 13px; color: var(--ink-soft); font-style: normal; margin-bottom: 14px; }
+  .coaching-moment textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--white); resize: vertical; min-height: 80px; line-height: 1.7; margin-top: 10px; }
+  .coaching-moment textarea:focus { outline: none; border-color: var(--purple-light); }
+  .coaching-moment textarea::placeholder { color: var(--ink-soft); font-style: italic; font-size: 13px; }
+
+  /* ANCHOR BUILDER GRID */
+  .anchor-grid { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; margin: 20px 0; }
+  .anchor-grid-header { background: var(--navy); padding: 14px 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .anchor-grid-header span { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); }
+  .anchor-grid-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border); align-items: start; }
+  .anchor-grid-row:last-child { border-bottom: none; }
+  .anchor-grid-row:nth-child(even) { background: var(--paper-warm); }
+  .anchor-area { font-size: 13px; font-weight: 700; color: var(--navy); padding-top: 4px; }
+  .anchor-area small { display: block; color: var(--ink-soft); font-weight: 400; font-size: 11px; margin-top: 2px; }
+  .anchor-grid-row textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 12px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--ink); background: var(--paper); resize: vertical; min-height: 68px; line-height: 1.55; }
+  .anchor-grid-row textarea:focus { outline: none; border-color: var(--gold); background: var(--white); }
+  .anchor-grid-row textarea::placeholder { color: var(--ink-soft); font-style: italic; font-size: 12px; }
+
+  /* OBSTACLE SPECTRUM */
+  .obstacle-row { display: grid; grid-template-columns: 180px 1fr 80px; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--border); align-items: center; }
+  .obstacle-row:last-child { border-bottom: none; }
+  .obstacle-row:nth-child(even) { background: var(--paper-warm); }
+  .obstacle-label { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .obstacle-label small { display: block; color: var(--ink-soft); font-weight: 400; font-size: 11px; margin-top: 2px; }
+  .obstacle-row input[type="range"] { width: 100%; accent-color: var(--teal); cursor: pointer; }
+  .obstacle-score { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--teal); text-align: center; }
+
+  /* SCHEDULE */
+  .schedule-row { display: grid; grid-template-columns: 160px 1fr 60px; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--border); align-items: start; }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-row:nth-child(even) { background: var(--paper-warm); }
+  .schedule-when { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .schedule-what { font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
+  .schedule-check { display: flex; justify-content: center; align-items: center; }
+  .schedule-check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; }
+
+  /* CONTRACT */
+  .contract { background: var(--navy); border-radius: 12px; padding: 40px; margin: 32px 0; border: 2px solid var(--gold); }
+  .contract-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 20px; }
+  .contract h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+  .contract > p { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 28px; font-style: italic; }
+  .contract-item { margin-bottom: 20px; }
+  .contract-item label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+  .contract-item textarea, .contract-item input[type="text"] { width: 100%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); resize: vertical; line-height: 1.7; }
+  .contract-item textarea { min-height: 70px; }
+  .contract-item textarea:focus, .contract-item input:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.09); }
+  .contract-item textarea::placeholder, .contract-item input::placeholder { color: rgba(255,255,255,0.3); font-style: italic; font-size: 13px; }
+  .contract-sig { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .sig-field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+  .sig-field input { width: 100%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--white); }
+  .sig-field input:focus { outline: none; border-color: var(--gold); }
+  .sig-field input::placeholder { color: rgba(255,255,255,0.3); font-style: italic; }
+
+  /* FINAL REFLECTION */
+  .final-reflection { background: var(--gold-pale); border: 1.5px solid var(--gold); border-radius: 12px; padding: 36px; margin: 32px 0; }
+  .final-reflection h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 16px; }
+  .final-reflection p { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 14px; }
+  .final-reflection textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--white); resize: vertical; min-height: 90px; line-height: 1.7; margin-top: 4px; }
+  .final-reflection textarea:focus { outline: none; border-color: var(--gold); }
+  .final-reflection textarea::placeholder { color: var(--ink-soft); font-style: italic; font-size: 13px; }
+
+  /* FOOTER */
+  .save-section { background: var(--paper-warm); border-top: 1px solid var(--border); padding: 40px; text-align: center; }
+  .save-btn { background: var(--navy); color: var(--white); border: none; padding: 14px 36px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .save-btn:hover { background: var(--navy-light); }
+  .worksheet-footer { background: var(--navy); padding: 48px 40px; text-align: center; }
+  .worksheet-footer .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold-light); letter-spacing: 2px; margin-bottom: 8px; }
+  .worksheet-footer .tagline { color: rgba(255,255,255,0.4); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+  .worksheet-footer p { color: rgba(255,255,255,0.3); font-size: 12px; line-height: 1.7; }
+
+  @media (max-width: 640px) {
+    .nav-bar { padding: 0 16px; }
+    .cover { padding: 60px 24px; }
+    .cover-meta { grid-template-columns: repeat(2, 1fr); }
+    .part-header { padding: 48px 24px 40px; }
+    section { padding: 40px 20px; }
+    .exercise-header { padding: 18px 20px; }
+    .exercise-body { padding: 20px; }
+    .anchor-grid-header, .anchor-grid-row { grid-template-columns: 1fr; }
+    .obstacle-row { grid-template-columns: 1fr; }
+    .schedule-row { grid-template-columns: 1fr 1fr 40px; }
+    .contract { padding: 24px; }
+    .contract-sig { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-bar no-print">
+  <div class="nav-brand">The LIFE Podcast — Ep. 44</div>
+  <div class="nav-links">
+    <a href="#part1">Diagnose</a>
+    <a href="#part2">Design</a>
+    <a href="#part3">Deploy</a>
+    <a href="#part4">Sustain</a>
+    <a href="#" class="nav-print" onclick="window.print(); return false;">Print / Save PDF</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-anchor">⚓</div>
+  <div class="cover-badge">⭐ Premium Member Worksheet</div>
+  <div class="cover-ep">Episode 44 — The Power of LIFE Podcast</div>
+  <h1>The <em>Commitment</em> Anchor</h1>
+  <div class="cover-sub">A complete design session for making any outcome structurally inevitable — across every area of your life where intention has been losing to inertia.</div>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <div class="cover-stat"><span class="num">4</span><span class="label">Parts</span></div>
+    <div class="cover-stat"><span class="num">~60</span><span class="label">Minutes</span></div>
+    <div class="cover-stat"><span class="num">10</span><span class="label">Exercises</span></div>
+    <div class="cover-stat"><span class="num">3</span><span class="label">Anchors Built</span></div>
+  </div>
+  <div class="cover-note">
+    <p>This is a design session, not a reflection exercise. By the time you complete Part Three, you will have three Commitment Anchors built and ready to deploy — one for each area of your life where you need them most. Complete every field. Vague answers produce vague anchors. Precise answers produce inevitable outcomes.</p>
+  </div>
+  <div class="cover-scroll no-print">Scroll to begin<span>↓</span></div>
+</div>
+
+
+<!-- ═══ PART 1: DIAGNOSE ═══ -->
+<div class="part-header part-1" id="part1">
+  <div class="part-header-inner">
+    <div class="part-number">Part One</div>
+    <h2>Diagnose</h2>
+    <p>Before you can design the anchor, you need to diagnose the gap precisely. Part One identifies the specific outcomes where intention has been losing to inertia — and names the real obstacle behind each one.</p>
+  </div>
+  <div class="part-deco">1</div>
+</div>
+
+<section>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num navy">1</div>
+      <div>
+        <div class="ex-title">The Unanchored Intention Inventory</div>
+        <div class="ex-subtitle">Mapping the outcomes where intention has been consistently losing to inertia.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>List up to five outcomes you have been intending — genuinely intending — that have not yet been produced. For each one, note how long it has been waiting, and what the most recent missed deadline was. Be specific. Not "I want to grow my business" — "I have not yet recorded Episode 1 of my podcast / sent the proposal / launched the offer."</p>
+
+      <div class="anchor-grid">
+        <div class="anchor-grid-header">
+          <span>The Outcome — Specifically</span>
+          <span>How Long It Has Been Waiting</span>
+          <span>Most Recent Missed Deadline</span>
+        </div>
+        <div class="anchor-grid-row">
+          <textarea placeholder="e.g. 'I have not yet sent the proposal to [Client Name].'"></textarea>
+          <textarea placeholder="e.g. '3 months'"></textarea>
+          <textarea placeholder="e.g. 'End of last month'"></textarea>
+        </div>
+        <div class="anchor-grid-row">
+          <textarea placeholder="e.g. 'I have not yet recorded my first video.'"></textarea>
+          <textarea placeholder=""></textarea>
+          <textarea placeholder=""></textarea>
+        </div>
+        <div class="anchor-grid-row">
+          <textarea placeholder="e.g. 'I have not yet launched my new offer.'"></textarea>
+          <textarea placeholder=""></textarea>
+          <textarea placeholder=""></textarea>
+        </div>
+        <div class="anchor-grid-row">
+          <textarea placeholder="e.g. 'I have not yet started the exercise routine.'"></textarea>
+          <textarea placeholder=""></textarea>
+          <textarea placeholder=""></textarea>
+        </div>
+        <div class="anchor-grid-row">
+          <textarea placeholder="e.g. 'I have not yet had the conversation with [Name].'"></textarea>
+          <textarea placeholder=""></textarea>
+          <textarea placeholder=""></textarea>
+        </div>
+      </div>
+
+      <div class="callout gold" style="margin-top:20px;">
+        <div class="callout-title">The Pattern to Notice</div>
+        <p>Look at the "How Long" column. If any outcome has been waiting for more than two weeks with a clear deadline that passed — it is an unanchored intention. The duration is not evidence of a motivation problem. It is evidence of an anchor problem. The outcomes above are the ones you will build anchors for in Part Two.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num navy">2</div>
+      <div>
+        <div class="ex-title">The Obstacle Audit</div>
+        <div class="ex-subtitle">Naming the real friction behind each unanchored intention.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Choose your three most important unanchored intentions from Exercise 1. For each one, rate how much each type of obstacle is contributing to the delay — honestly, not the public version. The anchor design depends on this diagnosis.</p>
+
+      <p style="font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:16px;">Rate each obstacle: 1 (not a factor) → 10 (this is the primary reason)</p>
+
+      <div style="border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;">
+        <div style="background:var(--navy-mid);padding:12px 20px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Outcome 1: </span>
+          <input type="text" placeholder="Name the outcome here" style="background:transparent;border:none;border-bottom:1px solid rgba(246,173,85,0.4);color:white;font-family:'DM Sans',sans-serif;font-size:13px;padding:2px 8px;width:60%;outline:none;">
+        </div>
+        <div class="obstacle-row">
+          <div class="obstacle-label">Friction of Beginning<small>Starting feels harder than continuing</small></div>
+          <input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+          <div class="obstacle-score">5</div>
+        </div>
+        <div class="obstacle-row">
+          <div class="obstacle-label">Fear of Imperfection<small>Not ready / not good enough yet</small></div>
+          <input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+          <div class="obstacle-score">5</div>
+        </div>
+        <div class="obstacle-row">
+          <div class="obstacle-label">Fear of Visibility<small>Being seen / judged / criticised</small></div>
+          <input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+          <div class="obstacle-score">5</div>
+        </div>
+        <div class="obstacle-row">
+          <div class="obstacle-label">Fear of Failure<small>What if it does not work?</small></div>
+          <input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+          <div class="obstacle-score">5</div>
+        </div>
+        <div class="obstacle-row">
+          <div class="obstacle-label">No External Accountability<small>No one is waiting on this</small></div>
+          <input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value">
+          <div class="obstacle-score">5</div>
+        </div>
+      </div>
+
+      <div class="write-field">
+        <span class="write-label">The Primary Obstacle for Outcome 1 — and What It Tells Me About the Anchor Design Needed</span>
+        <textarea rows="3" placeholder="The highest-scoring obstacle is the primary one. What kind of anchor is most likely to dissolve this specific obstacle? An anchor that eliminates the friction of beginning? One that creates a financial cost for not proceeding? One that puts you on record with someone whose opinion matters?"></textarea>
+      </div>
+
+      <div class="callout teal">
+        <div class="callout-title">Anchor Design by Obstacle Type</div>
+        <p>Friction of beginning → anchor that puts the desired action physically in motion before the resistance arrives (the soaked cloth). Fear of imperfection or failure → anchor that makes proceeding less costly than not proceeding (the subscription). Fear of visibility → anchor that puts you on record with one specific person whose opinion you value. No external accountability → anchor that creates a public or relational stake in completing.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══ PART 2: DESIGN ═══ -->
+<div class="part-header part-2" id="part2">
+  <div class="part-header-inner">
+    <div class="part-number">Part Two</div>
+    <h2>Design</h2>
+    <p>Part Two builds three complete Commitment Anchors — one for each of your priority outcomes. For each anchor, you will identify the non-negotiable anchor point, design the micro-commitment, and map the pathway from micro-commitment to full action.</p>
+  </div>
+  <div class="part-deco">2</div>
+</div>
+
+<section>
+
+  <!-- Exercise 3 — Non-Negotiable Map -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num teal">3</div>
+      <div>
+        <div class="ex-title">Your Non-Negotiable Map</div>
+        <div class="ex-subtitle">Finding the fixed points in your routine where anchors can be set.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>List every activity in your daily and weekly routine that you do without exception — regardless of mood, energy, circumstance, or motivation. These are your potential anchor points. Be specific and honest about what is actually non-negotiable versus what is merely habitual.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+        <div>
+          <div class="write-label" style="margin-bottom:8px;">Daily Non-Negotiables</div>
+          <div style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;">
+            <textarea style="width:100%;border:none;background:var(--paper);padding:14px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);resize:vertical;min-height:180px;line-height:1.8;" placeholder="Morning coffee / tea&#10;Child's bath time&#10;Washing hands&#10;Opening my laptop&#10;Lunch break&#10;Evening commute&#10;Brushing teeth&#10;...add yours"></textarea>
+          </div>
+        </div>
+        <div>
+          <div class="write-label" style="margin-bottom:8px;">Weekly Non-Negotiables</div>
+          <div style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;">
+            <textarea style="width:100%;border:none;background:var(--paper);padding:14px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);resize:vertical;min-height:180px;line-height:1.8;" placeholder="Monday team call&#10;Weekly grocery run&#10;School run on Friday&#10;Sunday planning session&#10;Weekly review&#10;...add yours"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-field">
+        <span class="write-label">The Three Non-Negotiables Closest in Time or Context to My Three Priority Outcomes</span>
+        <textarea rows="4" placeholder="Outcome 1 → Non-negotiable anchor point: [e.g. Opening my laptop every morning at 8am]&#10;Outcome 2 → Non-negotiable anchor point: [e.g. My son's bath time each evening]&#10;Outcome 3 → Non-negotiable anchor point: [e.g. My Monday morning coffee]"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 4 — Build Anchor 1 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num teal">4</div>
+      <div>
+        <div class="ex-title">Commitment Anchor Design — Outcome 1</div>
+        <div class="ex-subtitle">Building the first complete anchor — from micro-commitment to full action.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <div class="write-field">
+        <span class="write-label">The Outcome — Stated Precisely</span>
+        <textarea rows="2" placeholder="One specific, measurable outcome. Not a direction — a destination."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Primary Obstacle — Named Honestly</span>
+        <textarea rows="2" placeholder="From Exercise 2 — the highest-scoring obstacle. The real friction behind the delay."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Non-Negotiable Anchor Point</span>
+        <textarea rows="2" placeholder="The specific non-negotiable activity this anchor will be attached to."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Micro-Commitment — The Smallest Act That Makes the Full Action More Inevitable Than the Delay</span>
+        <textarea rows="3" placeholder="Specific. Doable today. Creates a cost that makes reversal uncomfortable. e.g. 'Soak the cloth immediately after bath time.' 'Pay the deposit.' 'Send the email that puts me on record.' 'Book the call.'"></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Pathway — How the Micro-Commitment Leads to the Full Action</span>
+        <textarea rows="3" placeholder="Describe exactly how the micro-commitment creates conditions in which the full action becomes the path of least resistance. e.g. 'The cloth is soaking in the basin I need → washing it is easier than leaving it → I wash the rest of the bucket.'"></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Deployment Moment — When Exactly I Will Set This Anchor Today</span>
+        <textarea rows="2" placeholder="Not 'soon.' A specific time. e.g. 'Tonight at 8pm after my son's bath.' 'Tomorrow morning before I open email.' Today — before the resistance reassembles."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 5 — Build Anchor 2 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num teal">5</div>
+      <div>
+        <div class="ex-title">Commitment Anchor Design — Outcome 2</div>
+        <div class="ex-subtitle">Building the second complete anchor.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <div class="write-field">
+        <span class="write-label">The Outcome — Stated Precisely</span>
+        <textarea rows="2" placeholder="One specific, measurable outcome."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Primary Obstacle</span>
+        <textarea rows="2" placeholder="The real friction. Not the public version."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Non-Negotiable Anchor Point</span>
+        <textarea rows="2" placeholder="The specific non-negotiable this anchor attaches to."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Micro-Commitment</span>
+        <textarea rows="3" placeholder="Specific. Doable today. Creates a cost that makes reversal uncomfortable."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Pathway — Micro-Commitment to Full Action</span>
+        <textarea rows="3" placeholder="How does the micro-commitment create conditions that make the full action inevitable?"></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">Deployment Moment</span>
+        <textarea rows="2" placeholder="Specific time. Today."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 6 — Build Anchor 3 -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num teal">6</div>
+      <div>
+        <div class="ex-title">Commitment Anchor Design — Outcome 3</div>
+        <div class="ex-subtitle">Building the third complete anchor.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <div class="write-field">
+        <span class="write-label">The Outcome — Stated Precisely</span>
+        <textarea rows="2" placeholder="One specific, measurable outcome."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Primary Obstacle</span>
+        <textarea rows="2" placeholder="The real friction. Not the public version."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Non-Negotiable Anchor Point</span>
+        <textarea rows="2" placeholder="The specific non-negotiable this anchor attaches to."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Micro-Commitment</span>
+        <textarea rows="3" placeholder="Specific. Doable today. Creates a cost that makes reversal uncomfortable."></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">The Pathway — Micro-Commitment to Full Action</span>
+        <textarea rows="3" placeholder="How does the micro-commitment create conditions that make the full action inevitable?"></textarea>
+      </div>
+      <div class="write-field">
+        <span class="write-label">Deployment Moment</span>
+        <textarea rows="2" placeholder="Specific time. Today."></textarea>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══ PART 3: DEPLOY ═══ -->
+<div class="part-header part-3" id="part3">
+  <div class="part-header-inner">
+    <div class="part-number">Part Three</div>
+    <h2>Deploy</h2>
+    <p>Designed anchors that are not deployed are just intentions with better descriptions. Part Three creates the deployment plan — the specific actions you take today — and pressure-tests each anchor against the moments most likely to dislodge it.</p>
+  </div>
+  <div class="part-deco">3</div>
+</div>
+
+<section>
+
+  <!-- Exercise 7 — Pressure Test -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num purple">7</div>
+      <div>
+        <div class="ex-title">The Anchor Pressure Test</div>
+        <div class="ex-subtitle">Testing each anchor against the moments most likely to dislodge it.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>A well-designed anchor should hold even when you are tired, busy, distracted, or when the old inertia reasserts itself. Test each of your three anchors against these scenarios before you deploy them.</p>
+
+      <div class="coaching-moment">
+        <div class="coaching-moment-label">🎯 Test One — The Low-Energy Day</div>
+        <div class="coaching-q">
+          <p>It has been a hard day. You are tired. The last thing you feel like doing is the action your anchor is designed to produce. The non-negotiable activity occurs — and the anchor is there, visible, ready to activate. What happens?</p>
+          <div class="direction">If the honest answer is "I would probably ignore the anchor and deal with it later" — the anchor needs redesigning. The micro-commitment must create a cost that is higher than the relief of ignoring it on a hard day.</div>
+        </div>
+        <textarea placeholder="For each of my three anchors — is the micro-commitment strong enough to activate on a low-energy day? If not, what adjustment makes it stronger?"></textarea>
+      </div>
+
+      <div class="coaching-moment">
+        <div class="coaching-moment-label">🎯 Test Two — The Busy Week</div>
+        <div class="coaching-q">
+          <p>Everything is urgent. The week is full. There are twelve other things demanding your attention at exactly the moment the anchor activates. Does the anchor hold — or does the busyness provide cover for delay?</p>
+          <div class="direction">The non-negotiable anchor point is your protection here. If it is genuinely non-negotiable, the busyness of the week does not prevent it from occurring. The anchor activates regardless.</div>
+        </div>
+        <textarea placeholder="Is my non-negotiable anchor point truly non-negotiable during a busy week — or is it actually skippable? If skippable, what is a more genuinely non-negotiable anchor point?"></textarea>
+      </div>
+
+      <div class="coaching-moment">
+        <div class="coaching-moment-label">🎯 Test Three — The "Good Enough" Reason</div>
+        <div class="coaching-q">
+          <p>A very good reason to delay arrives. Not laziness — a genuine, credible, almost irresistible reason why now is not the right moment. The kind of reason that has worked before. Does the anchor hold?</p>
+          <div class="direction">This is the test the software subscription was designed to pass. The "cancel anytime" clause was supposed to be the exit. When it closed, the anchor held — because the cost of not launching exceeded the cost of the reason to delay. Does your anchor create an equivalent asymmetry?</div>
+        </div>
+        <textarea placeholder="For my most important anchor — what is the 'good enough' reason most likely to arrive? And is the cost of the micro-commitment high enough that the reason cannot override it?"></textarea>
+      </div>
+
+      <div class="callout navy">
+        <div class="callout-title">The Asymmetry Principle</div>
+        <p>The Commitment Anchor works because it creates an asymmetry: the cost of not acting (financial, relational, practical, or physical) becomes higher than the cost of acting. When this asymmetry exists, the good enough reason cannot win. When it does not, the reason always can. Every anchor you design should create a clear asymmetry — where proceeding is the cheaper option.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 8 — Deployment Checklist -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num purple">8</div>
+      <div>
+        <div class="ex-title">The Deployment Checklist</div>
+        <div class="ex-subtitle">The specific actions to take today — before this session closes.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>The anchor is only as valuable as its deployment. Every item on this list must be actioned today — not scheduled for later, not added to a to-do list for tomorrow. Today. Before the resistance reassembles.</p>
+
+      <div style="border:1.5px solid var(--border);border-radius:10px;overflow:hidden;margin-top:16px;">
+        <div style="background:var(--navy);padding:12px 20px;display:grid;grid-template-columns:1fr 80px;gap:12px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Action</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Done</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-what">Deploy Anchor 1 — take the specific micro-commitment action at the specific time named in Exercise 4. Not approximately. Exactly.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-what">Deploy Anchor 2 — take the specific micro-commitment action at the specific time named in Exercise 5.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-what">Deploy Anchor 3 — take the specific micro-commitment action at the specific time named in Exercise 6.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-what">Tell one person — not a general announcement, one specific person whose opinion matters to you — what anchor you have set and what outcome it is designed to produce. This creates the relational cost that strengthens every other anchor.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-what">Set a calendar reminder for Day 7 to return to Exercise 9 — the First-Week Review.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══ PART 4: SUSTAIN ═══ -->
+<div class="part-header part-4" id="part4">
+  <div class="part-header-inner">
+    <div class="part-number">Part Four</div>
+    <h2>Sustain</h2>
+    <p>The anchor is set. The action has begun. Part Four creates the review structure that keeps the anchor holding over time — and the commitment contract that makes the design permanent.</p>
+  </div>
+  <div class="part-deco">4</div>
+</div>
+
+<section>
+
+  <!-- Exercise 9 — Review Schedule -->
+  <div class="exercise">
+    <div class="exercise-header">
+      <div class="ex-num green">9</div>
+      <div>
+        <div class="ex-title">The Review Schedule</div>
+        <div class="ex-subtitle">The checkpoints that keep the anchor holding over time.</div>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <div style="border:1.5px solid var(--border);border-radius:10px;overflow:hidden;margin-top:8px;">
+        <div style="background:var(--navy);padding:12px 20px;display:grid;grid-template-columns:120px 1fr 60px;gap:12px;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">When</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">What to Do</span>
+          <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Done</span>
+        </div>
+        <div class="schedule-row" style="grid-template-columns:120px 1fr 60px;">
+          <span class="schedule-when">Today</span>
+          <span class="schedule-what">Deploy all three anchors. Complete the commitment contract below. Tell one person what you have committed to.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row" style="grid-template-columns:120px 1fr 60px;">
+          <span class="schedule-when">Day 7</span>
+          <span class="schedule-what">First-Week Review: Did each anchor activate? Did the full action follow? If an anchor did not hold, diagnose why — was the non-negotiable not truly non-negotiable? Was the cost too low? Redesign accordingly.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row" style="grid-template-columns:120px 1fr 60px;">
+          <span class="schedule-when">Day 14</span>
+          <span class="schedule-what">Pattern Review: Which anchors are still holding and which have drifted? For any that drifted — identify the moment the inertia returned and design a stronger anchor for that specific moment.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row" style="grid-template-columns:120px 1fr 60px;">
+          <span class="schedule-when">Day 30</span>
+          <span class="schedule-what">Outcome Review: Return to Exercise 1. Which outcomes have been produced? For those still waiting, have the anchors been set or merely planned? Re-deploy any anchor that was designed but not deployed.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+        <div class="schedule-row" style="grid-template-columns:120px 1fr 60px;">
+          <span class="schedule-when">Ongoing</span>
+          <span class="schedule-what">Any time a deadline passes without action — return to Exercise 2 (Obstacle Audit) and Exercise 4/5/6 (Anchor Design). A missed deadline is not a motivation problem. It is an anchor problem. Design the anchor.</span>
+          <span class="schedule-check"><input type="checkbox"></span>
+        </div>
+      </div>
+
+      <div class="write-field" style="margin-top:20px;">
+        <span class="write-label">Day 7 — First-Week Review Notes</span>
+        <textarea rows="4" placeholder="Return here after 7 days. For each anchor: Did it activate? Did the full action follow? What worked and what did not? What redesign, if any, is needed?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contract -->
+  <div class="contract">
+    <div class="contract-badge">⚓ Commitment Contract</div>
+    <h3>I Set the Anchor</h3>
+    <p>Complete every field with the precision you brought to the design. This is not a plan. This is the anchor itself — the commitment that makes the outcomes above structurally inevitable.</p>
+
+    <div class="contract-item">
+      <label>My Three Priority Outcomes — Named Specifically</label>
+      <textarea rows="3" placeholder="1. [Outcome 1 — stated precisely]&#10;2. [Outcome 2 — stated precisely]&#10;3. [Outcome 3 — stated precisely]"></textarea>
+    </div>
+    <div class="contract-item">
+      <label>My Three Commitment Anchors — Micro-Commitment + Non-Negotiable</label>
+      <textarea rows="4" placeholder="1. [Micro-commitment] anchored to [Non-negotiable] — to be deployed [today at specific time]&#10;2. [Micro-commitment] anchored to [Non-negotiable] — to be deployed [today at specific time]&#10;3. [Micro-commitment] anchored to [Non-negotiable] — to be deployed [today at specific time]"></textarea>
+    </div>
+    <div class="contract-item">
+      <label>The One Person I Am Telling Today — and What I Am Telling Them</label>
+      <textarea rows="2" placeholder="Name: [Name]. I will tell them: [exactly what I am committing to and by when]."></textarea>
+    </div>
+    <div class="contract-item">
+      <label>What I Now Understand About Why the Previous Deadlines Passed — and Why the Anchor Changes the Equation</label>
+      <textarea rows="3" placeholder="Not the public reason the deadlines passed — the honest one. And specifically: what does the anchor create that the deadline did not?"></textarea>
+    </div>
+    <div class="contract-item">
+      <label>The Version of Me I Am Operating As — Beginning Today</label>
+      <textarea rows="2" placeholder="Not the version who intends. The version who designs. The version who sets the anchor in the easy moment, before the harder one arrives. Describe this person in two sentences. Present tense."></textarea>
+    </div>
+
+    <div class="contract-sig">
+      <div class="sig-field"><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div class="sig-field"><label>Date — The Anchor Is Set</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- Final Reflection -->
+  <div class="final-reflection">
+    <h3>Before You Close This</h3>
+    <p>You have just done something most people never do: you have moved from intention to design. You have named the outcomes, diagnosed the obstacles, identified the non-negotiables, built the anchors, pressure-tested them, and committed to their deployment.</p>
+    <p>The cloth is soaking in the basin. The subscription is paid. The action that follows is not a matter of willpower. It is a matter of when the non-negotiable next occurs — which is today.</p>
+    <p style="font-style:italic;color:var(--ink-soft);">Before you close this session — write the one insight from this design process that you most need to remember when the old inertia returns. The one thing that, if you held it clearly in that moment, would make the anchor hold.</p>
+    <textarea placeholder="The one thing I now understand about inertia, commitment, and design that I did not understand when I opened this workbook — and that will keep the anchor holding when the resistance returns..."></textarea>
+  </div>
+
+  <div style="text-align:center;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+    <p style="font-size:13px;color:var(--ink-soft);line-height:1.8;max-width:480px;margin:0 auto 16px;">The anchor does not move the ship. It prevents drift. You have now set three anchors across three areas of your life where drift has been the enemy. The outcomes are no longer dependent on the weather of your motivation. They are held in place by the design of your commitment.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--navy);">Set the anchor. Let the ship stay where you have decided it should be.<br>Go live in full expression. ⚓</p>
+  </div>
+
+</section>
+
+<div class="save-section no-print">
+  <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Save your work before closing. Use Print / Save PDF to keep a permanent record of your three Commitment Anchors and your deployment plan.</p>
+  <button class="save-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="worksheet-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>Episode 44 — "The Commitment Anchor" &nbsp;·&nbsp; Premium Member Worksheet<br>This document is for personal use only. Please do not distribute.</p>
+</div>
+
+<script>
+  document.querySelectorAll('textarea').forEach(ta => {
+    ta.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight + 2) + 'px';
+    });
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
