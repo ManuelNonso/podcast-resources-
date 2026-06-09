@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Weight You're Carrying — Episode 46 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --navy: #0f2240;
+  --navy-mid: #1a365d;
+  --navy-light: #2c5282;
+  --gold: #b8860b;
+  --gold-bright: #d4a017;
+  --gold-light: #f6ad55;
+  --gold-pale: #fef9ee;
+  --teal: #1a6b61;
+  --teal-light: #2d9b8f;
+  --teal-pale: #e8f7f5;
+  --cream: #faf7f2;
+  --warm-white: #fffef9;
+  --ink: #1c1c2e;
+  --ink-light: #2d3748;
+  --muted: #5a6275;
+  --border: #e5ddd0;
+  --red: #8b1a2a;
+  --red-pale: #fdf0ef;
+  --purple: #3d1a6b;
+  --purple-light: #6b3a9e;
+  --purple-pale: #f3eeff;
+  --chapter-bg: #0a1628;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 12pt; background: white; }
+  p { orphans: 3; widows: 3; }
+}
+
+/* NAV */
+.book-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,22,40,0.97); backdrop-filter: blur(12px);
+  padding: 0 30px; height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(212,160,23,0.2);
+}
+.nav-brand { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 400; letter-spacing: 0.5px; }
+.nav-brand strong { color: var(--gold-light); font-weight: 600; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.5px; padding: 6px 10px; font-family: 'DM Sans', sans-serif; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold-light); }
+.btn-nav {
+  background: linear-gradient(135deg, var(--gold-bright), #c8900a);
+  color: var(--navy); border: none; padding: 7px 18px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: 0.3px; transition: opacity 0.2s;
+}
+.btn-nav:hover { opacity: 0.88; }
+
+.progress-bar { position: fixed; top: 52px; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.05); z-index: 999; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold-bright), var(--teal-light)); width: 0%; transition: width 0.2s; }
+
+/* COVER */
+.cover-page {
+  min-height: 100vh; background: var(--chapter-bg);
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+}
+.cover-texture {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 75% 40%, rgba(184,134,11,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 70%, rgba(26,107,97,0.06) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.005) 40px, rgba(255,255,255,0.005) 41px);
+  pointer-events: none;
+}
+.cover-inner { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100vh; padding: 80px 60px 60px; }
+.cover-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: auto; }
+.cover-show-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(212,160,23,0.35); padding: 8px 18px; border-radius: 30px;
+  font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold-light); font-weight: 600;
+}
+.cover-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-top: 60px; }
+.cover-text { color: white; }
+.cover-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); font-weight: 600; margin-bottom: 24px; display: block; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); line-height: 1.1; font-weight: 900; margin-bottom: 20px; color: white; }
+.cover-title .accent { color: var(--gold-light); font-style: italic; display: block; }
+.cover-subtitle { font-family: 'Lora', serif; font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 36px; font-style: italic; }
+.cover-divider { width: 50px; height: 2px; background: var(--gold-bright); margin-bottom: 28px; }
+.cover-author-block { display: flex; align-items: center; gap: 14px; }
+.cover-author-name { font-family: 'DM Sans', sans-serif; font-size: 15px; color: white; font-weight: 600; }
+.cover-author-title { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; margin-top: 2px; }
+.cover-right { display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; gap: 28px; }
+.cover-big-number { font-family: 'Playfair Display', serif; font-size: clamp(120px, 18vw, 200px); font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; letter-spacing: -4px; }
+.cover-series { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-align: right; }
+.cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px; }
+.cover-tagline { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1.5px; text-transform: uppercase; }
+.cover-copyright { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+/* WORKBOOK COVER STATS */
+.workbook-meta { display: flex; gap: 40px; align-items: center; margin-top: 36px; }
+.workbook-stat { text-align: center; }
+.workbook-stat .num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--gold-light); display: block; }
+.workbook-stat .lbl { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; }
+.workbook-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 20px; border-radius: 2px; margin-bottom: 28px; }
+
+/* WORKBOOK BODY */
+.workbook-body { max-width: 760px; margin: 0 auto; padding: 60px 40px 80px; }
+
+/* PART HEADERS */
+.wb-part { background: var(--navy-mid); color: white; padding: 36px 44px; margin: 0 -20px 40px; position: relative; }
+.wb-part::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-bright), var(--teal-light)); }
+.wb-part-label { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+.wb-part h3 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+.wb-part p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7; }
+
+/* EXERCISES */
+.wb-exercise { background: white; border: 1px solid var(--border); border-radius: 2px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display: flex; align-items: center; gap: 18px; padding: 22px 28px; background: var(--cream); border-bottom: 1px solid var(--border); }
+.wb-ex-num { width: 40px; height: 40px; border-radius: 50%; background: var(--navy-mid); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+.wb-ex-num.gold { background: var(--gold); color: var(--navy); }
+.wb-ex-num.teal { background: var(--teal); }
+.wb-ex-num.red { background: var(--red); }
+.wb-ex-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--navy); }
+.wb-ex-sub { font-size: 13px; color: var(--muted); margin-top: 2px; font-family: 'DM Sans', sans-serif; }
+.wb-ex-body { padding: 28px; }
+.wb-ex-body p { font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 18px; }
+.wb-ex-body p:last-child { margin-bottom: 0; }
+
+/* FIELDS */
+.wb-field { margin-bottom: 18px; }
+.wb-field label { display: block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.wb-field textarea, .wb-field input[type="text"] { width: 100%; border: 1.5px solid var(--border); border-radius: 2px; padding: 14px 16px; font-family: 'Lora', serif; font-size: 15px; color: var(--ink); background: var(--cream); resize: vertical; line-height: 1.7; transition: border-color 0.2s; }
+.wb-field textarea { min-height: 80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline: none; border-color: var(--gold-bright); background: white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color: var(--muted); font-style: italic; font-size: 14px; }
+
+/* COACHING PROMPTS */
+.wb-coaching { background: var(--purple-pale); border-left: 3px solid var(--purple-light); border-radius: 0 4px 4px 0; padding: 18px 22px; margin: 16px 0; }
+.wb-coaching-label { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 8px; }
+.wb-coaching p { font-size: 15px; font-weight: 600; font-style: italic; color: var(--navy); margin: 0 !important; line-height: 1.6; }
+.wb-coaching .direction { font-size: 13px; color: var(--muted); font-style: normal; font-weight: 400; margin-top: 6px !important; }
+
+/* INSIGHT */
+.wb-insight { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: 0 4px 4px 0; padding: 16px 20px; margin: 14px 0; }
+.wb-insight p { font-size: 14px; color: var(--teal); line-height: 1.7; margin: 0 !important; }
+.wb-insight strong { display: block; font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+
+/* PULL QUOTE */
+.pull-quote { border-left: 3px solid var(--gold-bright); padding: 24px 32px; margin: 28px 0; background: var(--gold-pale); font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.6; color: var(--navy); font-style: italic; }
+
+/* GRID CARDS */
+.wb-row { display: grid; gap: 14px; margin: 14px 0; }
+.wb-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns: 1fr 1fr; }
+.wb-card { background: var(--cream); border: 1.5px solid var(--border); border-radius: 2px; padding: 16px; }
+.wb-card-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.wb-card textarea { width: 100%; border: none; background: transparent; font-family: 'Lora', serif; font-size: 14px; color: var(--ink); resize: vertical; min-height: 64px; line-height: 1.6; padding: 0; }
+.wb-card textarea:focus { outline: none; }
+.wb-card textarea::placeholder { color: var(--muted); font-style: italic; font-size: 13px; }
+
+/* CHECKLIST */
+.wb-check-list { list-style: none; }
+.wb-check-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--ink-light); line-height: 1.6; }
+.wb-check-list li:last-child { border-bottom: none; }
+.wb-check-list input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+
+/* STORY BOX */
+.story-box { background: var(--chapter-bg); border-left: 4px solid var(--gold-bright); border-radius: 0 4px 4px 0; padding: 32px 36px; margin: 28px 0; }
+.story-box-label { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
+.story-box p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.85; margin-bottom: 14px; }
+.story-box p:last-child { margin-bottom: 0; }
+
+/* KEY INSIGHTS */
+.key-insights { background: var(--navy-mid); border-radius: 2px; padding: 36px 44px; margin: 28px 0; }
+.key-insights-label { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+.key-insights ul { list-style: none; }
+.key-insights ul li { color: rgba(255,255,255,0.8); padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 15px; line-height: 1.7; padding-left: 20px; position: relative; }
+.key-insights ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold-bright); font-weight: 700; }
+.key-insights ul li:last-child { border-bottom: none; }
+
+/* SECTION BREAK */
+.section-break { text-align: center; padding: 24px 0; color: var(--gold); letter-spacing: 8px; font-size: 14px; }
+
+/* ANALOGY BLOCK */
+.analogy-block { border: 1.5px solid var(--gold-bright); background: var(--gold-pale); border-radius: 2px; padding: 28px 32px; margin: 20px 0; }
+.analogy-label { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.analogy-block p { font-family: 'Lora', serif; font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 10px; }
+.analogy-block p:last-child { margin-bottom: 0; }
+
+/* PRESSURE TEST */
+.pressure-test { background: var(--red-pale); border: 1.5px solid #c53030; border-radius: 2px; padding: 28px 32px; margin: 20px 0; }
+.pressure-label { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.pressure-test p { font-size: 15px; line-height: 1.8; color: var(--ink-light); margin-bottom: 14px; }
+
+/* CONTRACT */
+.wb-contract { background: var(--navy); border-radius: 2px; padding: 44px; margin: 36px 0; border: 2px solid var(--gold-bright); }
+.wb-contract-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 20px; }
+.wb-contract h3 { font-family: 'Playfair Display', serif; color: white; font-size: 30px; font-weight: 900; margin-bottom: 10px; }
+.wb-contract > p { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 28px; font-style: italic; }
+.wb-contract-field { margin-bottom: 20px; }
+.wb-contract-field label { display: block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+.wb-contract-field textarea, .wb-contract-field input[type="text"] { width: 100%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 2px; padding: 14px 16px; font-family: 'Lora', serif; font-size: 15px; color: white; resize: vertical; line-height: 1.7; }
+.wb-contract-field textarea { min-height: 72px; }
+.wb-contract-field textarea:focus, .wb-contract-field input:focus { outline: none; border-color: var(--gold-bright); background: rgba(255,255,255,0.09); }
+.wb-contract-field textarea::placeholder, .wb-contract-field input::placeholder { color: rgba(255,255,255,0.3); font-style: italic; font-size: 14px; }
+.wb-sig { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+.wb-sig label { display: block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+.wb-sig input { width: 100%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 2px; padding: 14px 16px; font-family: 'Lora', serif; font-size: 15px; color: white; }
+.wb-sig input:focus { outline: none; border-color: var(--gold-bright); }
+.wb-sig input::placeholder { color: rgba(255,255,255,0.3); font-style: italic; }
+
+/* FINAL BLOCK */
+.final-block { background: var(--gold-pale); border: 1.5px solid var(--gold-bright); border-radius: 2px; padding: 36px; margin: 36px 0; }
+.final-block h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); margin-bottom: 16px; }
+.final-block p { font-size: 15px; color: var(--ink-light); line-height: 1.85; margin-bottom: 14px; }
+.final-block textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 2px; padding: 14px 16px; font-family: 'Lora', serif; font-size: 15px; color: var(--ink); background: white; resize: vertical; min-height: 90px; line-height: 1.7; margin-top: 8px; }
+.final-block textarea:focus { outline: none; border-color: var(--gold-bright); }
+.final-block textarea::placeholder { color: var(--muted); font-style: italic; font-size: 14px; }
+
+/* FOOTER */
+.book-footer { background: var(--chapter-bg); padding: 52px 40px; text-align: center; }
+.book-footer .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold-light); letter-spacing: 2px; margin-bottom: 8px; }
+.book-footer .tagline { color: rgba(255,255,255,0.4); font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+.book-footer p { color: rgba(255,255,255,0.25); font-family: 'DM Sans', sans-serif; font-size: 12px; line-height: 1.7; }
+
+@media (max-width: 700px) {
+  .cover-content { grid-template-columns: 1fr; }
+  .cover-right { display: none; }
+  .cover-inner { padding: 60px 28px 40px; }
+  .workbook-body { padding: 40px 20px 60px; }
+  .wb-part { margin: 0 0 40px; padding: 28px 24px; }
+  .wb-row-3, .wb-row-2 { grid-template-columns: 1fr; }
+  .wb-sig { grid-template-columns: 1fr; }
+  .wb-contract { padding: 28px 24px; }
+  .workbook-meta { flex-wrap: wrap; gap: 24px; }
+  .nav-links { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 46 Worksheet</strong></div>
+  <div class="nav-actions">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-show-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div class="cover-text">
+        <span class="cover-eyebrow">Episode 46 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">
+          The Weight You're<br>Carrying Into Your
+          <span class="accent">Next Chapter</span>
+        </h1>
+        <p class="cover-subtitle">The complete written coaching session for naming, dismantling, and replacing the fear that follows you from one beginning to the next.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-block">
+          <div>
+            <div class="cover-author-name">Manuel C. Chinyereuba</div>
+            <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+          </div>
+        </div>
+        <div class="workbook-meta">
+          <div class="workbook-stat">
+            <span class="num">4</span>
+            <span class="lbl">Parts</span>
+          </div>
+          <div class="workbook-stat">
+            <span class="num">9</span>
+            <span class="lbl">Exercises</span>
+          </div>
+          <div class="workbook-stat">
+            <span class="num">1</span>
+            <span class="lbl">Commitment</span>
+          </div>
+          <div class="workbook-stat">
+            <span class="num">3</span>
+            <span class="lbl">Analogy Frames</span>
+          </div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-big-number">46</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div class="cover-copyright">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE THIS WORKSHEET -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is not a reflection exercise to be skimmed. It is a coaching session on paper. It is designed to be completed in a single sitting — with your full attention, without interruption, and with the same honesty you would bring to a live session.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The four parts move in sequence. Each builds on what the one before it uncovered. Do not skip ahead. Do not filter your answers for how they sound — write what is actually true, in the language your body uses rather than the language your mind edits.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The coaching questions in purple are the questions I use in live sessions. Treat them as if you are sitting across from me. Pause before answering. The first answer is rarely the real one.</p>
+  <p style="color:var(--ink-light);margin-bottom:0;">Everything you write here is private. The only person who needs to see it is you.</p>
+
+  <div class="key-insights" style="margin-top:36px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the belief that has been quietly running your outcomes, in the precise language it actually uses</li>
+      <li>Something <strong>traced</strong> — the origin of that belief, and the evidence it has been gathering to support itself</li>
+      <li>Something <strong>separated</strong> — a clear distinction between who you are and what you have been carrying</li>
+      <li>Something <strong>committed</strong> — one specific action that belongs to the person you actually are, taken before you close this worksheet</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════ PART ONE — DISCOVER ═══════════════ -->
+<div class="workbook-body" id="part1">
+
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — The Three-Layer Truth</h3>
+    <p>Before you can change what you are carrying, you have to see it clearly. Part One takes you through the three layers of how you have been describing your problem — from what you say in public to what the core fear actually is. Most people have never reached layer three in writing. That is where this session begins.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Three Layers — Name Your Real Problem</div>
+        <div class="wb-ex-sub">Moving from what you say publicly to what you are actually afraid is true.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Think about the area of your life where you feel most stuck right now — the thing you keep starting, or avoiding, or returning to. It might be a business, a career move, a relationship pattern, a creative project, or a goal that keeps stalling. Hold it in mind as you answer each layer below.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt — Layer One</div>
+        <p>What do you say about this problem when someone asks how things are going? The version you are comfortable sharing with anyone.</p>
+        <p class="direction">This is your public layer. Write it exactly as you say it — don't improve it.</p>
+      </div>
+      <div class="wb-field">
+        <label>Layer One — What You Say in Public</label>
+        <textarea rows="3" placeholder="The version that sounds clean and manageable. The one that does not require vulnerability..."></textarea>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt — Layer Two</div>
+        <p>What do you say about this same problem to someone you trust? The version with a little more edge. More honesty. What do you admit privately that you would not say in a room full of people?</p>
+        <p class="direction">Notice if there is more vulnerability here. There should be.</p>
+      </div>
+      <div class="wb-field">
+        <label>Layer Two — What You Admit Privately</label>
+        <textarea rows="3" placeholder="The version you share with a close friend, or think late at night. The one that has a little more truth to it..."></textarea>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt — Layer Three</div>
+        <p>Now go deeper. Underneath the private admission, what are you actually afraid is true about you? Not about the situation — about you. What is the belief that your struggles have been quietly confirming? Write it in the exact language it uses in your body — not the polished version, the real one.</p>
+        <p class="direction">Take your time. If it feels uncomfortable to write — that discomfort is data. That is the layer we are working with today.</p>
+      </div>
+      <div class="wb-field">
+        <label>Layer Three — The Core Fear / Belief About You</label>
+        <textarea rows="4" placeholder="The belief that lives underneath everything else. The one that has rarely been spoken out loud. The one that feels uncomfortably true right now..."></textarea>
+      </div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>The gap between Layer One and Layer Three is exactly the distance between the problem you have been managing and the problem that has actually been running the show. Everything you do from this point forward in this session is directed at Layer Three.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Root Audit — Where Did This Belief Begin?</div>
+        <div class="wb-ex-sub">Tracing the Layer Three belief to its origin — before it became invisible.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>A belief this deeply embedded did not arrive last year. It was assembled over time — from experiences, from the people who had authority over you, from moments where reaching for something important resulted in a loss that felt significant. This exercise traces the root.</p>
+
+      <div class="analogy-block">
+        <div class="analogy-label">🌳 The Root Analogy — Hold This</div>
+        <p>Think about a tree that keeps producing defective fruit. You cut the branches. You strip the leaves. You change the soil. But the problem keeps returning — because it is in the root, underground, invisible from the surface.</p>
+        <p>Your limiting belief is the root. Everything visible — the decisions, the hesitations, the patterns, the results — are branches. Until you name and address the root, you will keep treating symptoms.</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>When did you first absorb this belief? Not necessarily in those exact words — but when did you first receive the message, in experience or in feeling, that the thing you fear is true?</p>
+        <p class="direction">It may not be a single moment. It may be a pattern across several years. Name what comes first.</p>
+      </div>
+      <div class="wb-field">
+        <label>The Origin — Where This Belief Was First Formed</label>
+        <textarea rows="4" placeholder="A moment, a relationship, a period, a pattern. What first taught you that this was true about you? Who or what was involved? What happened?"></textarea>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">Who Held Authority Then</div>
+          <textarea placeholder="A parent, teacher, employer, partner, peer — whose opinion carried enough weight to shape what you believed about yourself?"></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What They Said or Did</div>
+          <textarea placeholder="The specific message — in words, in actions, in the way they responded to you. What was the verdict they issued?"></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field" style="margin-top:14px;">
+        <label>How This Belief Has Been Showing Up Since Then</label>
+        <textarea rows="3" placeholder="In what ways has this root belief been expressing itself in branches — in your decisions, your hesitations, your patterns, your results? Name at least three specific examples..."></textarea>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about the last time you started something new. What was happening in your body in the days before you began — not just the excitement, but the feeling underneath it? Was there a kind of quiet bracing? A low hum of preparing for things not to work?</p>
+        <p class="direction">Not what you thought. What you felt. Where did you feel it?</p>
+      </div>
+      <div class="wb-field">
+        <label>What Was Happening in Your Body Before You Began</label>
+        <textarea rows="3" placeholder="Describe the physical sensation — not the thought, the feeling. In your chest, your stomach, your shoulders. What was your body already preparing for?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Evidence Architecture — How Your Belief Built Its Case</div>
+        <div class="wb-ex-sub">Mapping the table and its legs — and identifying what has been left off the table entirely.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Your mind has been building an evidence base for this belief for years. This exercise makes that architecture visible — and then begins the process of dismantling it.</p>
+
+      <div class="analogy-block">
+        <div class="analogy-label">🪑 The Table Analogy — Hold This</div>
+        <p>Tony Robbins describes beliefs as a table. The belief is the tabletop. And holding it up are legs — every piece of evidence the mind has gathered to confirm it. A failure. A rejection. A moment of public embarrassment. A time someone confirmed what you feared was already true.</p>
+        <p>The mind privileges evidence that confirms what it already believes, and files contradictory evidence under "exceptions." To destroy the belief, you pull the legs away — and replace them immediately with new ones built from evidence that is already true.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Legs — Evidence Your Mind Has Been Using to Hold This Belief Up</label>
+        <textarea rows="4" placeholder="List the specific experiences, failures, setbacks, or feedback your mind has been treating as proof that this belief is true. Be specific — not 'my businesses failed' but what exactly happened and what your mind concluded from it..."></textarea>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Now I want you to look for what your mind has been ignoring. What evidence exists in your own life — right now, already true — that directly contradicts this belief? Not what you hope might happen. What has already happened that your mind filed under "exception" or "luck" or "that doesn't count"?</p>
+        <p class="direction">This is where most people find more than they expected. Look for it honestly.</p>
+      </div>
+
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">Contradicting Evidence 1</div>
+          <textarea placeholder="Something you built, achieved, survived, or overcame that the limiting belief has been ignoring..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Contradicting Evidence 2</div>
+          <textarea placeholder="A moment you showed up fully, led well, created something, or kept going when it was hard..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Contradicting Evidence 3</div>
+          <textarea placeholder="Something that happened — a result, a relationship, a decision — that the old story has no good explanation for..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-row wb-row-2" style="margin-top:0;">
+        <div class="wb-card">
+          <div class="wb-card-label">Contradicting Evidence 4</div>
+          <textarea placeholder="Something you are genuinely proud of from a time when this area felt hard..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Contradicting Evidence 5</div>
+          <textarea placeholder="The thing someone who knows you well would say, when asked what you are actually capable of..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>The evidence was always there. The old story was under-selecting for it. Every piece of evidence you just named above is a leg being pulled away from the table of the limiting belief.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PART TWO — DEFINE ═══════════════ -->
+<div class="workbook-body" id="part2">
+
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — Build the New Belief</h3>
+    <p>Removing a limiting belief without immediately replacing it leaves a vacuum. The mind reaches back for what it knows. Part Two builds the accurate alternative — not a wishful statement, but a belief with real legs, constructed from evidence that is already true in your own life.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">4</div>
+      <div>
+        <div class="wb-ex-title">The Separation — Who You Are vs What You Have Been Carrying</div>
+        <div class="wb-ex-sub">The most important distinction in this entire session.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>A limiting belief that has been gathering evidence for years becomes indistinguishable from identity. It stops feeling like a story you picked up somewhere and starts feeling like a fact about who you are. This exercise separates the two — clearly, and on paper.</p>
+
+      <div class="pull-quote">"You are not the sum of what has not worked. You are the whole of everything you have built, learned, survived, and chosen."</div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt — The Judgment Question</div>
+        <p>If someone else brought you the complete evidence of your own life — everything you have done, every time you showed up, every moment you kept going despite the fear — and asked you to judge whether that person was fundamentally someone who fails, or someone who is still learning — what would you say?</p>
+        <p class="direction">Answer as if the person is not you. With the same generosity and accuracy you would give a client or a close friend.</p>
+      </div>
+      <div class="wb-field">
+        <label>What You Would Say About That Person — Honestly</label>
+        <textarea rows="4" placeholder="Not what you say about yourself. What you would say about anyone else who had lived this evidence. Be precise. Be fair. Be accurate."></textarea>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">What the Old Belief Says About You</div>
+          <textarea placeholder="The exact verdict. In the language it uses. Written here so it can be seen directly rather than felt from the inside..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What the Evidence Actually Shows</div>
+          <textarea placeholder="Based on everything you have named in Part One. What does the actual record show about who you are and what you are capable of?"></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field" style="margin-top:14px;">
+        <label>The Gap — What the Old Belief Has Been Costing You</label>
+        <textarea rows="3" placeholder="In decisions not taken. In risks avoided. In energy spent managing the belief rather than building from your actual capability. Name what it has actually cost — in specific, concrete terms..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">5</div>
+      <div>
+        <div class="wb-ex-title">The New Table — Build Your Empowering Belief</div>
+        <div class="wb-ex-sub">A belief with real legs — constructed from evidence that already exists, not from what you hope might become true.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The new belief is not an affirmation you repeat until it feels true. It is a structured claim — a tabletop held up by legs that are already standing. Written here, with the evidence beneath it, so it can be called on every time the old belief tries to reassemble.</p>
+
+      <div class="analogy-block">
+        <div class="analogy-label">💧 The Source Analogy — Hold This</div>
+        <p>A town with a contaminated water source installs brand new pipes. Modern. Efficient. The water looks clearer. But the source has not changed. Everything that flows through those beautiful new pipes still comes from the same toxic place.</p>
+        <p>A new plan, new strategy, or new beginning does not change the source. The source is the belief. Change the source first — and then let everything flow from it.</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Based on the evidence you have named — what is the more accurate belief about who you actually are? Write it as a statement, not a hope. Present tense. Already true. Built on what your life has already demonstrated.</p>
+        <p class="direction">This is your new tabletop. The legs go underneath it.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My New Empowering Belief — One Clear Statement</label>
+        <textarea rows="3" placeholder="'I am someone who...' — Built from evidence, not aspiration. Specific. Present tense. Already demonstrated in your own life..."></textarea>
+      </div>
+
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">Supporting Evidence — Leg One</div>
+          <textarea placeholder="A specific result, decision, or moment that proves this belief is already true..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Supporting Evidence — Leg Two</div>
+          <textarea placeholder="Another specific example. Something you built, navigated, or chose that belongs to the person this belief describes..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Supporting Evidence — Leg Three</div>
+          <textarea placeholder="A third piece of evidence. Look for something the old belief could not explain. Something that belongs only to the accurate story..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field" style="margin-top:14px;">
+        <label>Where I Will Read This Belief Every Morning — For the Next 30 Days</label>
+        <textarea rows="2" placeholder="Not a vague intention. A specific location — phone screen, notebook, bathroom mirror, inside a journal. Name it precisely so it becomes a practice rather than a plan..."></textarea>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PART THREE — PRESSURE TEST ═══════════════ -->
+<div class="workbook-body" id="part3">
+
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — Hold the New Belief Under Fire</h3>
+    <p>A belief that only holds in calm conditions is not yet strong enough to carry you through the moments that matter. Part Three tests the new belief against the scenarios where the old belief is most likely to surge back. This is where the structure is stress-tested before it needs to perform.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — When the Old Pattern Shows Up Again</div>
+        <div class="wb-ex-sub">The moment of failure, setback, or unwanted result — and what you do with it now.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The old belief will find moments to surge. Not continuously — but at specific trigger points. The clearest trigger is any result that resembles a previous failure. A deal that falls through. A launch that underperforms. A conversation that goes badly. In that moment, the old belief will move quickly to gather this new event as evidence.</p>
+
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>You are six months into your new beginning. Something goes wrong — a significant setback, a result that mirrors a previous failure, a moment where the old story would have said "see, I told you." The feeling in your body is familiar. The old belief is moving toward the table.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What the Old Belief Will Say in That Moment</label>
+        <textarea rows="3" placeholder="Write the exact internal narrative — the specific words the old belief uses when a setback arrives. Name it in the language it actually uses, not a cleaned-up version..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>What You Will Do — Before You Allow the Old Belief to File This as Evidence</label>
+        <textarea rows="4" placeholder="Specifically. Not 'stay positive' — what exact action will you take in that moment? Where will you go? What will you read? What question will you ask yourself? What will you do before the old belief gets to write the conclusion?"></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>The Question You Will Ask Instead of Accepting the Old Narrative</label>
+        <textarea rows="2" placeholder="One precise question that interrupts the old pattern and opens space for the accurate story. Write it here so it is ready when you need it..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — When Success Arrives and the Old Belief Dismisses It</div>
+        <div class="wb-ex-sub">The equally dangerous moment — when a win is filed as "exception" or "luck" before it can become evidence.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The old belief does not only attack during failure. It also works during success — by convincing you that a positive result does not count. "That was luck." "That will not last." "They do not really know what they are getting." This exercise addresses that equally powerful undermining mechanism.</p>
+
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>Something goes well. A meaningful result. A deal closes. A piece of work lands powerfully. Someone offers you significant praise or recognition. The old belief stirs — not with attack, but with dismissal. "That was a fluke." "Wait until they find out." "This will not continue."</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Specific Way Your Old Belief Dismisses Your Wins</label>
+        <textarea rows="3" placeholder="What does it say to reduce the significance of a positive result? Name the exact language it uses when something good happens — the way it files success under 'exception' or 'temporary'..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>The Protocol for Receiving a Win Accurately</label>
+        <textarea rows="4" placeholder="How will you consciously receive a positive result as a leg under your new table — before the old belief can dismiss it? Name the specific practice: writing it down, saying it out loud, naming it to someone, adding it to a specific list. Be concrete..."></textarea>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about how many compliments you received today compared to the one piece of critical feedback that stayed with you. The brain is biased toward the negative — not as a character flaw, but as a survival mechanism. Your job now is to consciously rebalance that ratio. What is one win from the last 30 days that deserves to be a leg under your new table?</p>
+      </div>
+      <div class="wb-field">
+        <label>One Win From the Last 30 Days — Named as Evidence</label>
+        <textarea rows="2" placeholder="Name it specifically. Not 'I did some good work' — the specific result, the specific decision, the specific moment. Give it its proper weight here."></textarea>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PART FOUR — PROTECT ═══════════════ -->
+<div class="workbook-body" id="part4">
+
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — The Structure That Makes This Durable</h3>
+    <p>The insight from a coaching session has a half-life. Without structure around it, the most penetrating realisation fades within days as the familiar patterns reassert themselves. Part Four builds the practice and the commitment that turn today's clarity into a new permanent operating level.</p>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">8</div>
+      <div>
+        <div class="wb-ex-title">The 30-Day Practice Schedule</div>
+        <div class="wb-ex-sub">The structure that builds a new neuropathway rather than a temporary feeling.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Tony Robbins describes beliefs as neuropathways — grooves worn into the brain by repetition. The old belief has years of repetition behind it. The new one has this session. What closes that gap is consistent, intentional repetition over the next 30 days — not effort, structure.</p>
+
+      <ul class="wb-check-list">
+        <li><input type="checkbox"> <span><strong>Today — Before You Close This Worksheet:</strong> Read your new empowering belief out loud. Then take the Gap Action named in your commitment contract below. Not tomorrow. Before this session ends.</span></li>
+        <li><input type="checkbox"> <span><strong>Days 1 to 14 — Every Morning:</strong> Read your new belief before your phone, before your email, before your feed. Not as a wish — as a recalibration. The belief you start the day from is the one that makes decisions on your behalf. Choose it consciously.</span></li>
+        <li><input type="checkbox"> <span><strong>Within 7 Days:</strong> Name the Layer Three belief — the one you wrote in Exercise 1 — out loud to one person you trust. Use the exact language from this workbook. Say it out loud. External naming is part of the process. Kept silent, beliefs retain more power.</span></li>
+        <li><input type="checkbox"> <span><strong>Day 14:</strong> Return to Exercise 3 (The Evidence Architecture). Add every new piece of evidence that has accumulated in the two weeks since this session. What happened — in work, in relationships, in your own internal experience — that belongs to the new table?</span></li>
+        <li><input type="checkbox"> <span><strong>Day 30:</strong> Return to Exercise 1 (The Three Layers). Run the full audit again. How has the language of the three layers changed? Has the Layer Three belief shifted — or revealed something beneath it? The work is iterative. The layers come in sequence.</span></li>
+        <li><input type="checkbox"> <span><strong>Any Time the Old Belief Surges:</strong> Apply the Pressure Test protocol from Exercise 6. Ask the question. Read the new belief. Name one piece of evidence from your table. Then take the smallest possible action that belongs to the person the new belief describes — before the surge subsides.</span></li>
+        <li><input type="checkbox"> <span><strong>Day 90:</strong> Revisit this entire worksheet. What has changed? What has the new belief predicted that has now come true? What have you done that the old belief would not have allowed? Name it in writing. Let the evidence accumulate on the right table.</span></li>
+      </ul>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea rows="2" placeholder="Not a vague intention to 'tell someone.' A specific name and a specific method — message, call, or conversation — that I will initiate within seven days of completing this worksheet..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 9 — COMMITMENT CONTRACT -->
+  <div class="wb-exercise">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Gap Action — The Decision That Must Happen Today</div>
+        <div class="wb-ex-sub">The new belief must be lived before it is felt. This is where it begins.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>A new identity that is only held intellectually does not become real until it is acted from. The gap action is the specific decision or move that belongs to the person your new belief describes — taken today, before the old belief has the chance to talk you out of it.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the one decision, move, or action you have been delaying — that the old belief has been blocking — that the person your new belief describes would take today? Not the biggest thing on your list. The one that the old belief has specifically been using its fear to prevent.</p>
+        <p class="direction">Name it precisely. Vague gap actions do not get taken.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Gap Action — Described with Precision</label>
+        <textarea rows="3" placeholder="The specific action. Not 'work on my business' — the specific move. The call I will make. The email I will send. The decision I will formalise. The conversation I will start. Named here in undeniable terms..."></textarea>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">The Day I Will Take It</div>
+          <textarea placeholder="Not 'this week.' The specific day. Today if possible. Name the date."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">The Time I Will Take It</div>
+          <textarea placeholder="The specific time. Morning, afternoon, evening. When exactly will this happen?"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Change the Source</h3>
+    <p>This is not a reflection. Complete every field with the precision you brought to the audit. Read it back aloud when you are done. This is the formal moment the old belief stops running the next chapter.</p>
+
+    <div class="wb-contract-field">
+      <label>The Limiting Belief I Am Releasing — Named Precisely</label>
+      <textarea rows="2" placeholder="The exact Layer Three belief — in the exact language your internal narrator uses. Written here so it can be seen directly, named completely, and no longer operated from in the shadows..."></textarea>
+    </div>
+
+    <div class="wb-contract-field">
+      <label>Why This Belief Is Not an Accurate Description of Who I Am — Based on the Evidence</label>
+      <textarea placeholder="Not 'because I deserve better' — based on the specific contradicting evidence you named in Exercise 3. The things you have built, survived, chosen, and achieved that the old belief could not explain. This is the precise basis for releasing it..."></textarea>
+    </div>
+
+    <div class="wb-contract-field">
+      <label>My New Empowering Belief — Stated Here as Already True</label>
+      <textarea rows="3" placeholder="The belief from Exercise 5 — written here as the statement you are choosing to lead from. Not the old label. The accurate alternative. Written here as already true, with three legs already standing beneath it..."></textarea>
+    </div>
+
+    <div class="wb-contract-field">
+      <label>The Three Legs — Evidence That Makes This Belief Structurally Sound</label>
+      <textarea rows="3" placeholder="Name the three specific pieces of evidence from your own life — from Exercise 5 — that hold this new belief up. One sentence each. Specific. Already true."></textarea>
+    </div>
+
+    <div class="wb-contract-field">
+      <label>The Gap Action — With the Specific Day and Time</label>
+      <textarea placeholder="Named here as a commitment, not a plan. The specific action. The specific day. The specific time. Undeniable."></textarea>
+    </div>
+
+    <div class="wb-contract-field">
+      <label>The Person I Am Now Operating As — Beginning Today</label>
+      <textarea rows="2" placeholder="Not who you were. Not who you hope to become. Who you are — based on what your evidence already shows. Two or three sentences. Present tense. Already true."></textarea>
+    </div>
+
+    <div class="wb-sig">
+      <div>
+        <label>Your Name</label>
+        <input type="text" placeholder="Sign here">
+      </div>
+      <div>
+        <label>Date</label>
+        <input type="text" placeholder="Today's date">
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>You have just done something most people never do. You have sat with the fear that has been following you from one beginning to the next — named it at its root, traced where it came from, audited the evidence it has been using, and replaced it with a belief built from what your life has already demonstrated.</p>
+    <p>The old belief is not gone. It has years of neuropathway behind it. It will try to reassemble. That is not failure — that is how the brain works. Your job now is to keep choosing the new table. To keep adding legs to it. To let the evidence accumulate on the right side.</p>
+    <p>You are not the sum of what has not worked. You are the whole of everything you have built, learned, survived, and chosen. That is who goes into the next chapter. That is who you signed for just now.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know that you did not know when you opened it. Not the most useful insight. The thing that cannot be unfelt.</p>
+    <textarea placeholder="The thing I now know — about this belief or about myself — that I cannot unknow..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The weight you were carrying had a name. The belief had legs that can be pulled away. And underneath all of it is someone with far more evidence of capability than the old story was willing to admit.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">The next chapter starts from a different source.<br>Go live in full expression.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>The Weight You're Carrying Into Your Next Chapter — Episode 46 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only. Please do not distribute without permission.</p>
+</div>
+
+<script>
+window.addEventListener('scroll', function() {
+  var total = document.body.scrollHeight - window.innerHeight;
+  var pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+  var el = document.getElementById('progress');
+  if (el) el.style.width = pct + '%';
+});
+
+document.querySelectorAll('textarea').forEach(function(ta) {
+  ta.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight + 2) + 'px';
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
