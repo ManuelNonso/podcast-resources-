@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Child You Used to Be — Episode 47 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f2240; --navy-mid:#1a365d; --navy-light:#2c5282;
+  --gold:#b8860b; --gold-bright:#d4a017; --gold-light:#f6ad55; --gold-pale:#fef9ee;
+  --teal:#1a6b61; --teal-light:#2d9b8f; --teal-pale:#e8f7f5;
+  --cream:#faf7f2; --warm-white:#fffef9;
+  --ink:#1c1c2e; --ink-light:#2d3748; --muted:#5a6275; --border:#e5ddd0;
+  --red:#8b1a2a; --red-pale:#fdf0ef;
+  --purple:#3d1a6b; --purple-light:#6b3a9e; --purple-pale:#f3eeff;
+  --chapter-bg:#0a1628;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Lora',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.9; font-size:17px; }
+@media print { .no-print{display:none!important;} body{font-size:12pt;background:white;} p{orphans:3;widows:3;} }
+.book-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); padding:0 30px; height:52px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,160,23,0.2); }
+.nav-brand { font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.6); font-weight:400; }
+.nav-brand strong { color:var(--gold-light); font-weight:600; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:11px; font-weight:500; letter-spacing:0.5px; padding:6px 10px; font-family:'DM Sans',sans-serif; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-light); }
+.btn-nav { background:linear-gradient(135deg,var(--gold-bright),#c8900a); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+.progress-bar { position:fixed; top:52px; left:0; right:0; height:2px; background:rgba(255,255,255,0.05); z-index:999; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); width:0%; transition:width 0.2s; }
+.cover-page { min-height:100vh; background:var(--chapter-bg); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-texture { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 75% 40%,rgba(184,134,11,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 70%,rgba(26,107,97,0.06) 0%,transparent 60%); pointer-events:none; }
+.cover-inner { position:relative; z-index:2; display:flex; flex-direction:column; min-height:100vh; padding:80px 60px 60px; }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+.cover-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(212,160,23,0.35); padding:8px 18px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-light); font-weight:600; }
+.cover-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-top:60px; }
+.cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); font-weight:600; margin-bottom:24px; display:block; }
+.cover-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,56px); line-height:1.1; font-weight:900; margin-bottom:20px; color:white; }
+.cover-title .accent { color:var(--gold-light); font-style:italic; display:block; }
+.cover-subtitle { font-family:'Lora',serif; font-size:16px; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:36px; font-style:italic; }
+.cover-divider { width:50px; height:2px; background:var(--gold-bright); margin-bottom:28px; }
+.cover-author-name { font-family:'DM Sans',sans-serif; font-size:15px; color:white; font-weight:600; }
+.cover-author-title { font-family:'DM Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.cover-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:28px; }
+.cover-ghost { font-family:'Playfair Display',serif; font-size:clamp(100px,16vw,180px); font-weight:900; color:rgba(255,255,255,0.03); line-height:1; letter-spacing:-4px; }
+.cover-series { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:right; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+.cover-tagline { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:1.5px; text-transform:uppercase; }
+.workbook-meta { display:flex; gap:40px; align-items:center; margin-top:36px; }
+.workbook-stat .num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold-light); display:block; }
+.workbook-stat .lbl { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; }
+.wb-body { max-width:760px; margin:0 auto; padding:60px 40px 80px; }
+.wb-part { background:var(--navy-mid); color:white; padding:36px 44px; margin:0 -20px 40px; position:relative; }
+.wb-part::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); }
+.wb-part-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.wb-part h3 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:10px; }
+.wb-part p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; }
+.wb-ex { background:white; border:1px solid var(--border); border-radius:2px; margin-bottom:28px; overflow:hidden; box-shadow:0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display:flex; align-items:center; gap:18px; padding:22px 28px; background:var(--cream); border-bottom:1px solid var(--border); }
+.wb-ex-num { width:40px; height:40px; border-radius:50%; background:var(--navy-mid); color:white; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; font-weight:700; flex-shrink:0; }
+.wb-ex-num.gold { background:var(--gold); color:var(--navy); }
+.wb-ex-num.teal { background:var(--teal); }
+.wb-ex-num.red { background:var(--red); }
+.wb-ex-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+.wb-ex-sub { font-size:13px; color:var(--muted); margin-top:2px; font-family:'DM Sans',sans-serif; }
+.wb-ex-body { padding:28px; }
+.wb-ex-body > p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:18px; }
+.wb-field label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-field textarea, .wb-field input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:var(--cream); resize:vertical; line-height:1.7; transition:border-color 0.2s; margin-bottom:18px; }
+.wb-field textarea { min-height:80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline:none; border-color:var(--gold-bright); background:white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+.wb-coaching { background:var(--purple-pale); border-left:3px solid var(--purple-light); border-radius:0 4px 4px 0; padding:18px 22px; margin:16px 0 20px; }
+.wb-coaching-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple-light); margin-bottom:8px; }
+.wb-coaching p { font-size:15px; font-weight:600; font-style:italic; color:var(--navy); margin:0; line-height:1.6; }
+.wb-coaching .dir { font-size:13px; color:var(--muted); font-style:normal; font-weight:400; margin-top:6px; }
+.wb-insight { background:var(--teal-pale); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-insight p { font-size:14px; color:var(--teal); line-height:1.7; margin:0; }
+.wb-insight strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+.pull-quote { border-left:3px solid var(--gold-bright); padding:24px 32px; margin:28px 0; background:var(--gold-pale); font-family:'Playfair Display',serif; font-size:19px; line-height:1.6; color:var(--navy); font-style:italic; }
+.analogy-box { border:1.5px solid var(--gold-bright); background:var(--gold-pale); border-radius:2px; padding:28px 32px; margin:20px 0; }
+.analogy-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.analogy-box p { font-family:'Lora',serif; font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:10px; }
+.analogy-box p:last-child { margin-bottom:0; }
+.wb-row { display:grid; gap:14px; margin:14px 0 20px; }
+.wb-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns:1fr 1fr; }
+.wb-card { background:var(--cream); border:1.5px solid var(--border); border-radius:2px; padding:16px; }
+.wb-card-label { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-card textarea { width:100%; border:none; background:transparent; font-family:'Lora',serif; font-size:14px; color:var(--ink); resize:vertical; min-height:64px; line-height:1.6; padding:0; }
+.wb-card textarea:focus { outline:none; }
+.wb-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+.wb-check-list { list-style:none; }
+.wb-check-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--ink-light); line-height:1.6; }
+.wb-check-list li:last-child { border-bottom:none; }
+.wb-check-list input[type="checkbox"] { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; margin-top:2px; }
+.story-box { background:var(--chapter-bg); border-left:4px solid var(--gold-bright); border-radius:0 4px 4px 0; padding:32px 36px; margin:28px 0; }
+.story-box-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.story-box p { color:rgba(255,255,255,0.82); font-size:15px; line-height:1.85; margin-bottom:14px; }
+.story-box p:last-child { margin-bottom:0; }
+.pressure-test { background:var(--red-pale); border:1.5px solid #c53030; border-radius:2px; padding:28px 32px; margin:20px 0; }
+.pressure-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:12px; }
+.pressure-test p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:14px; }
+.pressure-test p:last-child { margin-bottom:0; }
+.key-insights { background:var(--navy-mid); border-radius:2px; padding:36px 44px; margin:28px 0; }
+.key-insights-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:20px; }
+.key-insights ul { list-style:none; }
+.key-insights ul li { color:rgba(255,255,255,0.8); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:15px; line-height:1.7; padding-left:20px; position:relative; }
+.key-insights ul li::before { content:'—'; position:absolute; left:0; color:var(--gold-bright); font-weight:700; }
+.key-insights ul li:last-child { border-bottom:none; }
+.wb-contract { background:var(--navy); border-radius:2px; padding:44px; margin:36px 0; border:2px solid var(--gold-bright); }
+.wb-contract-badge { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px; }
+.wb-contract h3 { font-family:'Playfair Display',serif; color:white; font-size:30px; font-weight:900; margin-bottom:10px; }
+.wb-contract > p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:28px; font-style:italic; }
+.wb-contract label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+.wb-contract textarea, .wb-contract input[type="text"] { width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:20px; }
+.wb-contract textarea { min-height:72px; }
+.wb-contract textarea:focus, .wb-contract input:focus { outline:none; border-color:var(--gold-bright); }
+.wb-contract textarea::placeholder, .wb-contract input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.wb-sig { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+.final-block { background:var(--gold-pale); border:1.5px solid var(--gold-bright); border-radius:2px; padding:36px; margin:36px 0; }
+.final-block h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin-bottom:16px; }
+.final-block p { font-size:15px; color:var(--ink-light); line-height:1.85; margin-bottom:14px; }
+.final-block textarea { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:white; resize:vertical; min-height:90px; line-height:1.7; margin-top:8px; }
+.final-block textarea:focus { outline:none; border-color:var(--gold-bright); }
+.final-block textarea::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+.book-footer { background:var(--chapter-bg); padding:52px 40px; text-align:center; }
+.book-footer .logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold-light); letter-spacing:2px; margin-bottom:8px; }
+.book-footer .tagline { color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.book-footer p { color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif; font-size:12px; line-height:1.7; }
+@media (max-width:700px) {
+  .cover-content { grid-template-columns:1fr; } .cover-right { display:none; }
+  .cover-inner { padding:60px 28px 40px; } .wb-body { padding:40px 20px 60px; }
+  .wb-part { margin:0 0 40px; padding:28px 24px; }
+  .wb-row-3, .wb-row-2 { grid-template-columns:1fr; }
+  .wb-sig { grid-template-columns:1fr; } .wb-contract { padding:28px 24px; }
+  .workbook-meta { flex-wrap:wrap; gap:24px; } .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 47 Worksheet</strong></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div>
+        <span class="cover-eyebrow">Episode 47 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">The Child You<br><span class="accent">Used to Be</span></h1>
+        <p class="cover-subtitle">The complete written coaching session for reclaiming the learner's mind — and going back to the operating system that made mastery feel possible.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-name">Manuel C. Chinyereuba</div>
+        <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+        <div class="workbook-meta">
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Parts</span></div>
+          <div class="workbook-stat"><span class="num">9</span><span class="lbl">Exercises</span></div>
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Moves</span></div>
+          <div class="workbook-stat"><span class="num">1</span><span class="lbl">Commitment</span></div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-ghost">47</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is not a reflection exercise to be skimmed. It is the active coaching session that the episode prepared you for. Four parts. Nine exercises. One commitment. Designed to be completed in a single sitting — with full attention, without interruption, and with the same quality of honesty a child brings to every attempt.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The parts move in sequence. Do not skip ahead. The practical moves in Part Three will only land with full force if you have done the honest excavation of Parts One and Two.</p>
+  <p style="color:var(--ink-light);">Write what is actually true. Not what sounds like the right answer. The child you used to be never filtered — and neither should you here.</p>
+  <div class="key-insights" style="margin-top:36px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the exact moment your operating system changed, in the precise language it uses when you face a setback today</li>
+      <li>Something <strong>traced</strong> — the origin experience that first taught you to call an attempt a failure rather than an experiment</li>
+      <li>Something <strong>separated</strong> — a clear distinction between the verdict language you absorbed and the experimenter's mind you were born with</li>
+      <li>Something <strong>committed</strong> — the one specific action you will take before this week ends, from the learner's mind rather than the judge's</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PART ONE -->
+<div class="wb-body" id="part1">
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — The System You Were Born With</h3>
+    <p>Before you can reclaim the learner's mind, you need to see it clearly — what it looked like when it was fully operational, how it worked, and the specific moment it changed. Part One builds that picture.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Child's Operating System — Named Precisely</div>
+        <div class="wb-ex-sub">What you knew about learning before you were taught to call things failures.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Think about what a child actually does when they are learning something. Not abstractly — specifically. Think about my son with the door, or think about yourself learning to walk. Every attempt generated information. Every click was celebrated. Nothing was ever a verdict.</p>
+      <div class="analogy-box">
+        <div class="analogy-label">🔦 The Switch and Door — Hold This</div>
+        <p>He did not wait until he could open every door to celebrate. He celebrated the first click of the switch. He celebrated the first door that opened. And then he immediately began learning to close it. Each micro-breakthrough was fuel — a signal that the process was producing something, that the effort was moving in the right direction.</p>
+        <p>Most adults defer celebration entirely to the destination. They travel the entire distance from first attempt to mastery in a state of sustained self-withholding. The click — however small — is worth celebrating. Always.</p>
+      </div>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about something you mastered as a child — walking, riding a bike, learning to read, a sport, an instrument. Anything. Now describe honestly how you approached the early attempts. What did you do when it didn't work? What was your internal experience of the difficulty?</p>
+        <p class="dir">Not what you think children do in general — what you actually remember about your own early approach to learning something hard.</p>
+      </div>
+      <div class="wb-field">
+        <label>Something I Mastered as a Child — and What the Learning Actually Looked Like</label>
+        <textarea rows="4" placeholder="The skill, and the honest description of how I approached it before I knew what failure meant..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>The Qualities of That Approach — Named Specifically</label>
+        <textarea rows="3" placeholder="What did I have then that I don't always bring now? Persistence, curiosity, celebration of small wins, no verdict after a failed attempt... Name them precisely..."></textarea>
+      </div>
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>You mastered that thing. The system worked. Every quality you just named is still inside you — it has not left. The question this worksheet answers is why it is not always accessible, and how to get it back on demand.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Language Audit — Experiment vs Verdict</div>
+        <div class="wb-ex-sub">Finding the exact words you use when something doesn't work — because they tell you which system is running.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The operating system you use is most visible in the language you use after an unsuccessful attempt. The child's system produces language of data and adjustment. The verdict system produces language of conclusion and identity. This exercise makes that visible in your own life.</p>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about the last time something you were working on didn't go the way you needed it to. A pitch, a business decision, a difficult conversation, a creative attempt, a goal that stalled. What language did you use about it in the days that followed — internally, to yourself?</p>
+        <p class="dir">Not what you said to other people. What was the internal narrative? Write the actual words or phrases you used.</p>
+      </div>
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">The Situation</div>
+          <textarea placeholder="What happened — specifically. Not the background, just the attempt that didn't work..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">The Internal Language I Used</div>
+          <textarea placeholder="The exact words or phrases from my internal narrative in the days after. Not the polished version — the real one..."></textarea>
+        </div>
+      </div>
+      <div class="wb-field">
+        <label>Was That the Language of Experiment or the Language of Verdict?</label>
+        <textarea rows="3" placeholder="Did the language describe what happened in that attempt — or did it draw a conclusion about me? Did it ask 'what do I adjust?' or 'what does this say about my capability?'..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>What the Language of Experiment Would Have Said Instead</label>
+        <textarea rows="3" placeholder="Rewrite the internal narrative using the experimenter's language. Not positivity — accuracy. What did the attempt actually teach? What information did it produce? What gets adjusted for the next attempt?..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Moment the System Changed</div>
+        <div class="wb-ex-sub">Tracing back to the original experience that first taught you to call an attempt a failure.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The verdict language did not arrive fully formed. It was learned — in a specific context, from a specific source, in a moment where an unsuccessful attempt was met with a response that added a conclusion about the person to the simple fact of the attempt not working.</p>
+      <div class="story-box">
+        <div class="story-box-label">The Edison Reference — Hold This</div>
+        <p>Edison ran approximately 1,200 experiments over 18 months developing the incandescent light bulb, testing more than 6,000 different materials. When his assistant despaired that all their work had come to nothing, Edison's documented response was that they had learned a great deal — they now knew which materials would not work. Every unsuccessful experiment had produced information. The information was the progress.</p>
+        <p>He was not born with unusual resilience. He had a different language for the process. Every attempt was an experiment. Experiments do not fail — they produce results. Some results are immediately useful. All of them eliminate directions that are not the right one, which moves you closer to the one that is.</p>
+      </div>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>When did you first learn that an unsuccessful attempt meant something about you — rather than simply about the attempt? Not the most recent example. The original one. When was the first time that trying something and not succeeding was received by someone, or by a situation, in a way that added a verdict to the simple fact?</p>
+        <p class="dir">You may not have a single clear memory. That is fine. Notice what period, relationship, or context surfaces when you sit with this question honestly.</p>
+      </div>
+      <div class="wb-field">
+        <label>The Origin — When and How the System First Changed</label>
+        <textarea rows="4" placeholder="The period, the relationship, the context. A teacher's comment, a parent's response, a public moment, a system that kept score in a way that made attempts feel consequential beyond whether they worked..."></textarea>
+      </div>
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">What Message Was Delivered</div>
+          <textarea placeholder="The message about what an unsuccessful attempt meant about me — in words, in actions, or in the way the room responded..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Is That Message Still Accurate Today?</div>
+          <textarea placeholder="Was it specific to that context, that age, that relationship — or is it a universal truth about me that applies to everything I attempt now?..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART TWO -->
+<div class="wb-body" id="part2">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — What the Original System Actually Looks Like in Your Life</h3>
+    <p>The learner's mind is not a general aspiration. It is a set of specific, practical qualities that show up in your daily approach. Part Two names those qualities precisely and maps what using them looks like in your actual current challenges.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">4</div>
+      <div>
+        <div class="wb-ex-title">The Four Moves — Applied to Your Life Right Now</div>
+        <div class="wb-ex-sub">Not in general. In the specific challenge you are currently facing.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Think about the most significant challenge, goal, or skill you are currently working on — the one where the verdict language has been most present, the one where the child's operating system has been least accessible. Hold that specific situation as you work through each move below.</p>
+      <div class="analogy-box">
+        <div class="analogy-label">🎵 The Musician and 🚗 The Driver — Hold Both</div>
+        <p>The musician learning a difficult passage does not succeed through inspiration. They play the passage slowly, then quickly, in sections, in full — until the gap between hearing the music in their head and producing it with their hands closes through patient repetition. Every attempt that doesn't produce the music is not a failure. It is the process.</p>
+        <p>The adult learning to drive finds everything impossible in the first session. Three months later, they arrive at a destination having barely noticed the journey. The impossible became invisible — not through talent, but through the accumulation of deliberate attempts. The path through the field gets pressed down one trip at a time.</p>
+      </div>
+      <div class="wb-field">
+        <label>The Challenge, Goal, or Skill I Am Currently Working On</label>
+        <textarea rows="2" placeholder="Named specifically. The thing where the verdict language has been loudest and the learner's mind has been hardest to access..."></textarea>
+      </div>
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">Move 1 — The Language Change</div>
+          <textarea placeholder="How I have been describing the setbacks in this area. Then: how the language of experiment would describe them instead. The specific reframe..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Move 2 — The Click Worth Celebrating</div>
+          <textarea placeholder="One piece of progress in this area that I have been withholding celebration from. Name it. Give it the recognition it has been waiting for..."></textarea>
+        </div>
+      </div>
+      <div class="wb-row wb-row-2" style="margin-top:0;">
+        <div class="wb-card">
+          <div class="wb-card-label">Move 3 — The Pattern Across Doors</div>
+          <textarea placeholder="What has a previous attempt — in this area or another — taught me that applies to the current challenge? What pattern transfers?..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Move 4 — Staying in the Room</div>
+          <textarea placeholder="Have I been considering leaving? What would staying in the room look like for the next 30 days? What is the next specific attempt?..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">5</div>
+      <div>
+        <div class="wb-ex-title">The Experiment Log — Recasting Your Recent Setbacks</div>
+        <div class="wb-ex-sub">Reclassifying what the verdict system has been calling failures — in the language of the experimenter.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This exercise takes the setbacks the verdict system has been using as evidence against you and reclassifies them as what they actually are: experiments that produced information. Each one below asks for the verdict the system assigned, the information the attempt actually produced, and the adjustment it points to.</p>
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">Experiment One</div>
+          <textarea placeholder="The attempt. The verdict the system assigned. The information it actually produced. The adjustment it points to..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Experiment Two</div>
+          <textarea placeholder="The attempt. The verdict the system assigned. The information it actually produced. The adjustment it points to..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Experiment Three</div>
+          <textarea placeholder="The attempt. The verdict the system assigned. The information it actually produced. The adjustment it points to..."></textarea>
+        </div>
+      </div>
+      <div class="pull-quote">"We now know which materials will not work. Every failed material is not a dead end — it is a cleared path." — The Edison Principle</div>
+      <div class="wb-field">
+        <label>What the Full List of Experiments Reveals — About the Process, Not About Me</label>
+        <textarea rows="3" placeholder="Looking at all three experiments together — what do they show about the process of building this? Not about my capability, but about what the journey toward mastery in this area actually looks like?..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART THREE -->
+<div class="wb-body" id="part3">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — When the Old System Fights Back</h3>
+    <p>The verdict language does not disappear because you have named it and chosen a different one. It will resurface at specific trigger points — especially after a visible setback, a public failure, or a moment where the old system's prediction seems to be coming true. Part Three prepares you for those moments.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — The Public Setback</div>
+        <div class="wb-ex-sub">When the failure is visible to others — and the verdict language has an audience.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>You attempt something significant and it fails publicly. A pitch in front of a room. A launch that underperforms visibly. A decision that is seen to be wrong. A moment where other people watched you try and watched it not work. The verdict system moves quickly — now it has an audience, and the internal narrative gets louder.</p>
+      </div>
+      <div class="wb-field">
+        <label>What the Verdict System Will Say — With an Audience Watching</label>
+        <textarea rows="3" placeholder="The specific intensified narrative when the setback is public. What does the verdict system add when other people saw it happen?..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>What the Experimenter's System Would Say Instead — In That Same Moment</label>
+        <textarea rows="3" placeholder="Not later, when things are calmer. In that specific moment, with an audience — what does the language of experiment produce as a response? Write it out so it is ready when you need it..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>The One Question I Will Ask Myself Before Accepting the Verdict</label>
+        <textarea rows="2" placeholder="One precise, interrupting question that I will ask myself in any future public setback — to prevent the verdict system from writing the conclusion before the experiment is finished..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — When the Effort Feels Invisible</div>
+        <div class="wb-ex-sub">When you have been in the room for a long time and the door still hasn't opened.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>My son came back to the door day after day before it opened. He did not have a visible progress tracker. He did not know the door would open today rather than tomorrow. He stayed in the room because the system he was running does not require external validation of progress to keep going. Most adults do — and when the validation doesn't come, the verdict system starts building its case.</p>
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>You have been working on something for a significant period. The effort has been consistent. The progress is not yet visible in the way you need it to be. People around you have stopped asking. The external signal that the process is working is absent. The verdict system starts asking whether staying in the room still makes sense.</p>
+      </div>
+      <div class="wb-field">
+        <label>The Internal Evidence of Progress — That Doesn't Require External Validation</label>
+        <textarea rows="3" placeholder="What do I know about how my capability in this area has changed since I started — regardless of the external result? What can I do now that I couldn't do at the beginning? What do I know that I didn't know then?..."></textarea>
+      </div>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Edison had no external validation that the light bulb would work until experiment 1,200. He had only the accumulated elimination of what did not work — and the conviction that the right material existed and would be found by staying in the process. What is your equivalent of that conviction? What do you know — from evidence, not hope — that justifies staying in the room?</p>
+      </div>
+      <div class="wb-field">
+        <label>My Equivalent of Edison's Conviction — Evidence-Based, Not Hope-Based</label>
+        <textarea rows="3" placeholder="Not what I hope is true. What I know from the evidence of my own journey so far that justifies continuing. The specific evidence that makes staying the rational choice..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART FOUR -->
+<div class="wb-body" id="part4">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — The Structure That Makes the Learner's Mind Durable</h3>
+    <p>Reclaiming the learner's mind is not a single decision. It is a daily practice — a consistent, deliberate return to the language, the celebration, and the persistence of the system you were born with. Part Four builds the structure that makes that practice durable rather than temporary.</p>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">8</div>
+      <div>
+        <div class="wb-ex-title">The 30-Day Experiment Practice</div>
+        <div class="wb-ex-sub">The daily structure that presses the new path down one step at a time.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The path through the field gets made by walking it. The musician's fingers learn the passage through repetition. My son mastered the door through daily return. The new operating system becomes durable through consistent, deliberate daily practice — not through a single powerful insight.</p>
+      <ul class="wb-check-list">
+        <li><input type="checkbox"><span><strong>Today — Before You Close This Worksheet:</strong> Take the gap action named in your commitment contract. Rename the most recent failure in your life as an experiment and write out what it taught you. Do not defer this to tomorrow.</span></li>
+        <li><input type="checkbox"><span><strong>Every Morning for 30 Days:</strong> Before you check your phone, name one experiment you will run today. Not a task — an experiment. Something you will attempt, observe the result of, and adjust from. One sentence. This primes the learner's system before the day's verdict opportunities arrive.</span></li>
+        <li><input type="checkbox"><span><strong>Every Evening for 30 Days:</strong> Name one click worth celebrating from the day. One piece of progress — however small — that belongs in the celebration rather than the withholding. The signal to your brain that the process is producing something is built through this practice, not through the destination.</span></li>
+        <li><input type="checkbox"><span><strong>Within 7 Days:</strong> Share the experiment reframe with one other person. Tell them about a recent setback you have renamed as an experiment and what it taught you. External articulation is part of the process. What is said out loud becomes more real than what remains internal.</span></li>
+        <li><input type="checkbox"><span><strong>Day 14:</strong> Return to Exercise 5 (The Experiment Log). Add every new experiment you have run in the two weeks since this session. Look at the full list and ask: what pattern is emerging? What is the elimination of what does not work pointing toward?</span></li>
+        <li><input type="checkbox"><span><strong>Day 30:</strong> Return to Exercise 2 (The Language Audit). Run it again on a recent setback. Has the language changed? Is the experimenter's mind more accessible than it was 30 days ago? What is the evidence that the path through the field is getting clearer?</span></li>
+      </ul>
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea rows="2" placeholder="Not a vague intention. A specific name and a specific method — message, call, or conversation — that I will initiate within seven days..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 9 — GAP ACTION -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Gap Action — The Next Experiment</div>
+        <div class="wb-ex-sub">The specific attempt that belongs to the learner's mind — taken before the verdict system can talk you out of it.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>My son did not plan to go back to the door. He just went. The next experiment is not something the learner's mind schedules for a convenient time — it is the natural next step in the process of staying in the room. This exercise names your next step with enough specificity that it cannot be deferred.</p>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the one attempt — the specific experiment — that belongs to the learner's mind right now? The one the verdict system has been preventing, deferring, or moderating? The one that a child with no concept of failure would go back to today without overthinking it?</p>
+        <p class="dir">Not the destination. The next attempt. The next step toward the door. Name it precisely.</p>
+      </div>
+      <div class="wb-field">
+        <label>The Next Experiment — Named Precisely</label>
+        <textarea rows="3" placeholder="Not a category. The specific attempt. What I will do, with what, toward what — named so specifically that it cannot be misunderstood or deferred into vagueness..."></textarea>
+      </div>
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">The Day</div>
+          <textarea placeholder="Specific date..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What Success Looks Like</div>
+          <textarea placeholder="Not 'it works' — what does running this experiment successfully look like, regardless of the result?..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What I Will Learn Either Way</div>
+          <textarea placeholder="What information will this experiment produce — whether it works or not?..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Run the Experiment</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is the formal moment the learner's mind stops being a concept and starts being the operating system.</p>
+
+    <label>The Verdict I Am Releasing — Named in Its Exact Language</label>
+    <textarea rows="2" placeholder="The specific conclusion the verdict system has been drawing from my unsuccessful attempts. Written here so it can be seen directly, named completely, and no longer operated from silently..."></textarea>
+
+    <label>Why This Verdict Is Not Accurate — Based on the Evidence</label>
+    <textarea placeholder="Not because I deserve better — because the evidence does not support it. Every experiment I have run has produced information. Information is progress. That is what the evidence of my own journey actually shows..."></textarea>
+
+    <label>The Language I Am Choosing Instead — For Every Unsuccessful Attempt From This Day</label>
+    <textarea rows="2" placeholder="The exact language of experiment I will use the next time an attempt does not produce the result I was aiming for. Written here as a commitment, not an intention..."></textarea>
+
+    <label>The Next Experiment — With the Specific Day I Will Run It</label>
+    <textarea placeholder="From Exercise 9 — named here as a commitment. The specific attempt, the specific day, the specific information I expect it to produce..."></textarea>
+
+    <label>What I Am Going Back to Claim</label>
+    <textarea rows="2" placeholder="The operating system I was born with. The learner's mind that mastered everything I know. The quality that my son demonstrated in the hallway and Edison demonstrated in the lab. Named here as what I am choosing to live from..."></textarea>
+
+    <div class="wb-sig">
+      <div><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div><label>Date</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>You were once the most fearless learner on this planet. You mastered language, movement, coordination, and communication — the most complex skills any human being will ever acquire — using a system that had no category for failure. Every attempt was information. Every click was cause for celebration. Nothing was ever a verdict about your worth or capability.</p>
+    <p>That system did not leave you. It went underground when the environment changed and you were taught, gradually and without a single deliberate decision, to call your unsuccessful attempts something heavier than they actually were. This worksheet has been the process of naming that, tracing it, and choosing to go back.</p>
+    <p>My son will not remember the day the door first opened. But the door opens for him every single day now, without effort and without thought — because he stayed in the room long enough that the skill became his. That is what is available to you. In every area where you have been calling the process a failure, the door is there. The lever is the same as the one before. Stay in the room.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know about yourself or about the process of mastery that you did not know when you opened it.</p>
+    <textarea placeholder="The thing I now know — that cannot be unfelt, that has shifted something in how I see every unsuccessful attempt from this point forward..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The verdict language can be replaced. The experimenter's mind can be reclaimed. The path through the field gets pressed down one deliberate step at a time. My son proved it with a door. Edison proved it with a filament. Now it is your turn.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">Go back to the door. Stay in the room.<br>Live in full expression.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>The Child You Used to Be — Episode 47 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only.</p>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var t=document.body.scrollHeight-window.innerHeight;
+  var p=t>0?(window.scrollY/t)*100:0;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=p+'%';
+});
+document.querySelectorAll('textarea').forEach(function(ta){
+  ta.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=(this.scrollHeight+2)+'px';
+  });
+});
+</script>
+</body>
+</html>
