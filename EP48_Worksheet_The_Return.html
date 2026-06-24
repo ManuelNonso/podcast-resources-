@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Return — Episode 48 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f2240; --navy-mid:#1a365d; --navy-light:#2c5282;
+  --gold:#b8860b; --gold-bright:#d4a017; --gold-light:#f6ad55; --gold-pale:#fef9ee;
+  --teal:#1a6b61; --teal-light:#2d9b8f; --teal-pale:#e8f7f5;
+  --cream:#faf7f2; --warm-white:#fffef9;
+  --ink:#1c1c2e; --ink-light:#2d3748; --muted:#5a6275; --border:#e5ddd0;
+  --red:#8b1a2a; --red-pale:#fdf0ef;
+  --purple:#3d1a6b; --purple-light:#6b3a9e; --purple-pale:#f3eeff;
+  --chapter-bg:#0a1628;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Lora',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.9; font-size:17px; }
+@media print { .no-print{display:none!important;} body{font-size:12pt;background:white;} p{orphans:3;widows:3;} }
+
+/* NAV */
+.book-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); padding:0 30px; height:52px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,160,23,0.2); }
+.nav-brand { font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.6); font-weight:400; }
+.nav-brand strong { color:var(--gold-light); font-weight:600; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:11px; font-weight:500; letter-spacing:0.5px; padding:6px 10px; font-family:'DM Sans',sans-serif; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-light); }
+.btn-nav { background:linear-gradient(135deg,var(--gold-bright),#c8900a); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+.progress-bar { position:fixed; top:52px; left:0; right:0; height:2px; background:rgba(255,255,255,0.05); z-index:999; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); width:0%; transition:width 0.2s; }
+
+/* COVER */
+.cover-page { min-height:100vh; background:var(--chapter-bg); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-texture { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 75% 40%,rgba(184,134,11,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 70%,rgba(26,107,97,0.06) 0%,transparent 60%); pointer-events:none; }
+.cover-inner { position:relative; z-index:2; display:flex; flex-direction:column; min-height:100vh; padding:80px 60px 60px; }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+.cover-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(212,160,23,0.35); padding:8px 18px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-light); font-weight:600; }
+.cover-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-top:60px; }
+.cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); font-weight:600; margin-bottom:24px; display:block; }
+.cover-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,56px); line-height:1.1; font-weight:900; margin-bottom:20px; color:white; }
+.cover-title .accent { color:var(--gold-light); font-style:italic; display:block; }
+.cover-subtitle { font-family:'Lora',serif; font-size:16px; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:36px; font-style:italic; }
+.cover-divider { width:50px; height:2px; background:var(--gold-bright); margin-bottom:28px; }
+.cover-author-name { font-family:'DM Sans',sans-serif; font-size:15px; color:white; font-weight:600; }
+.cover-author-title { font-family:'DM Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.cover-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:28px; }
+.cover-ghost { font-family:'Playfair Display',serif; font-size:clamp(100px,16vw,180px); font-weight:900; color:rgba(255,255,255,0.03); line-height:1; letter-spacing:-4px; }
+.cover-series { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:right; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+.cover-tagline { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:1.5px; text-transform:uppercase; }
+.workbook-meta { display:flex; gap:40px; align-items:center; margin-top:36px; }
+.workbook-stat .num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold-light); display:block; }
+.workbook-stat .lbl { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; }
+
+/* BODY */
+.wb-body { max-width:760px; margin:0 auto; padding:60px 40px 80px; }
+.wb-part { background:var(--navy-mid); color:white; padding:36px 44px; margin:0 -20px 40px; position:relative; }
+.wb-part::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); }
+.wb-part-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.wb-part h3 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:10px; }
+.wb-part p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; }
+
+/* EXERCISE CARDS */
+.wb-ex { background:white; border:1px solid var(--border); border-radius:2px; margin-bottom:28px; overflow:hidden; box-shadow:0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display:flex; align-items:center; gap:18px; padding:22px 28px; background:var(--cream); border-bottom:1px solid var(--border); }
+.wb-ex-num { width:40px; height:40px; border-radius:50%; background:var(--navy-mid); color:white; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; font-weight:700; flex-shrink:0; }
+.wb-ex-num.gold { background:var(--gold); color:var(--navy); }
+.wb-ex-num.teal { background:var(--teal); }
+.wb-ex-num.red { background:var(--red); }
+.wb-ex-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+.wb-ex-sub { font-size:13px; color:var(--muted); margin-top:2px; font-family:'DM Sans',sans-serif; }
+.wb-ex-body { padding:28px; }
+.wb-ex-body > p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:18px; }
+
+/* FIELDS */
+.wb-field label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-field textarea, .wb-field input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:var(--cream); resize:vertical; line-height:1.7; transition:border-color 0.2s; margin-bottom:18px; }
+.wb-field textarea { min-height:80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline:none; border-color:var(--gold-bright); background:white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+/* COACHING PROMPT */
+.wb-coaching { background:var(--purple-pale); border-left:3px solid var(--purple-light); border-radius:0 4px 4px 0; padding:18px 22px; margin:16px 0 20px; }
+.wb-coaching-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple-light); margin-bottom:8px; }
+.wb-coaching p { font-size:15px; font-weight:600; font-style:italic; color:var(--navy); margin:0 0 8px; line-height:1.6; }
+.wb-coaching p:last-child { margin-bottom:0; }
+.wb-coaching .dir { font-size:13px; color:var(--muted); font-style:normal; font-weight:400; margin-top:6px; }
+
+/* INSIGHT BAR */
+.wb-insight { background:var(--teal-pale); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-insight p { font-size:14px; color:var(--teal); line-height:1.7; margin:0; }
+.wb-insight strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+/* PULL QUOTE */
+.pull-quote { border-left:3px solid var(--gold-bright); padding:24px 32px; margin:28px 0; background:var(--gold-pale); font-family:'Playfair Display',serif; font-size:19px; line-height:1.6; color:var(--navy); font-style:italic; }
+
+/* ANALOGY BOX */
+.analogy-box { border:1.5px solid var(--gold-bright); background:var(--gold-pale); border-radius:2px; padding:28px 32px; margin:20px 0; }
+.analogy-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.analogy-box p { font-family:'Lora',serif; font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:10px; }
+.analogy-box p:last-child { margin-bottom:0; }
+
+/* GRID ROWS */
+.wb-row { display:grid; gap:14px; margin:14px 0 20px; }
+.wb-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns:1fr 1fr; }
+.wb-card { background:var(--cream); border:1.5px solid var(--border); border-radius:2px; padding:16px; }
+.wb-card-label { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-card textarea { width:100%; border:none; background:transparent; font-family:'Lora',serif; font-size:14px; color:var(--ink); resize:vertical; min-height:64px; line-height:1.6; padding:0; }
+.wb-card textarea:focus { outline:none; }
+.wb-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+
+/* CHECKLIST */
+.wb-check-list { list-style:none; }
+.wb-check-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--ink-light); line-height:1.6; }
+.wb-check-list li:last-child { border-bottom:none; }
+.wb-check-list input[type="checkbox"] { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; margin-top:2px; }
+
+/* STORY BOX */
+.story-box { background:var(--chapter-bg); border-left:4px solid var(--gold-bright); border-radius:0 4px 4px 0; padding:32px 36px; margin:28px 0; }
+.story-box-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.story-box p { color:rgba(255,255,255,0.82); font-size:15px; line-height:1.85; margin-bottom:14px; }
+.story-box p:last-child { margin-bottom:0; }
+
+/* PRESSURE TEST */
+.pressure-test { background:var(--red-pale); border:1.5px solid #c53030; border-radius:2px; padding:28px 32px; margin:20px 0; }
+.pressure-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:12px; }
+.pressure-test p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:14px; }
+.pressure-test p:last-child { margin-bottom:0; }
+
+/* KEY INSIGHTS */
+.key-insights { background:var(--navy-mid); border-radius:2px; padding:36px 44px; margin:28px 0; }
+.key-insights-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:20px; }
+.key-insights ul { list-style:none; }
+.key-insights ul li { color:rgba(255,255,255,0.8); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:15px; line-height:1.7; padding-left:20px; position:relative; }
+.key-insights ul li::before { content:'—'; position:absolute; left:0; color:var(--gold-bright); font-weight:700; }
+.key-insights ul li:last-child { border-bottom:none; }
+
+/* CONTRACT */
+.wb-contract { background:var(--navy); border-radius:2px; padding:44px; margin:36px 0; border:2px solid var(--gold-bright); }
+.wb-contract-badge { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px; }
+.wb-contract h3 { font-family:'Playfair Display',serif; color:white; font-size:30px; font-weight:900; margin-bottom:10px; }
+.wb-contract > p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:28px; font-style:italic; }
+.wb-contract label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+.wb-contract textarea, .wb-contract input[type="text"] { width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:20px; }
+.wb-contract textarea { min-height:72px; }
+.wb-contract textarea:focus, .wb-contract input:focus { outline:none; border-color:var(--gold-bright); }
+.wb-contract textarea::placeholder, .wb-contract input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.wb-sig { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+
+/* FINAL BLOCK */
+.final-block { background:var(--gold-pale); border:1.5px solid var(--gold-bright); border-radius:2px; padding:36px; margin:36px 0; }
+.final-block h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin-bottom:16px; }
+.final-block p { font-size:15px; color:var(--ink-light); line-height:1.85; margin-bottom:14px; }
+.final-block textarea { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:white; resize:vertical; min-height:90px; line-height:1.7; margin-top:8px; }
+.final-block textarea:focus { outline:none; border-color:var(--gold-bright); }
+.final-block textarea::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+/* FOOTER */
+.book-footer { background:var(--chapter-bg); padding:52px 40px; text-align:center; }
+.book-footer .logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold-light); letter-spacing:2px; margin-bottom:8px; }
+.book-footer .tagline { color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.book-footer p { color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif; font-size:12px; line-height:1.7; }
+
+@media (max-width:700px) {
+  .cover-content { grid-template-columns:1fr; } .cover-right { display:none; }
+  .cover-inner { padding:60px 28px 40px; } .wb-body { padding:40px 20px 60px; }
+  .wb-part { margin:0 0 40px; padding:28px 24px; }
+  .wb-row-3, .wb-row-2 { grid-template-columns:1fr; }
+  .wb-sig { grid-template-columns:1fr; } .wb-contract { padding:28px 24px; }
+  .workbook-meta { flex-wrap:wrap; gap:24px; } .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 48 Worksheet</strong></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div>
+        <span class="cover-eyebrow">Episode 48 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">The<br><span class="accent">Return</span></h1>
+        <p class="cover-subtitle">The complete written coaching session for uncovering your giving filter, tracing where it came from, and building generosity as the operating system of your life — not a conditional add-on to it.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-name">Manuel C. Chinyereuba</div>
+        <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+        <div class="workbook-meta">
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Parts</span></div>
+          <div class="workbook-stat"><span class="num">9</span><span class="lbl">Exercises</span></div>
+          <div class="workbook-stat"><span class="num">3</span><span class="lbl">Moves</span></div>
+          <div class="workbook-stat"><span class="num">1</span><span class="lbl">Commitment</span></div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-ghost">48</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is not a reflection exercise to be skimmed. It is the active coaching session that the episode prepared you for. Four parts. Nine exercises. One commitment. Designed to be completed in a single sitting — with full attention, without interruption, and with the same quality of honesty my wife brought to a rainy afternoon when she had every reason to stay inside.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The parts move in sequence. Do not skip ahead. The practical moves in Part Three will only carry full weight if you have done the honest excavation of Parts One and Two. The filter cannot be removed until it has been named — and it cannot be named until you have looked at it directly.</p>
+  <p style="color:var(--ink-light);">Write what is actually true. Not what sounds like the right answer. Not what you would say in a coaching session with someone watching. The honest answer is the only one that does the work.</p>
+  <div class="key-insights" style="margin-top:36px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the precise filter you have been running on your generosity, and the language it uses every time a giving moment arrives</li>
+      <li>Something <strong>traced</strong> — the origin experience that first taught you that giving came with a cost, a risk, or a vulnerability</li>
+      <li>Something <strong>separated</strong> — a clear distinction between the inherited rule protecting you and your actual capacity and desire to give</li>
+      <li>Something <strong>committed</strong> — the one specific act of unconditional giving you will complete before this week ends</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PART ONE -->
+<div class="wb-body" id="part1">
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — The Filter You Have Built Around Your Giving</h3>
+    <p>Before you can remove the giving filter, you need to see it clearly — how it operates, what it sounds like, and the specific moment it fires in your daily life. Part One builds that picture honestly.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Last Giving Moment — Named Precisely</div>
+        <div class="wb-ex-sub">What you actually did the last time you had the opportunity to give without a guaranteed return.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Think about the last time someone in your world needed something you could have given. Not a large gesture. A small one — your time, your expertise, a word, a connection, an act. Someone who needed something you had. Not a stranger on another continent. Someone in your daily orbit.</p>
+
+      <div class="story-box">
+        <div class="story-box-label">📦 The Story — Hold This</div>
+        <p>She noticed a delivery in the postbox that was not hers. It was raining. The person who needed it lived on the other side of the building. There was no obligation, no relationship, no visible upside. She had every reason — practical, reasonable, defensible — to leave it where it was.</p>
+        <p>She picked it up and walked across in the rain. At the exact spot where she chose to give, life handed her what she had been waiting weeks to receive. The delivery driver who could not find our address was standing at the door of the building she had walked to for someone else.</p>
+        <p>The neighbour who watched the whole thing said: "You didn't have to go. But you did. And look at where you got your own package — right at the very spot where you went to deliver someone else's."</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about the last time a giving opportunity arrived in your life. Not what you would do in theory. What you actually did. And if you pulled back — if you calculated, hesitated, or decided today was not the day — what was the reason you gave yourself?</p>
+        <p class="dir">Not what sounds reasonable now. The actual reason, as it appeared in the moment. Write that first.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Giving Opportunity — What Was It, and Who Was It For?</label>
+        <textarea rows="3" placeholder="The specific situation. What the person needed. What you had that could have helped. Named concretely — not 'someone needed support' but what kind, for what, and from you specifically..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>What You Actually Did — And the Reason You Gave Yourself</label>
+        <textarea rows="3" placeholder="Not the polished version. What happened — and if you pulled back, the exact reason the filter produced. 'Too busy.' 'Not my place.' 'Not sure it would help.' 'Did not want to overstep.' Write the actual words of the reason..."></textarea>
+      </div>
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>The reason you just wrote is not the truth about your generosity. It is the language of the filter. The filter always has a reason. The work of this session is learning to recognise the filter's voice — because the filter always sounds reasonable.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Filter Audit — Finding the Pattern</div>
+        <div class="wb-ex-sub">The reasons your giving filter has been using — and how often they have fired without you noticing.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The giving filter does not fire once. It fires every day, in small and large moments, often so quickly you do not notice it as a decision at all. This exercise slows it down and makes the pattern visible.</p>
+
+      <div class="analogy-box">
+        <div class="analogy-label">📮 The Postbox Principle — Hold This</div>
+        <p>Think about a physical postbox at the end of a street. If you stand at that postbox and refuse to put anything in it — because you are not sure the letter will arrive, because the person might not write back, because you are calculating whether the stamp is worth the investment — you will also never receive anything from it.</p>
+        <p>Not because the postbox is punishing you. But because the act of giving is what keeps you in relationship with the system. Generosity works exactly the same way. The filter that protects you from the cost of giving also removes you from the flow of life that returns things in forms you never could have planned.</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about the last week. How many times did a giving moment arrive — and the filter fired before you had consciously decided anything? A colleague who looked stuck. A neighbour who needed something. A person in your network you thought of reaching out to. A moment where you had something to give and the filter said "not now" or "not today" or "not my place."</p>
+        <p class="dir">This is not about guilt. This is data. Name what you find.</p>
+      </div>
+
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">Moment One</div>
+          <textarea placeholder="The situation. What the filter said. What you did instead..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Moment Two</div>
+          <textarea placeholder="The situation. What the filter said. What you did instead..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Moment Three</div>
+          <textarea placeholder="The situation. What the filter said. What you did instead..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field">
+        <label>The Pattern — What the Filter's Reasons Have in Common</label>
+        <textarea rows="3" placeholder="Looking at the three moments above — what do the reasons have in common? Is it uncertainty about the outcome? Fear of being taken advantage of? Not wanting to appear to overstep? A protection of time or energy? Name the pattern underneath the specific reasons..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>What the Filter Has Been Protecting — Named Honestly</label>
+        <textarea rows="3" placeholder="Not what the filter says it is protecting. What it is actually protecting. Your time? Your dignity? A wound from a previous giving experience that did not end well? Your energy? Your image? Write what the filter is actually guarding..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Evidence of Return — What Giving Has Already Produced</div>
+        <div class="wb-ex-sub">The proof already in your own history that generosity without agenda has returned something real to you.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Before we trace where the filter came from, we need to catalogue the counter-evidence — the moments in your own life where giving without calculation produced something you did not expect. Not as theory. As documented fact from your own history.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about a time you gave without expecting a return — and something came back. Not from the person you gave to. Something that arrived in a form you did not plan for. A connection. An opportunity. A relationship. A door that opened at the exact place where you had stopped to help someone else.</p>
+        <p class="dir">This evidence already exists. Most of us simply have not catalogued it. We do not count the returns on generosity the way we count the costs of it. Name what you find — even one example is enough to begin with.</p>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">The Act of Giving — What Was It?</div>
+          <textarea placeholder="What you gave. To whom. What it cost you in time, energy, or resource. Named concretely..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What Came Back — In What Form?</div>
+          <textarea placeholder="What returned. In what form — a connection, an opportunity, a relationship, a door opening at the right moment. Not what you hoped. What actually happened..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field">
+        <label>A Second Example — If One Exists in Your History</label>
+        <textarea rows="3" placeholder="A second moment where giving without a calculated return produced something unexpected. Even a small one counts. The pattern matters more than the scale..."></textarea>
+      </div>
+
+      <div class="pull-quote">"We may never know where the blessings, happiness and joy we require in our lives are out there — if only we can take that step of kindness despite all."</div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>The examples you just named are not coincidences. They are signals. They are showing you something about what kind of life becomes available when generosity stops being conditional — when it moves from something you do when circumstances allow to something you live from by default.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART TWO -->
+<div class="wb-body" id="part2">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — Tracing the Filter to Where It Actually Came From</h3>
+    <p>The giving filter was not a conscious decision. It was built from experience — a moment, an environment, or a season in your life where generosity cost you something significant. Part Two traces that origin. Not to assign blame. To understand why the filter was built — so you can decide whether it still serves you.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">4</div>
+      <div>
+        <div class="wb-ex-title">The Origin — When Giving First Felt Dangerous</div>
+        <div class="wb-ex-sub">Tracing the moment the filter was built — and the wound it has been protecting ever since.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Almost no one decides consciously to stop being generous. What happens instead is subtler. You give and get burned. You extend yourself and are taken advantage of. You help and it is used against you. You watch someone generous get exploited and decide quietly — without a formal announcement — that this is not going to be you. The filter builds gradually and then runs silently, long after the original situation has passed.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>When did you first learn that giving came with a cost? Not in those words. Not with a label. But when did you first absorb the lesson — through an experience, an environment, or a person — that leading with generosity put something at risk?</p>
+        <p class="dir">This may be a moment from years ago. It may be more recent. It may not be dramatic — sometimes the lessons that shape the filter most deeply are the quiet ones, the ones that accumulated rather than happened once. What comes up when you sit with that question honestly?</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Experience or Season — What Happened?</label>
+        <textarea rows="4" placeholder="Not the full history. The specific moment or season where giving first felt like it carried a cost or a risk. What happened? Who was involved? What did you give — and what did it cost you in a way that surprised or hurt you?..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>The Rule the Filter Built From That Experience</label>
+        <textarea rows="3" placeholder="Not in formal language. The operational rule the filter drew from what happened. 'When I give freely, people take advantage.' 'Generosity signals weakness.' 'I have to protect my time or there will be nothing left.' 'Giving too much means ending up with too little.' Write the rule in its actual working language..."></textarea>
+      </div>
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>The rule made sense when it was written. It was a rational response to a real experience. The question this session is asking is not whether the rule was justified then — it was. The question is whether it still accurately describes the world you are operating in now, and the people around you today.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">5</div>
+      <div>
+        <div class="wb-ex-title">The Gap Between the Rule and the Evidence</div>
+        <div class="wb-ex-sub">How well the filter's rule holds up against what you have actually observed.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The filter's rule was written about specific circumstances. But it has been applied across every circumstance since — regardless of how different those circumstances are from the original experience. This exercise checks how well the rule actually fits the situations you are applying it to today.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Think about the people and situations where the filter is currently active — the ones where you are withholding something you could give. How similar are those people and situations to the original experience that wrote the rule?</p>
+        <p class="dir">Not "are there any similarities" — that question is always answered yes. But how comparable are they, really? What is the same, and what is genuinely different? Write both sides honestly.</p>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">What Is Genuinely Similar</div>
+          <textarea placeholder="The real similarities between the original experience and the situations the filter is currently active in. Named fairly — not to protect the filter, but to give it its honest due..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What Is Genuinely Different</div>
+          <textarea placeholder="The real differences. The ways in which today's situations and people are not the same as the one that wrote the rule. Named with equal honesty — this is where the filter is most likely to be over-applying..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field">
+        <label>Where the Rule Is Currently Over-Applied — Named Specifically</label>
+        <textarea rows="3" placeholder="One or two specific situations where the filter is operating on a rule that was not written for this kind of situation or this kind of person. Where is the filter protecting you from a cost that is no longer real — or never was real in this context?..."></textarea>
+      </div>
+
+      <div class="pull-quote">"The filter protects you from a cost that is often not even real. And in doing so, it costs you the return."</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART THREE -->
+<div class="wb-body" id="part3">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — When the Filter Fights Back</h3>
+    <p>Removing the condition from your giving is not a single decision. The filter will resurface at specific trigger points — especially when you are tired, when the conditions are inconvenient, when you have been giving and not seen any return. Part Three prepares you for those moments.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — When the Conditions Are All Wrong</div>
+        <div class="wb-ex-sub">When it is raining, when you are tired, when there is no visible upside.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>It is not a good day. You are stretched. A giving opportunity arrives — small but real. The conditions make it genuinely inconvenient. It will cost you something — time, energy, comfort, or ease. There is no visible economic return. There is no relationship obligation. There is no one watching. And the filter has a perfectly reasonable case for staying inside.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What the Filter Will Say — In Its Exact Language</label>
+        <textarea rows="3" placeholder="The specific argument the filter will produce in that moment. Not the abstract version. The actual sentences. 'I don't have time for this today.' 'Someone else can deal with it.' 'It's not my responsibility.' 'I'll do something kind when things are calmer.' Write the filter's case in its own words..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>What Choosing Anyway Would Look Like — Specifically</label>
+        <textarea rows="3" placeholder="Not 'be more generous.' The specific action. What does it look like to move toward the giving moment despite the conditions? What does 'choosing the rain' look like in this exact scenario?..."></textarea>
+      </div>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>My wife went out in the rain because a package had the wrong postbox and she knew the right one. The act of going was not extraordinary. The willingness to go — when the weather made a reasonable case for staying inside — was. What is your equivalent of that decision?</p>
+      </div>
+      <div class="wb-field">
+        <label>The One Question I Will Ask Myself Before Letting the Filter Win in an Inconvenient Moment</label>
+        <textarea rows="2" placeholder="One precise question that interrupts the filter's case in the moment — not in reflection, but in real time when the conditions are all wrong. Written here so it is ready..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — When You Have Given and Seen No Return</div>
+        <div class="wb-ex-sub">When the filter is building its case from what has not come back.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="pressure-test">
+        <div class="pressure-label">⚡ Pressure Test Scenario</div>
+        <p>You have been generous. You have given your time, your expertise, your connections, your energy. And you have watched other people receive things that feel like they should have found their way to you. The return has not appeared in the form or the timeframe you expected. The filter is now building a case: the evidence is in — generosity does not pay off.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What the Filter Has Been Telling You — About What the Absence of Return Means</label>
+        <textarea rows="3" placeholder="The specific conclusion the filter has been drawing from the gap between what you have given and what has come back. Written in its own language, not softened..."></textarea>
+      </div>
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>The neighbour did not know — and my wife did not know — that the delivery driver was standing at that door. The return was not visible until she arrived. It could not have been planned for or predicted. What returns to you from generosity are almost never the ones you were looking for, in the timeframe you expected them, or from the person you gave to. What would change about how you interpret the current absence of return if you held that as true?</p>
+        <p class="dir">Not as a comfort. As a genuine shift in how you are reading the evidence.</p>
+      </div>
+      <div class="wb-field">
+        <label>How I Would Interpret the Current Absence of Return If the Return Never Comes From Where I Gave</label>
+        <textarea rows="3" placeholder="What changes about the filter's conclusion if the return is almost always unexpected in form and in timing? How does that reframe what the absence of visible return actually means about the giving?..."></textarea>
+      </div>
+      <div class="wb-field">
+        <label>The Evidence the Filter Is Not Counting — The Returns That Have Already Come in Unexpected Forms</label>
+        <textarea rows="3" placeholder="Looking back at the examples from Exercise 3 — the returns that came in forms you did not expect, from places you did not give to. What is the filter discounting when it builds its case from what hasn't come back?..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART FOUR -->
+<div class="wb-body" id="part4">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — The Structure That Makes Generosity Durable</h3>
+    <p>Removing the condition from your giving is not a single decision. It is a daily practice — a consistent return to the posture of giving before the filter has had time to build its case. Part Four builds the structure that makes that practice durable rather than temporary.</p>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">8</div>
+      <div>
+        <div class="wb-ex-title">The 30-Day Giving Practice</div>
+        <div class="wb-ex-sub">The daily structure that presses the new posture down one act at a time.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The posture of generosity becomes durable through consistent, daily return — not through a single powerful insight. My wife did not decide once to be a generous person and then execute perfectly from that day forward. She lived it, repeatedly, in small moments, until it became the natural first response rather than a considered override of the filter.</p>
+
+      <ul class="wb-check-list">
+        <li><input type="checkbox"><span><strong>Today — Before You Close This Worksheet:</strong> Complete the commitment contract below. Name the one act of unconditional giving you will take before this week ends, and write it down with a specific day and a specific person or situation. Do not defer this to tomorrow.</span></li>
+        <li><input type="checkbox"><span><strong>Every Morning for 30 Days:</strong> Before you check your phone, ask one question: "Who can I show kindness to today, and how?" Not a grand gesture — a specific, small, real act. Name it. This primes the giving posture before the day's filter opportunities arrive.</span></li>
+        <li><input type="checkbox"><span><strong>Every Evening for 30 Days:</strong> Name one act of giving from the day — however small. A word, an introduction, a moment of time given freely. The act of recognising what you gave each day trains the brain to see giving as a feature of your life rather than an exception to it.</span></li>
+        <li><input type="checkbox"><span><strong>Within 7 Days:</strong> Share the postbox story with one other person — not as a feel-good forward, but directly: "I heard this and it made me think about how I've been operating." External articulation makes the shift real in a way that private reflection alone does not.</span></li>
+        <li><input type="checkbox"><span><strong>Day 14:</strong> Return to Exercise 2 (The Filter Audit). Run it again on the previous two weeks. Has the filter fired less? Has the pattern changed? What new moments of giving have appeared that the filter would have prevented before this session?</span></li>
+        <li><input type="checkbox"><span><strong>Day 30:</strong> Return to Exercise 3 (The Evidence of Return). Add any new examples from the 30 days. Is the list longer? Is the pattern clearer? What has come back in the month since you removed the condition — in forms you did not expect?</span></li>
+      </ul>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea rows="2" placeholder="Not a vague intention. A specific name and a specific method — message, call, or conversation — that I will initiate within seven days to share what this session produced..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 9 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Gap Action — The First Unconditional Act</div>
+        <div class="wb-ex-sub">The specific giving act that belongs to the new posture — taken before the filter has time to produce a reason not to.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>My wife did not think about whether to go. She just went. The first act of giving from the new posture is not something to schedule for a convenient future moment — it is the natural next step from this session. This exercise names it with enough specificity that it cannot be deferred.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the one act of giving the filter has been preventing, deferring, or conditioning on circumstances that you know could go out this week — unconditionally, without calculating the return, regardless of the weather? The one that, if you did it with no agenda and no guarantee, would change something about how you show up in your world?</p>
+        <p class="dir">Not the category. The specific act. The specific person or situation. Named precisely enough that it cannot be turned into a vague intention.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Act — What It Is, and Who It Is For</label>
+        <textarea rows="3" placeholder="Not 'be more generous.' The specific act. What you will give. To whom. In what form. Named concretely enough that it cannot be confused with a good intention..."></textarea>
+      </div>
+
+      <div class="wb-row wb-row-3">
+        <div class="wb-card">
+          <div class="wb-card-label">The Day</div>
+          <textarea placeholder="Specific date — not 'this week'..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What the Filter Will Say</div>
+          <textarea placeholder="The specific objection the filter will produce between now and then. Named in advance so it cannot catch you off guard..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What I Will Do Anyway</div>
+          <textarea placeholder="The action that follows despite the filter's objection. Written as a commitment, not a hope..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Choose the Rain</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is the formal moment the posture of generosity stops being an insight and starts being the way you operate.</p>
+
+    <label>The Filter Rule I Am Releasing — In Its Exact Working Language</label>
+    <textarea rows="2" placeholder="The specific operational rule the filter has been running. Written here in its own language — not the softened version, the real one — so it can be seen directly, named completely, and no longer operated from silently..."></textarea>
+
+    <label>Why This Rule Is No Longer Accurate — Based on the Evidence</label>
+    <textarea placeholder="Not because I should be generous — because the evidence of my own life does not support the rule's conclusion. The returns in Exercise 3. The over-application in Exercise 5. The specific ways the original experience is no longer the context I am operating in. Named here as the factual case against the filter, not as positive thinking..."></textarea>
+
+    <label>The Posture I Am Choosing Instead — Named as an Operating System, Not a Goal</label>
+    <textarea rows="2" placeholder="Not 'I will try to be more generous.' The specific posture — the daily question I will ask, the default move I will make when a giving moment arrives before the filter has built its case. Written here as a commitment to how I will operate, not what I aspire to..."></textarea>
+
+    <label>The First Unconditional Act — From Exercise 9</label>
+    <textarea placeholder="Named here as a commitment. The specific act, the specific person or situation, the specific day. No conditions attached. No return expected. Taken regardless of the weather..."></textarea>
+
+    <label>What I Am Making Possible — By Removing the Condition From My Giving</label>
+    <textarea rows="2" placeholder="Not what I hope might happen. What I know becomes possible when the filter stops running — in my business, my relationships, my career, my community. The specific form of Living in Full Expression that generosity as an operating system unlocks for me..."></textarea>
+
+    <div class="wb-sig">
+      <div><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div><label>Date</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>She went out in the rain. The package was not hers. The person who needed it lived on the other side of the building. There was no obligation, no relationship, no visible upside. She had every reason to leave it and every reason not to go.</p>
+    <p>And at the exact spot where she chose to give — in the rain, in the inconvenience, with no calculation of what it would produce — life handed her what she had been waiting weeks to receive. Not from the person she gave to. From a delivery driver who was about to give up, standing at the door of the very building she had walked to for someone else.</p>
+    <p>That is not magic. That is not luck. That is what happens when generosity stops being a conditional feature of your life and becomes the operating system. When you stop asking "what do I get?" and start asking "what can I give?" — not as a philosophy, but as a daily, inconvenient, rain-or-shine practice — life keeps putting you in the right place at the right time, in ways you never could have planned for.</p>
+    <p>The filter you identified in this session was built for a reason. It protected something real. But it has been running long past the circumstances that wrote it, in situations it was not designed for, costing you returns it could not let you see. You have named it now. You have traced it. You know what it has been protecting and where it has been over-applied.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know about your own generosity that you did not know when you opened it.</p>
+    <textarea placeholder="The thing I now know — that cannot be unfelt, that has shifted something in how I see every giving moment from this point forward. Not the insight I think I should have. The one that actually moved something..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The filter can be released. The posture can be rebuilt. The giving that goes out unconditionally — in the rain, in the inconvenience, without a guaranteed return — finds its way back in forms that no calculation could have produced. My wife proved it with a package. Our neighbour named it on a rainy afternoon. Now it is your turn.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">Choose the rain. Every day.<br>Live in full expression.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>The Return — Episode 48 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only.</p>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var t=document.body.scrollHeight-window.innerHeight;
+  var p=t>0?(window.scrollY/t)*100:0;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=p+'%';
+});
+document.querySelectorAll('textarea').forEach(function(ta){
+  ta.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=(this.scrollHeight+2)+'px';
+  });
+});
+</script>
+</body>
+</html>
