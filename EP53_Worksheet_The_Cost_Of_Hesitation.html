@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Hesitation — Episode 53 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f2240; --navy-mid:#1a365d; --navy-light:#2c5282;
+  --gold:#b8860b; --gold-bright:#d4a017; --gold-light:#f6ad55; --gold-pale:#fef9ee;
+  --teal:#1a6b61; --teal-light:#2d9b8f; --teal-pale:#e8f7f5;
+  --cream:#faf7f2; --warm-white:#fffef9;
+  --ink:#1c1c2e; --ink-light:#2d3748; --muted:#5a6275; --border:#e5ddd0;
+  --red:#8b1a2a; --red-pale:#fdf0ef;
+  --purple:#3d1a6b; --purple-light:#6b3a9e; --purple-pale:#f3eeff;
+  --chapter-bg:#0a1628;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Lora',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.9; font-size:17px; }
+@media print { .no-print{display:none!important;} body{font-size:12pt;background:white;} p{orphans:3;widows:3;} }
+
+.book-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); padding:0 30px; height:52px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,160,23,0.2); }
+.nav-brand { font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.6); font-weight:400; }
+.nav-brand strong { color:var(--gold-light); font-weight:600; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:11px; font-weight:500; letter-spacing:0.5px; padding:6px 10px; font-family:'DM Sans',sans-serif; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-light); }
+.btn-nav { background:linear-gradient(135deg,var(--gold-bright),#c8900a); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+.progress-bar { position:fixed; top:52px; left:0; right:0; height:2px; background:rgba(255,255,255,0.05); z-index:999; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); width:0%; transition:width 0.2s; }
+
+.cover-page { min-height:100vh; background:var(--chapter-bg); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-texture { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 75% 40%,rgba(184,134,11,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 70%,rgba(26,107,97,0.06) 0%,transparent 60%); pointer-events:none; }
+.cover-inner { position:relative; z-index:2; display:flex; flex-direction:column; min-height:100vh; padding:80px 60px 60px; }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+.cover-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(212,160,23,0.35); padding:8px 18px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-light); font-weight:600; }
+.cover-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-top:60px; }
+.cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); font-weight:600; margin-bottom:24px; display:block; }
+.cover-title { font-family:'Playfair Display',serif; font-size:clamp(30px,4.5vw,50px); line-height:1.1; font-weight:900; margin-bottom:20px; color:white; }
+.cover-title .accent { color:var(--gold-light); font-style:italic; display:block; }
+.cover-subtitle { font-family:'Lora',serif; font-size:15px; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:36px; font-style:italic; }
+.cover-divider { width:50px; height:2px; background:var(--gold-bright); margin-bottom:28px; }
+.cover-author-name { font-family:'DM Sans',sans-serif; font-size:15px; color:white; font-weight:600; }
+.cover-author-title { font-family:'DM Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.cover-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:28px; }
+.cover-ghost { font-family:'Playfair Display',serif; font-size:clamp(80px,13vw,160px); font-weight:900; color:rgba(255,255,255,0.03); line-height:1; letter-spacing:-4px; }
+.cover-series { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:right; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+.cover-tagline { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:1.5px; text-transform:uppercase; }
+.workbook-meta { display:flex; gap:40px; align-items:center; margin-top:36px; }
+.workbook-stat .num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold-light); display:block; }
+.workbook-stat .lbl { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; }
+
+.wb-body { max-width:760px; margin:0 auto; padding:60px 40px 80px; }
+
+.wb-part { background:var(--navy-mid); color:white; padding:36px 44px; margin:0 -20px 40px; position:relative; }
+.wb-part::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); }
+.wb-part-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.wb-part h3 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:10px; }
+.wb-part p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; }
+
+.wb-ex { background:white; border:1px solid var(--border); border-radius:2px; margin-bottom:28px; overflow:hidden; box-shadow:0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display:flex; align-items:center; gap:18px; padding:22px 28px; background:var(--cream); border-bottom:1px solid var(--border); }
+.wb-ex-num { width:40px; height:40px; border-radius:50%; background:var(--navy-mid); color:white; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; font-weight:700; flex-shrink:0; }
+.wb-ex-num.gold { background:var(--gold); color:var(--navy); }
+.wb-ex-num.teal { background:var(--teal); }
+.wb-ex-num.red { background:var(--red); }
+.wb-ex-num.purple { background:var(--purple); }
+.wb-ex-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+.wb-ex-sub { font-size:13px; color:var(--muted); margin-top:2px; font-family:'DM Sans',sans-serif; }
+.wb-ex-body { padding:28px; }
+.wb-ex-body > p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:18px; }
+
+.wb-field label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-field textarea, .wb-field input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:var(--cream); resize:vertical; line-height:1.7; transition:border-color 0.2s; margin-bottom:18px; }
+.wb-field textarea { min-height:80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline:none; border-color:var(--gold-bright); background:white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.wb-coaching { background:var(--purple-pale); border-left:3px solid var(--purple-light); border-radius:0 4px 4px 0; padding:18px 22px; margin:16px 0 20px; }
+.wb-coaching-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple-light); margin-bottom:8px; }
+.wb-coaching p { font-size:15px; font-weight:600; font-style:italic; color:var(--navy); margin:0 0 8px; line-height:1.6; }
+.wb-coaching p:last-child { margin-bottom:0; }
+.wb-coaching .dir { font-size:13px; color:var(--muted); font-style:normal; font-weight:400; margin-top:6px; }
+
+.wb-insight { background:var(--teal-pale); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-insight p { font-size:14px; color:var(--teal); line-height:1.7; margin:0; }
+.wb-insight strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.wb-warning { background:var(--red-pale); border-left:3px solid var(--red); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-warning p { font-size:14px; color:var(--red); line-height:1.7; margin:0; }
+.wb-warning strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.pull-quote { border-left:3px solid var(--gold-bright); padding:24px 32px; margin:28px 0; background:var(--gold-pale); font-family:'Playfair Display',serif; font-size:19px; line-height:1.6; color:var(--navy); font-style:italic; }
+
+.analogy-box { border:1.5px solid var(--gold-bright); background:var(--gold-pale); border-radius:2px; padding:28px 32px; margin:20px 0; }
+.analogy-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.analogy-box p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:10px; }
+.analogy-box p:last-child { margin-bottom:0; }
+
+.story-box { background:var(--chapter-bg); border-left:4px solid var(--gold-bright); border-radius:0 4px 4px 0; padding:32px 36px; margin:20px 0; }
+.story-box-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.story-box p { color:rgba(255,255,255,0.82); font-size:15px; line-height:1.85; margin-bottom:14px; }
+.story-box p:last-child { margin-bottom:0; }
+
+.wb-row { display:grid; gap:14px; margin:14px 0 20px; }
+.wb-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns:1fr 1fr; }
+.wb-card { background:var(--cream); border:1.5px solid var(--border); border-radius:2px; padding:16px; }
+.wb-card-label { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-card textarea { width:100%; border:none; background:transparent; font-family:'Lora',serif; font-size:14px; color:var(--ink); resize:vertical; min-height:72px; line-height:1.6; padding:0; }
+.wb-card textarea:focus { outline:none; }
+.wb-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+
+.wb-check-list { list-style:none; }
+.wb-check-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--ink-light); line-height:1.6; }
+.wb-check-list li:last-child { border-bottom:none; }
+.wb-check-list input[type="checkbox"] { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; margin-top:2px; }
+
+.key-insights { background:var(--navy-mid); border-radius:2px; padding:32px 40px; margin:20px 0; }
+.key-insights-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:16px; }
+.key-insights ul { list-style:none; }
+.key-insights ul li { color:rgba(255,255,255,0.8); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:14px; line-height:1.7; padding-left:20px; position:relative; }
+.key-insights ul li::before { content:'—'; position:absolute; left:0; color:var(--gold-bright); font-weight:700; }
+.key-insights ul li:last-child { border-bottom:none; }
+
+.purpose-builder { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); border-radius:2px; padding:32px 36px; margin:20px 0; border:1px solid rgba(212,160,23,0.2); }
+.purpose-builder-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.purpose-builder h4 { font-family:'Playfair Display',serif; font-size:20px; color:white; margin-bottom:18px; }
+.purpose-statement-preview { background:rgba(255,255,255,0.04); border:1px dashed rgba(212,160,23,0.4); border-radius:2px; padding:20px 22px; margin-top:8px; }
+.purpose-statement-preview p { font-family:'Playfair Display',serif; font-size:16px; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.7; }
+
+.scenario-card { background:var(--purple-pale); border:1.5px solid var(--purple-light); border-radius:2px; padding:24px 28px; margin:16px 0 20px; }
+.scenario-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); margin-bottom:10px; }
+.scenario-card p { font-size:15px; color:var(--ink-light); line-height:1.8; margin-bottom:0; }
+
+.branch-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 20px; }
+.branch-card { border-radius:2px; padding:22px 24px; }
+.branch-card.fear { background:var(--red-pale); border:1.5px solid var(--red); }
+.branch-card.clarity { background:var(--teal-pale); border:1.5px solid var(--teal); }
+.branch-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
+.branch-card.fear .branch-label { color:var(--red); }
+.branch-card.clarity .branch-label { color:var(--teal); }
+.branch-card textarea { width:100%; border:1.5px solid rgba(0,0,0,0.1); border-radius:2px; padding:12px 14px; font-family:'Lora',serif; font-size:14px; background:white; resize:vertical; min-height:80px; line-height:1.65; }
+.branch-card textarea:focus { outline:none; border-color:var(--gold-bright); }
+.branch-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+
+.wb-contract { background:var(--navy); border-radius:2px; padding:44px; margin:36px 0; border:2px solid var(--gold-bright); }
+.wb-contract-badge { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px; }
+.wb-contract h3 { font-family:'Playfair Display',serif; color:white; font-size:30px; font-weight:900; margin-bottom:10px; }
+.wb-contract > p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:28px; font-style:italic; }
+.wb-contract label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+.wb-contract textarea, .wb-contract input[type="text"] { width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:20px; }
+.wb-contract textarea { min-height:72px; }
+.wb-contract textarea:focus, .wb-contract input:focus { outline:none; border-color:var(--gold-bright); }
+.wb-contract textarea::placeholder, .wb-contract input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.wb-sig { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+
+.final-block { background:var(--gold-pale); border:1.5px solid var(--gold-bright); border-radius:2px; padding:36px; margin:36px 0; }
+.final-block h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin-bottom:16px; }
+.final-block p { font-size:15px; color:var(--ink-light); line-height:1.85; margin-bottom:14px; }
+.final-block textarea { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:white; resize:vertical; min-height:90px; line-height:1.7; margin-top:8px; }
+.final-block textarea:focus { outline:none; border-color:var(--gold-bright); }
+.final-block textarea::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.book-footer { background:var(--chapter-bg); padding:52px 40px; text-align:center; }
+.book-footer .logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold-light); letter-spacing:2px; margin-bottom:8px; }
+.book-footer .tagline { color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.book-footer p { color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif; font-size:12px; line-height:1.7; }
+
+@media(max-width:700px) {
+  .cover-content{grid-template-columns:1fr;} .cover-right{display:none;}
+  .cover-inner{padding:60px 28px 40px;} .wb-body{padding:40px 20px 60px;}
+  .wb-part{margin:0 0 40px;padding:28px 24px;}
+  .wb-row-3,.wb-row-2,.branch-row{grid-template-columns:1fr;}
+  .wb-sig{grid-template-columns:1fr;} .wb-contract{padding:28px 24px;}
+  .workbook-meta{flex-wrap:wrap;gap:24px;} .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 53 Worksheet</strong></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div>
+        <span class="cover-eyebrow">Episode 53 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">The Cost of<br><span class="accent">Hesitation</span></h1>
+        <p class="cover-subtitle">Your complete audit of the "someday" that's been decaying — and the honest way to tell fear apart from genuine uncertainty.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-name">Manuel C. Chinyereuba</div>
+        <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+        <div class="workbook-meta">
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Parts</span></div>
+          <div class="workbook-stat"><span class="num">9</span><span class="lbl">Exercises</span></div>
+          <div class="workbook-stat"><span class="num">2</span><span class="lbl">Paths</span></div>
+          <div class="workbook-stat"><span class="num">7</span><span class="lbl">Day Window</span></div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-ghost">53</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- OPENING -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is the coaching session the episode prepared you for — in written form, with room to go further than a single listening allows. Four parts. Nine exercises. One honest diagnosis, and one small step, taken by the end of it.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">This worksheet is built differently from a straight line. From Part Two onward, it branches into two paths, fear and genuine uncertainty, because they are not the same problem. Read both branches before choosing. Many people find they are further down one path than they expected.</p>
+  <p style="color:var(--ink-light);margin-bottom:30px;">Write what is actually true, not the version that sounds more decisive. If you're genuinely unsure whether this is even the right thing, that is not a lesser answer than fear. It deserves just as much care, and a different next step.</p>
+
+  <div class="analogy-box">
+    <div class="analogy-label">🍇 Rotting on the Vine — Hold This Throughout</div>
+    <p>Fruit doesn't wait for perfect weather to ripen. It reaches its moment, and it must be picked, or it begins to rot right there on the branch, not because anything went wrong, but because time did not pause for the picking to feel convenient.</p>
+    <p>The best time to plant a tree was twenty years ago. The second best time is today. This worksheet is how you find out exactly which "someday" you've been letting rot, and what to do about it starting now.</p>
+  </div>
+
+  <div class="key-insights" style="margin-top:28px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the specific "someday" you've been carrying, and how long it's actually been sitting there</li>
+      <li>Something <strong>diagnosed</strong> — an honest distinction between fear-based hesitation and genuine, clarity-seeking uncertainty</li>
+      <li>Something <strong>separated</strong> — starting badly from failing permanently, and endless research from real evidence</li>
+      <li>Something <strong>committed</strong> — one small, real step or experiment, with a deadline, taken within the next seven days</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== PART ONE ==================== -->
+<div class="wb-body" id="part1">
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — Naming What's Been Decaying</h3>
+    <p>Before you can act, you need to see clearly what you've been postponing, how long it's been sitting there, and which kind of hesitation is actually keeping it in place.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Someday Audit</div>
+        <div class="wb-ex-sub">Naming the specific intention, and how long it's actually been decaying.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This exercise begins with an honest inventory. Not the version that makes the delay sound reasonable. The real one.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the "someday" you have been carrying, the thing you've already decided, somewhere inside, that you want to do, but keep pushing to a future date that never actually arrives?</p>
+        <p class="dir">Name it specifically. Then be honest about how long it's actually been sitting there. Weeks. Months. Years. Where does that real number land in your chest?</p>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">The Someday, Named Specifically</div>
+          <textarea placeholder="Not a vague ambition. The specific thing you keep pushing to a future date that never arrives..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">How Long It's Actually Been Sitting There</div>
+          <textarea placeholder="An honest count. Weeks, months, or years, counted from when you first seriously considered it, not from when you last mentioned it..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-warning">
+        <p><strong>Notice This</strong>If you've told this "someday" to more than one person, more than once, without ever attaching a real timeline, that repetition is often a sign the fruit has already started to decay.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Origin — Tracing Where the Hesitation Started</div>
+        <div class="wb-ex-sub">Finding the earliest root, whichever path it turns out to be.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Hesitation is not a character flaw. It was formed somewhere specific, whether it's fear or genuine uncertainty. You cannot address a root you have not traced.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>When you imagine finally starting, what is the very first feeling that shows up? Is it a specific dread about being seen or judged, or is it a genuine, honest not-knowing about whether this is even the right thing?</p>
+        <p class="dir">Sit with the actual feeling rather than the answer you think sounds better. Trace it back to the earliest time you remember feeling this exact way about a decision.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Earliest Memory — Where This Feeling First Showed Up</label>
+        <textarea placeholder="A specific moment, roughly when it happened, and what you concluded afterward that you have carried since..."></textarea>
+      </div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>Both roots are legitimate. Fear was formed to protect you from something painful. Uncertainty was formed to protect your limited time from being wasted. Neither one is weakness.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Diagnosis — Fear or Genuine Uncertainty</div>
+        <div class="wb-ex-sub">Naming plainly which path you're actually on.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This is the single most important exercise in this worksheet. Getting the diagnosis right changes everything that follows. Don't rush it.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Ask yourself honestly: has waiting actually given you more clarity, or has it simply given you more time to spin the same questions without any new information?</p>
+        <p class="dir">If waiting has produced no new information, this is very likely fear, dressed as prudence. If you genuinely cannot tell whether this is the right pursuit, even with real reflection, this is likely honest uncertainty.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My Honest Diagnosis</label>
+        <textarea placeholder="Fear, uncertainty, or a mix of both, named plainly, along with the specific evidence that led you to this diagnosis..."></textarea>
+      </div>
+
+      <div class="pull-quote">"Starting badly is not the same as failing permanently. It is one data point in a much longer story, not a verdict on who you are."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART TWO ==================== -->
+<div class="wb-body" id="part2">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — Building Your Way Forward, By Path</h3>
+    <p>Part Two builds two different plans, one for fear, one for uncertainty. Complete the branch that matches your diagnosis from Exercise 3. If you're genuinely mixed, complete both.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">4</div>
+      <div>
+        <div class="wb-ex-title">The Branch Builder — Imperfect Step or Smallest Experiment</div>
+        <div class="wb-ex-sub">Building the specific next move for your actual diagnosis.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This is the working plan everything else refers back to. Complete the branch that matches Exercise 3.</p>
+
+      <div class="branch-row">
+        <div class="branch-card fear">
+          <div class="branch-label">🔴 If Fear — The Imperfect Step</div>
+          <textarea placeholder="One small, specific, public-enough action you will take this week, regardless of how ready you feel. Name exactly what it is and when..."></textarea>
+        </div>
+        <div class="branch-card clarity">
+          <div class="branch-label">🟢 If Uncertainty — The Smallest Honest Experiment</div>
+          <textarea placeholder="One small, cheap, reversible test you could run in the next seven to thirty days that would give you real evidence either way, not more research..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-field">
+        <label>The Deadline</label>
+        <input type="text" placeholder="The specific day this step or experiment happens, within the next seven days.">
+      </div>
+
+      <div class="wb-field">
+        <label>What Would Make This Undeniable, Not Just Intended</label>
+        <textarea placeholder="A specific mechanism, calendar block, accountability check, public statement, that makes it far harder to quietly let this slip past the deadline..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">5</div>
+      <div>
+        <div class="wb-ex-title">The Words — Drafting What You'll Tell Yourself</div>
+        <div class="wb-ex-sub">Preparing the sentence for the moment doubt shows back up.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Doubt will very likely return the moment you take this step. Writing the response now, while you're clear-headed, makes it far more available in the moment you actually need it.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>If your diagnosis is fear, what is the one sentence that separates starting badly from failing permanently, in your own words? If your diagnosis is uncertainty, what is the one sentence that reminds you real evidence beats more thinking?</p>
+        <p class="dir">Write it the way you would actually say it to yourself, not the way it would sound on a poster.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What I Will Tell Myself When Doubt Returns</label>
+        <textarea rows="3" placeholder="This attempt did not work. That is different from me being a failure. Here is what I actually learned, and here is my next step..."></textarea>
+      </div>
+
+      <div class="purpose-statement-preview">
+        <p>Read it back out loud once before moving on. If it sounds like something you'd tell a friend you love, it's ready.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART THREE ==================== -->
+<div class="wb-body" id="part3">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — Testing the Plan Against Real Life</h3>
+    <p>A plan survives easily in writing. It does not survive as easily under comparison, an unclear result, or a discouraging first attempt, unless you've already thought it through. Part Three does that thinking now.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — Someone Else's Highlight Reel</div>
+        <div class="wb-ex-sub">When comparison makes you feel like it's already too late.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>You see someone your age, or younger, celebrated for mastery in something close to your own "someday." The instinct is to feel behind, as if the window has already closed, when really you're only seeing the finished version of years you haven't lived yet.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What I Will Remind Myself When This Happens</label>
+        <textarea placeholder="What you actually know about how long real mastery takes, and why someone else's timeline says nothing about whether yours is still available to you..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — The Experiment Doesn't Give a Clear Answer</div>
+        <div class="wb-ex-sub">When the uncertainty path leaves you still unsure.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>You run the smallest experiment from Exercise 4, and the result is genuinely mixed. Not a clear yes, not a clear no. It would be easy to conclude the experiment failed, or that you're back to square one.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What a Mixed Result Actually Means, and My Next Smallest Experiment</label>
+        <textarea placeholder="A mixed result is still real evidence, more than you had before. What did you actually learn, and what is the next small test that would sharpen the picture further..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">8</div>
+      <div>
+        <div class="wb-ex-title">Scenario Three — The Discouraging First Attempt</div>
+        <div class="wb-ex-sub">When the fear path's first step confirms the fear instead of easing it.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>You take the imperfect step from Exercise 4, and it goes badly. The rejection, the awkward attempt, the quiet embarrassment, all of it feels like proof the original fear was right all along.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>The Sentence I Will Return To From Exercise 5</label>
+        <textarea placeholder="Transcribed here again, ready before you need it: this attempt did not work, that is different from me being a failure..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART FOUR ==================== -->
+<div class="wb-body" id="part4">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — Making This a Practice, Not a Moment</h3>
+    <p>One small step is a good start. It is not the whole shift. Part Four turns this worksheet into an ongoing practice, so the next "someday" does not get to sit and decay for years before you notice it.</p>
+  </div>
+
+  <!-- EXERCISE 9 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Weekly Fruit Check — Building the Habit</div>
+        <div class="wb-ex-sub">The simple, recurring practice that catches decay early next time.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The goal is not to make one decision well. The goal is to build the habit of noticing quickly when a "someday" has started to sit too long.</p>
+
+      <ul class="wb-check-list">
+        <li><input type="checkbox"><span><strong>Within 7 Days:</strong> Take the step or run the experiment named in Exercise 4, by the deadline you set, whether or not full confidence has arrived.</span></li>
+        <li><input type="checkbox"><span><strong>The Day After:</strong> Write down what actually happened, and compare it honestly to what the fear or the uncertainty predicted.</span></li>
+        <li><input type="checkbox"><span><strong>Every Week:</strong> Ask yourself one question. "What have I been calling 'someday' this week that's actually ready to become 'today'?"</span></li>
+        <li><input type="checkbox"><span><strong>Every Month:</strong> Revisit your Someday Audit from Exercise 1. Has anything new started decaying? Name it while it's still fresh.</span></li>
+        <li><input type="checkbox"><span><strong>Whenever Comparison Hits:</strong> Run the reminder from Exercise 6 before letting someone else's timeline convince you yours has closed.</span></li>
+      </ul>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea placeholder="Someone who can ask you, in seven days, whether you actually took the step or ran the experiment. Named specifically, with how you will let them know..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>The Biggest Threat to This Practice — Named in Advance</label>
+        <textarea placeholder="The specific thing most likely to talk you back into waiting. Named here so it cannot catch you unprepared..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Pick the Fruit</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is the moment "someday" gets a date attached to it.</p>
+
+    <label>My Someday, Named Directly</label>
+    <textarea rows="2" placeholder="The specific thing I have been postponing, transcribed from Exercise 1..."></textarea>
+
+    <label>My Honest Diagnosis</label>
+    <textarea placeholder="Fear, uncertainty, or a mix of both, transcribed from Exercise 3, along with the evidence behind it..."></textarea>
+
+    <label>My Step or Experiment — Transcribed From Exercise 4</label>
+    <textarea placeholder="The specific action, and the specific deadline, transcribed here as the formal record of what I am actually doing..."></textarea>
+
+    <label>What I Will Tell Myself If It Doesn't Go Well — Transcribed From Exercise 5</label>
+    <textarea placeholder="The sentence that holds me steady, ready before I need it..."></textarea>
+
+    <label>My Accountability Person and Check-In Date</label>
+    <textarea rows="2" placeholder="Who is holding me to this, and the specific date they will ask me whether I actually did it..."></textarea>
+
+    <label>What This Protects Going Forward</label>
+    <textarea rows="2" placeholder="Not what I hope might happen. What I know becomes possible, in this specific decision and in how I approach every future someday, once I stop letting the fruit rot on the vine..."></textarea>
+
+    <div class="wb-sig">
+      <div><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div><label>Date</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>The person I once saw celebrated on screen had thirteen years behind them, not thirteen years of certainty, thirteen years of starting, adjusting, and continuing. The mastery came after the starting, not before it.</p>
+    <p>Whichever path brought you here, fear or genuine uncertainty, the answer was never going to arrive by waiting a little longer. It arrives by picking the fruit that's ready now, even without knowing exactly how the rest of the orchard will turn out.</p>
+    <p>Living in Full Expression means telling the difference between fear and uncertainty with honesty, and refusing to let either one keep your potential decaying in silence for one more season.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know, that you did not know when you opened it.</p>
+    <textarea placeholder="The thing I now know — that cannot be unfelt, and that has shifted how I see the 'someday' I've been carrying..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The fruit will keep ripening whether you pick it or not. You now know exactly which someday has been decaying, exactly which kind of hesitation it is, and exactly what your first honest step looks like. The only thing left is the seven days.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">Pick the fruit before it rots.<br>Live in full expression.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>The Cost of Hesitation — Episode 53 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only.</p>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var t=document.body.scrollHeight-window.innerHeight;
+  var p=t>0?(window.scrollY/t)*100:0;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=p+'%';
+});
+document.querySelectorAll('textarea').forEach(function(ta){
+  ta.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=(this.scrollHeight+2)+'px';
+  });
+});
+</script>
+</body>
+</html>
