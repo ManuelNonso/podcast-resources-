@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Generational Reset — Episode 54 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f2240; --navy-mid:#1a365d; --navy-light:#2c5282;
+  --gold:#b8860b; --gold-bright:#d4a017; --gold-light:#f6ad55; --gold-pale:#fef9ee;
+  --teal:#1a6b61; --teal-light:#2d9b8f; --teal-pale:#e8f7f5;
+  --cream:#faf7f2; --warm-white:#fffef9;
+  --ink:#1c1c2e; --ink-light:#2d3748; --muted:#5a6275; --border:#e5ddd0;
+  --red:#8b1a2a; --red-pale:#fdf0ef;
+  --purple:#3d1a6b; --purple-light:#6b3a9e; --purple-pale:#f3eeff;
+  --chapter-bg:#0a1628;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Lora',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.9; font-size:17px; }
+@media print { .no-print{display:none!important;} body{font-size:12pt;background:white;} p{orphans:3;widows:3;} }
+
+.book-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); padding:0 30px; height:52px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,160,23,0.2); }
+.nav-brand { font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.6); font-weight:400; }
+.nav-brand strong { color:var(--gold-light); font-weight:600; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:11px; font-weight:500; letter-spacing:0.5px; padding:6px 10px; font-family:'DM Sans',sans-serif; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-light); }
+.btn-nav { background:linear-gradient(135deg,var(--gold-bright),#c8900a); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+.progress-bar { position:fixed; top:52px; left:0; right:0; height:2px; background:rgba(255,255,255,0.05); z-index:999; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); width:0%; transition:width 0.2s; }
+
+.cover-page { min-height:100vh; background:var(--chapter-bg); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-texture { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 75% 40%,rgba(184,134,11,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 70%,rgba(26,107,97,0.06) 0%,transparent 60%); pointer-events:none; }
+.cover-inner { position:relative; z-index:2; display:flex; flex-direction:column; min-height:100vh; padding:80px 60px 60px; }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+.cover-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(212,160,23,0.35); padding:8px 18px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-light); font-weight:600; }
+.cover-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-top:60px; }
+.cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); font-weight:600; margin-bottom:24px; display:block; }
+.cover-title { font-family:'Playfair Display',serif; font-size:clamp(30px,4.5vw,50px); line-height:1.1; font-weight:900; margin-bottom:20px; color:white; }
+.cover-title .accent { color:var(--gold-light); font-style:italic; display:block; }
+.cover-subtitle { font-family:'Lora',serif; font-size:15px; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:36px; font-style:italic; }
+.cover-divider { width:50px; height:2px; background:var(--gold-bright); margin-bottom:28px; }
+.cover-author-name { font-family:'DM Sans',sans-serif; font-size:15px; color:white; font-weight:600; }
+.cover-author-title { font-family:'DM Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.cover-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:28px; }
+.cover-ghost { font-family:'Playfair Display',serif; font-size:clamp(80px,13vw,160px); font-weight:900; color:rgba(255,255,255,0.03); line-height:1; letter-spacing:-4px; }
+.cover-series { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:right; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+.cover-tagline { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:1.5px; text-transform:uppercase; }
+.workbook-meta { display:flex; gap:40px; align-items:center; margin-top:36px; }
+.workbook-stat .num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold-light); display:block; }
+.workbook-stat .lbl { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; }
+
+.wb-body { max-width:760px; margin:0 auto; padding:60px 40px 80px; }
+
+.wb-part { background:var(--navy-mid); color:white; padding:36px 44px; margin:0 -20px 40px; position:relative; }
+.wb-part::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); }
+.wb-part-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.wb-part h3 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:10px; }
+.wb-part p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; }
+
+.wb-ex { background:white; border:1px solid var(--border); border-radius:2px; margin-bottom:28px; overflow:hidden; box-shadow:0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display:flex; align-items:center; gap:18px; padding:22px 28px; background:var(--cream); border-bottom:1px solid var(--border); }
+.wb-ex-num { width:40px; height:40px; border-radius:50%; background:var(--navy-mid); color:white; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; font-weight:700; flex-shrink:0; }
+.wb-ex-num.gold { background:var(--gold); color:var(--navy); }
+.wb-ex-num.teal { background:var(--teal); }
+.wb-ex-num.red { background:var(--red); }
+.wb-ex-num.purple { background:var(--purple); }
+.wb-ex-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+.wb-ex-sub { font-size:13px; color:var(--muted); margin-top:2px; font-family:'DM Sans',sans-serif; }
+.wb-ex-body { padding:28px; }
+.wb-ex-body > p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:18px; }
+
+.wb-field label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-field textarea, .wb-field input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:var(--cream); resize:vertical; line-height:1.7; transition:border-color 0.2s; margin-bottom:18px; }
+.wb-field textarea { min-height:80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline:none; border-color:var(--gold-bright); background:white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.wb-coaching { background:var(--purple-pale); border-left:3px solid var(--purple-light); border-radius:0 4px 4px 0; padding:18px 22px; margin:16px 0 20px; }
+.wb-coaching-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple-light); margin-bottom:8px; }
+.wb-coaching p { font-size:15px; font-weight:600; font-style:italic; color:var(--navy); margin:0 0 8px; line-height:1.6; }
+.wb-coaching p:last-child { margin-bottom:0; }
+.wb-coaching .dir { font-size:13px; color:var(--muted); font-style:normal; font-weight:400; margin-top:6px; }
+
+.wb-insight { background:var(--teal-pale); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-insight p { font-size:14px; color:var(--teal); line-height:1.7; margin:0; }
+.wb-insight strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.wb-warning { background:var(--red-pale); border-left:3px solid var(--red); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-warning p { font-size:14px; color:var(--red); line-height:1.7; margin:0; }
+.wb-warning strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.pull-quote { border-left:3px solid var(--gold-bright); padding:24px 32px; margin:28px 0; background:var(--gold-pale); font-family:'Playfair Display',serif; font-size:19px; line-height:1.6; color:var(--navy); font-style:italic; }
+
+.analogy-box { border:1.5px solid var(--gold-bright); background:var(--gold-pale); border-radius:2px; padding:28px 32px; margin:20px 0; }
+.analogy-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.analogy-box p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:10px; }
+.analogy-box p:last-child { margin-bottom:0; }
+
+.story-box { background:var(--chapter-bg); border-left:4px solid var(--gold-bright); border-radius:0 4px 4px 0; padding:32px 36px; margin:20px 0; }
+.story-box-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.story-box p { color:rgba(255,255,255,0.82); font-size:15px; line-height:1.85; margin-bottom:14px; }
+.story-box p:last-child { margin-bottom:0; }
+
+.wb-row { display:grid; gap:14px; margin:14px 0 20px; }
+.wb-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns:1fr 1fr; }
+.wb-card { background:var(--cream); border:1.5px solid var(--border); border-radius:2px; padding:16px; }
+.wb-card-label { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-card textarea { width:100%; border:none; background:transparent; font-family:'Lora',serif; font-size:14px; color:var(--ink); resize:vertical; min-height:72px; line-height:1.6; padding:0; }
+.wb-card textarea:focus { outline:none; }
+.wb-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+.wb-card input[type="text"] { width:100%; border:none; border-bottom:1.5px solid var(--border); background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; color:var(--navy); padding:0 0 6px; margin-bottom:10px; }
+.wb-card input[type="text"]:focus { outline:none; border-color:var(--gold-bright); }
+.wb-card input[type="text"]::placeholder { color:var(--muted); font-style:italic; font-weight:400; }
+
+.wb-check-list { list-style:none; }
+.wb-check-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--ink-light); line-height:1.6; }
+.wb-check-list li:last-child { border-bottom:none; }
+.wb-check-list input[type="checkbox"] { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; margin-top:2px; }
+
+.key-insights { background:var(--navy-mid); border-radius:2px; padding:32px 40px; margin:20px 0; }
+.key-insights-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:16px; }
+.key-insights ul { list-style:none; }
+.key-insights ul li { color:rgba(255,255,255,0.8); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:14px; line-height:1.7; padding-left:20px; position:relative; }
+.key-insights ul li::before { content:'—'; position:absolute; left:0; color:var(--gold-bright); font-weight:700; }
+.key-insights ul li:last-child { border-bottom:none; }
+
+.purpose-builder { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); border-radius:2px; padding:32px 36px; margin:20px 0; border:1px solid rgba(212,160,23,0.2); }
+.purpose-builder-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.purpose-builder h4 { font-family:'Playfair Display',serif; font-size:20px; color:white; margin-bottom:18px; }
+.purpose-builder label { display:block; font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:6px; }
+.purpose-builder textarea, .purpose-builder input[type="text"] { width:100%; background:rgba(255,255,255,0.07); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:12px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:16px; }
+.purpose-builder textarea { min-height:64px; }
+.purpose-builder textarea:focus, .purpose-builder input:focus { outline:none; border-color:var(--gold-bright); }
+.purpose-builder textarea::placeholder, .purpose-builder input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.purpose-statement-preview { background:rgba(255,255,255,0.04); border:1px dashed rgba(212,160,23,0.4); border-radius:2px; padding:20px 22px; margin-top:8px; }
+.purpose-statement-preview p { font-family:'Playfair Display',serif; font-size:16px; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.7; }
+
+.scenario-card { background:var(--purple-pale); border:1.5px solid var(--purple-light); border-radius:2px; padding:24px 28px; margin:16px 0 20px; }
+.scenario-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); margin-bottom:10px; }
+.scenario-card p { font-size:15px; color:var(--ink-light); line-height:1.8; margin-bottom:0; }
+
+.wb-contract { background:var(--navy); border-radius:2px; padding:44px; margin:36px 0; border:2px solid var(--gold-bright); }
+.wb-contract-badge { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px; }
+.wb-contract h3 { font-family:'Playfair Display',serif; color:white; font-size:30px; font-weight:900; margin-bottom:10px; }
+.wb-contract > p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:28px; font-style:italic; }
+.wb-contract label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+.wb-contract textarea, .wb-contract input[type="text"] { width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:20px; }
+.wb-contract textarea { min-height:72px; }
+.wb-contract textarea:focus, .wb-contract input:focus { outline:none; border-color:var(--gold-bright); }
+.wb-contract textarea::placeholder, .wb-contract input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.wb-sig { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+
+.final-block { background:var(--gold-pale); border:1.5px solid var(--gold-bright); border-radius:2px; padding:36px; margin:36px 0; }
+.final-block h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin-bottom:16px; }
+.final-block p { font-size:15px; color:var(--ink-light); line-height:1.85; margin-bottom:14px; }
+.final-block textarea { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:white; resize:vertical; min-height:90px; line-height:1.7; margin-top:8px; }
+.final-block textarea:focus { outline:none; border-color:var(--gold-bright); }
+.final-block textarea::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.book-footer { background:var(--chapter-bg); padding:52px 40px; text-align:center; }
+.book-footer .logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold-light); letter-spacing:2px; margin-bottom:8px; }
+.book-footer .tagline { color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.book-footer p { color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif; font-size:12px; line-height:1.7; }
+
+@media(max-width:700px) {
+  .cover-content{grid-template-columns:1fr;} .cover-right{display:none;}
+  .cover-inner{padding:60px 28px 40px;} .wb-body{padding:40px 20px 60px;}
+  .wb-part{margin:0 0 40px;padding:28px 24px;}
+  .wb-row-3,.wb-row-2{grid-template-columns:1fr;}
+  .wb-sig{grid-template-columns:1fr;} .wb-contract{padding:28px 24px;}
+  .workbook-meta{flex-wrap:wrap;gap:24px;} .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 54 Worksheet</strong></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div>
+        <span class="cover-eyebrow">Episode 54 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">The Generational<br><span class="accent">Reset</span></h1>
+        <p class="cover-subtitle">Your complete audit of the beliefs you inherited but never chose — and the exact declaration that pays them off for good.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-name">Manuel C. Chinyereuba</div>
+        <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+        <div class="workbook-meta">
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Parts</span></div>
+          <div class="workbook-stat"><span class="num">9</span><span class="lbl">Exercises</span></div>
+          <div class="workbook-stat"><span class="num">1</span><span class="lbl">Debt Paid</span></div>
+          <div class="workbook-stat"><span class="num">7</span><span class="lbl">Day Window</span></div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-ghost">54</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- OPENING -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is the coaching session the episode prepared you for — in written form, with room to go further than a single listening allows. Four parts. Nine exercises. One inherited belief traced to its true origin, and declared paid off by the end of it.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The parts move in sequence. Part One is where you separate what you inherited from what you actually chose. Part Two turns that clarity into a declaration. Part Three pressure tests it against the moments most likely to pull the old belief back into place. Part Four makes sure it doesn't quietly transfer to whoever comes after you.</p>
+  <p style="color:var(--ink-light);margin-bottom:30px;">Write what is actually true, not the version that stays loyal to the people who passed this to you. Naming where a belief came from is not blame. It is the first honest step toward finally closing the account.</p>
+
+  <div class="analogy-box">
+    <div class="analogy-label">🧱 The Inherited Debt — Hold This Throughout</div>
+    <p>Some families inherit debt across generations, compounding with every hardship, until someone finally traces it, names it, and pays it off in full. Beliefs work the same way. They compound quietly across generations until someone stops the pattern on purpose.</p>
+    <p>You were born into a psychological framework you didn't build. This worksheet is how you find out exactly what you're still paying interest on, and what it will take to close the account for good.</p>
+  </div>
+
+  <div class="key-insights" style="margin-top:28px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the specific inherited belief currently running decisions you thought were entirely your own</li>
+      <li>Something <strong>traced</strong> — whose experience it actually belonged to, and the real circumstance that made it reasonable for them</li>
+      <li>Something <strong>separated</strong> — their era and danger from your actual reality now</li>
+      <li>Something <strong>committed</strong> — a spoken declaration and one visible action that stops the belief from transferring any further</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== PART ONE ==================== -->
+<div class="wb-body" id="part1">
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — Seeing the Debt Clearly</h3>
+    <p>Before you can pay off an inherited belief, you need to see it plainly, know whose it actually was, and notice who might already be inheriting it from you.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Blueprint Audit — Inherited vs Chosen</div>
+        <div class="wb-ex-sub">Separating what you built from what you were simply handed.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This exercise begins with an honest inventory of the beliefs currently running your decisions. Not the version that sounds like personality. The real one.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What fear, belief, or instinct do you carry that you've never actually examined, the kind that simply feels like "who you are"?</p>
+        <p class="dir">Think about an automatic reaction around money, visibility, trust, or love. Not what you think the answer should be. What actually comes up when you're honest about it.</p>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">Beliefs I Genuinely Chose</div>
+          <textarea placeholder="Beliefs you can point to real, personal, lived evidence for, formed through your own direct experience..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">Beliefs That Feel Inherited</div>
+          <textarea placeholder="Beliefs running your decisions that you can't actually trace to a personal experience of your own..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-warning">
+        <p><strong>Notice This</strong>If a belief in your first column, on closer look, has no real personal experience behind it, move it. Most people find their list is far more inherited than expected.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Origin — Whose Loan Is This</div>
+        <div class="wb-ex-sub">Tracing the belief back to the person and circumstance that formed it.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Choose the one inherited belief from Exercise 1 with the strongest grip on your life right now. This exercise, and the rest of the worksheet, will focus on that one.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Whose loan is this actually? When did you first absorb it, and what real circumstance made it a reasonable survival strategy for them, at that time, in that danger?</p>
+        <p class="dir">Trace it to the earliest source you can identify. Was it taught directly, or simply modelled and absorbed through the atmosphere of your home?</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My Chosen Belief for This Worksheet</label>
+        <textarea placeholder="The one inherited belief with the strongest grip on your decisions right now..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>Whose Experience It Actually Belonged To, and the Real Circumstance</label>
+        <textarea placeholder="The specific person, and the real hardship or danger that made this belief a reasonable survival strategy for them at the time..."></textarea>
+      </div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>Naming this is not disloyalty to the person who passed it to you. It is simply seeing clearly, for the first time, that the debt was theirs before it became yours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Transference Check</div>
+        <div class="wb-ex-sub">Noticing who may already be inheriting this from you.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>In Episode 54, several clients realised, once the inherited belief was named, that they were already passing the exact same thing to their own children. This exercise asks the same of you, with compassion, not guilt.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Who have you already, unknowingly, started passing this exact belief to? A child, a mentee, someone watching you closely enough to absorb it the same way you once did.</p>
+        <p class="dir">Not through a lecture. Through the atmosphere you've been modelling. Where might they already be quietly picking this up?</p>
+      </div>
+
+      <div class="wb-field">
+        <label>Who May Already Be Inheriting This From Me</label>
+        <textarea placeholder="Named specifically, along with the moments or patterns where the belief is being modelled rather than taught..."></textarea>
+      </div>
+
+      <div class="pull-quote">"I felt like I'd been about to hand my daughter the exact same debt I'd spent my whole life quietly paying off, without her ever having asked for it."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART TWO ==================== -->
+<div class="wb-body" id="part2">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — Building Your Declaration</h3>
+    <p>Part Two turns what you named in Part One into a clear declaration and one visible action that begins closing the account.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">4</div>
+      <div>
+        <div class="wb-ex-title">Declare It Paid — Your Working Builder</div>
+        <div class="wb-ex-sub">One page. The debt, the evidence it's outdated, and the new belief.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This is the working document everything else refers back to. Keep it specific and grounded in real evidence, not just hope.</p>
+
+      <div class="purpose-builder">
+        <div class="purpose-builder-label">Your Generational Reset</div>
+        <h4>Name It, Evidence It, Replace It</h4>
+
+        <label>The Inherited Belief</label>
+        <textarea placeholder="Transcribed from Exercise 2, named clearly and specifically..."></textarea>
+
+        <label>Evidence This No Longer Matches My Reality</label>
+        <textarea placeholder="What is demonstrably different about your circumstances now compared to theirs then. Not what you hope. What is actually true..."></textarea>
+
+        <label>The New Belief, Stated Plainly</label>
+        <textarea placeholder="Not a vague affirmation. A specific, honest statement grounded in your own current evidence..."></textarea>
+
+        <label>My First Visible Action</label>
+        <textarea placeholder="One specific, visible thing you will do this week that demonstrates the new belief in practice, especially in front of anyone from Exercise 3..."></textarea>
+      </div>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>The Deadline</label>
+        <input type="text" placeholder="The specific day, within the next seven days, this action happens.">
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">5</div>
+      <div>
+        <div class="wb-ex-title">The Words — Speaking the Declaration</div>
+        <div class="wb-ex-sub">Preparing the sentence you will say out loud.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>A belief that has only ever been thought quietly is far easier to cancel out loud than in silence. This exercise drafts the exact words.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>If you had to cancel this debt in one clear sentence, spoken out loud, what would you actually say?</p>
+        <p class="dir">Write it the way you'd say it to yourself in a quiet, serious moment, not the way it would sound on a poster.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My Declaration</label>
+        <textarea rows="3" placeholder="This belief belonged to [name/relationship], formed to survive [their circumstance]. It no longer matches my reality. I choose, today, to believe and act on [the new belief] instead..."></textarea>
+      </div>
+
+      <div class="purpose-statement-preview">
+        <p>Read it out loud once before moving on. If it feels like a real decision rather than a wish, it's ready.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART THREE ==================== -->
+<div class="wb-body" id="part3">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — Testing the Declaration Against Real Life</h3>
+    <p>A declaration survives easily in writing. It does not survive as easily under stress, family reaction, or a live moment with the very person you named in Exercise 3, unless you've already thought it through.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — The Old Fear Under Stress</div>
+        <div class="wb-ex-sub">When pressure makes the inherited belief feel true again.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>A stressful week arrives, money is tight, or visibility feels risky again, and the old inherited belief resurfaces with its full original force, as if the declaration from Exercise 5 never happened.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What I Will Do When the Old Belief Resurfaces Under Stress</label>
+        <textarea placeholder="A specific mechanism, re-reading the declaration, calling someone, that pulls you back to the new belief before the old one takes over..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — Family Discomfort With Your Change</div>
+        <div class="wb-ex-sub">When breaking the pattern unsettles the person who passed it to you.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>The relative or figure whose belief you traced in Exercise 2 notices you acting differently, and responds with discomfort, confusion, or subtle pressure to return to the old pattern, even without meaning any harm by it.</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>How can you hold both compassion for where their belief came from, and firmness about not carrying it forward yourself?</p>
+        <p class="dir">This is not about confrontation. It's about staying steady in the new belief without needing their approval of it.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>How I Will Respond, With Both Honesty and Compassion</label>
+        <textarea placeholder="What you will say or do, holding your own direction and their discomfort without abandoning the new belief..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">8</div>
+      <div>
+        <div class="wb-ex-title">Scenario Three — Catching the Transfer Live</div>
+        <div class="wb-ex-sub">When you catch yourself about to model the old belief.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>In a real, unplanned moment, with the person named in Exercise 3 watching, you catch yourself about to say or do the very thing that would pass the old belief forward, out of habit, before you've had time to think.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What I Will Do or Say Instead, In the Moment</label>
+        <textarea placeholder="A short, real, specific alternative response you can reach for quickly, even imperfectly, instead of the old pattern..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART FOUR ==================== -->
+<div class="wb-body" id="part4">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — Making This a Practice, Not a Moment</h3>
+    <p>One declaration is a good start. It is not the whole reset. Part Four turns this worksheet into an ongoing audit, so the next inherited belief gets caught early, before it has four generations to compound.</p>
+  </div>
+
+  <!-- EXERCISE 9 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Ongoing Blueprint Check — Building the Habit</div>
+        <div class="wb-ex-sub">The simple, recurring practice that catches the next inherited debt early.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The goal is not to pay off one belief and stop. The goal is to build the habit of noticing quickly when an inherited pattern is running your decisions, or beginning to transfer to someone else.</p>
+
+      <ul class="wb-check-list">
+        <li><input type="checkbox"><span><strong>Within 7 Days:</strong> Take the visible action named in Exercise 4, by the deadline you set, and speak the declaration from Exercise 5 out loud at least once.</span></li>
+        <li><input type="checkbox"><span><strong>The Day After:</strong> Write down what actually happened, and whether the old belief or the new one showed up stronger.</span></li>
+        <li><input type="checkbox"><span><strong>Every Month:</strong> Ask yourself one question. "What have I been modelling this month that I wouldn't want inherited?"</span></li>
+        <li><input type="checkbox"><span><strong>Every Quarter:</strong> Revisit your Blueprint Audit from Exercise 1. Has a new inherited belief surfaced? Name it while it's still fresh.</span></li>
+        <li><input type="checkbox"><span><strong>Whenever the Old Fear Resurfaces:</strong> Return to the mechanism from Exercise 6 before letting stress hand the debt back its original weight.</span></li>
+      </ul>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea placeholder="Someone who can ask you, in seven days, whether you actually took the action and spoke the declaration. Named specifically..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>The Biggest Threat to This Practice — Named in Advance</label>
+        <textarea placeholder="The specific thing most likely to pull the old belief back into place. Named here so it cannot catch you unprepared..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Pay This Debt Off</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is the moment the inherited belief formally becomes a closed account.</p>
+
+    <label>The Inherited Belief, Named Directly</label>
+    <textarea rows="2" placeholder="Transcribed from Exercise 2..."></textarea>
+
+    <label>Whose Loan This Actually Was, Named With Compassion</label>
+    <textarea placeholder="The person and the real circumstance that made this belief reasonable for them, named honestly but without blame..."></textarea>
+
+    <label>The Evidence This No Longer Matches My Reality</label>
+    <textarea placeholder="Transcribed from Exercise 4..."></textarea>
+
+    <label>My Declaration — Transcribed From Exercise 5</label>
+    <textarea placeholder="The exact words I will say out loud, ready before I need them..."></textarea>
+
+    <label>My First Visible Action and Deadline</label>
+    <textarea placeholder="Transcribed from Exercise 4, the specific action and the specific day it happens..."></textarea>
+
+    <label>What This Protects Going Forward, and For Whom</label>
+    <textarea rows="2" placeholder="Not what I hope might happen. What I know becomes possible, for me and for whoever might have inherited this next, once I stop the transfer here..."></textarea>
+
+    <div class="wb-sig">
+      <div><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div><label>Date</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>Those families near the Pakistan border didn't choose the debt they were born into. For four generations, it simply grew, compounded by sickness and circumstance, until someone finally intervened and paid it off, in full, in a single act.</p>
+    <p>You don't need someone else to intervene on your behalf. You have already done the tracing, the naming, and the declaring. The debt ends with the decision you make this week, not with someone else's rescue.</p>
+    <p>Living in Full Expression means authoring your own life, not ghostwriting someone else's unfinished story, and making sure the people who come after you inherit something lighter than what you carried.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know, that you did not know when you opened it.</p>
+    <textarea placeholder="The thing I now know — that cannot be unfelt, and that has shifted how I see the belief I've been carrying..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The old belief will still make its case under pressure, familiar and convincing. You now know exactly whose debt it was, exactly what your reality actually looks like now, and exactly what you'll say and do when it resurfaces. The only thing left is the seven days.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">Go pay off what was never yours to carry.<br>Live in full expression.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>The Generational Reset — Episode 54 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only.</p>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var t=document.body.scrollHeight-window.innerHeight;
+  var p=t>0?(window.scrollY/t)*100:0;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=p+'%';
+});
+document.querySelectorAll('textarea').forEach(function(ta){
+  ta.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=(this.scrollHeight+2)+'px';
+  });
+});
+</script>
+</body>
+</html>
