@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behind the Fridge — Episode 55 Worksheet — Manuel C. Chinyereuba</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0f2240; --navy-mid:#1a365d; --navy-light:#2c5282;
+  --gold:#b8860b; --gold-bright:#d4a017; --gold-light:#f6ad55; --gold-pale:#fef9ee;
+  --teal:#1a6b61; --teal-light:#2d9b8f; --teal-pale:#e8f7f5;
+  --cream:#faf7f2; --warm-white:#fffef9;
+  --ink:#1c1c2e; --ink-light:#2d3748; --muted:#5a6275; --border:#e5ddd0;
+  --red:#8b1a2a; --red-pale:#fdf0ef;
+  --purple:#3d1a6b; --purple-light:#6b3a9e; --purple-pale:#f3eeff;
+  --chapter-bg:#0a1628;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Lora',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.9; font-size:17px; }
+@media print { .no-print{display:none!important;} body{font-size:12pt;background:white;} p{orphans:3;widows:3;} }
+
+.book-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); padding:0 30px; height:52px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(212,160,23,0.2); }
+.nav-brand { font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.6); font-weight:400; }
+.nav-brand strong { color:var(--gold-light); font-weight:600; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:11px; font-weight:500; letter-spacing:0.5px; padding:6px 10px; font-family:'DM Sans',sans-serif; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-light); }
+.btn-nav { background:linear-gradient(135deg,var(--gold-bright),#c8900a); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
+.progress-bar { position:fixed; top:52px; left:0; right:0; height:2px; background:rgba(255,255,255,0.05); z-index:999; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); width:0%; transition:width 0.2s; }
+
+.cover-page { min-height:100vh; background:var(--chapter-bg); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-texture { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 75% 40%,rgba(184,134,11,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 70%,rgba(26,107,97,0.06) 0%,transparent 60%); pointer-events:none; }
+.cover-inner { position:relative; z-index:2; display:flex; flex-direction:column; min-height:100vh; padding:80px 60px 60px; }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+.cover-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(212,160,23,0.35); padding:8px 18px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-light); font-weight:600; }
+.cover-content { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-top:60px; }
+.cover-eyebrow { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); font-weight:600; margin-bottom:24px; display:block; }
+.cover-title { font-family:'Playfair Display',serif; font-size:clamp(30px,4.5vw,50px); line-height:1.1; font-weight:900; margin-bottom:20px; color:white; }
+.cover-title .accent { color:var(--gold-light); font-style:italic; display:block; }
+.cover-subtitle { font-family:'Lora',serif; font-size:15px; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:36px; font-style:italic; }
+.cover-divider { width:50px; height:2px; background:var(--gold-bright); margin-bottom:28px; }
+.cover-author-name { font-family:'DM Sans',sans-serif; font-size:15px; color:white; font-weight:600; }
+.cover-author-title { font-family:'DM Sans',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px; }
+.cover-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:28px; }
+.cover-ghost { font-family:'Playfair Display',serif; font-size:clamp(80px,13vw,160px); font-weight:900; color:rgba(255,255,255,0.03); line-height:1; letter-spacing:-4px; }
+.cover-series { font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:right; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+.cover-tagline { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:1.5px; text-transform:uppercase; }
+.workbook-meta { display:flex; gap:40px; align-items:center; margin-top:36px; }
+.workbook-stat .num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold-light); display:block; }
+.workbook-stat .lbl { font-family:'DM Sans',sans-serif; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; }
+
+.wb-body { max-width:760px; margin:0 auto; padding:60px 40px 80px; }
+
+.wb-part { background:var(--navy-mid); color:white; padding:36px 44px; margin:0 -20px 40px; position:relative; }
+.wb-part::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold-bright),var(--teal-light)); }
+.wb-part-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:10px; }
+.wb-part h3 { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; margin-bottom:10px; }
+.wb-part p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.7; }
+
+.wb-ex { background:white; border:1px solid var(--border); border-radius:2px; margin-bottom:28px; overflow:hidden; box-shadow:0 2px 12px rgba(15,34,64,0.06); }
+.wb-ex-header { display:flex; align-items:center; gap:18px; padding:22px 28px; background:var(--cream); border-bottom:1px solid var(--border); }
+.wb-ex-num { width:40px; height:40px; border-radius:50%; background:var(--navy-mid); color:white; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:18px; font-weight:700; flex-shrink:0; }
+.wb-ex-num.gold { background:var(--gold); color:var(--navy); }
+.wb-ex-num.teal { background:var(--teal); }
+.wb-ex-num.red { background:var(--red); }
+.wb-ex-num.purple { background:var(--purple); }
+.wb-ex-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+.wb-ex-sub { font-size:13px; color:var(--muted); margin-top:2px; font-family:'DM Sans',sans-serif; }
+.wb-ex-body { padding:28px; }
+.wb-ex-body > p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:18px; }
+
+.wb-field label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-field textarea, .wb-field input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:var(--cream); resize:vertical; line-height:1.7; transition:border-color 0.2s; margin-bottom:18px; }
+.wb-field textarea { min-height:80px; }
+.wb-field textarea:focus, .wb-field input:focus { outline:none; border-color:var(--gold-bright); background:white; }
+.wb-field textarea::placeholder, .wb-field input::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.wb-coaching { background:var(--purple-pale); border-left:3px solid var(--purple-light); border-radius:0 4px 4px 0; padding:18px 22px; margin:16px 0 20px; }
+.wb-coaching-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple-light); margin-bottom:8px; }
+.wb-coaching p { font-size:15px; font-weight:600; font-style:italic; color:var(--navy); margin:0 0 8px; line-height:1.6; }
+.wb-coaching p:last-child { margin-bottom:0; }
+.wb-coaching .dir { font-size:13px; color:var(--muted); font-style:normal; font-weight:400; margin-top:6px; }
+
+.wb-insight { background:var(--teal-pale); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-insight p { font-size:14px; color:var(--teal); line-height:1.7; margin:0; }
+.wb-insight strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.wb-warning { background:var(--red-pale); border-left:3px solid var(--red); border-radius:0 4px 4px 0; padding:16px 20px; margin:14px 0 20px; }
+.wb-warning p { font-size:14px; color:var(--red); line-height:1.7; margin:0; }
+.wb-warning strong { display:block; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+
+.pull-quote { border-left:3px solid var(--gold-bright); padding:24px 32px; margin:28px 0; background:var(--gold-pale); font-family:'Playfair Display',serif; font-size:19px; line-height:1.6; color:var(--navy); font-style:italic; }
+
+.analogy-box { border:1.5px solid var(--gold-bright); background:var(--gold-pale); border-radius:2px; padding:28px 32px; margin:20px 0; }
+.analogy-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.analogy-box p { font-size:15px; line-height:1.8; color:var(--ink-light); margin-bottom:10px; }
+.analogy-box p:last-child { margin-bottom:0; }
+
+.story-box { background:var(--chapter-bg); border-left:4px solid var(--gold-bright); border-radius:0 4px 4px 0; padding:32px 36px; margin:20px 0; }
+.story-box-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.story-box p { color:rgba(255,255,255,0.82); font-size:15px; line-height:1.85; margin-bottom:14px; }
+.story-box p:last-child { margin-bottom:0; }
+
+.wb-row { display:grid; gap:14px; margin:14px 0 20px; }
+.wb-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.wb-row-2 { grid-template-columns:1fr 1fr; }
+.wb-card { background:var(--cream); border:1.5px solid var(--border); border-radius:2px; padding:16px; }
+.wb-card-label { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.wb-card textarea { width:100%; border:none; background:transparent; font-family:'Lora',serif; font-size:14px; color:var(--ink); resize:vertical; min-height:72px; line-height:1.6; padding:0; }
+.wb-card textarea:focus { outline:none; }
+.wb-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+.wb-card input[type="text"] { width:100%; border:none; border-bottom:1.5px solid var(--border); background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; color:var(--navy); padding:0 0 6px; margin-bottom:10px; }
+.wb-card input[type="text"]:focus { outline:none; border-color:var(--gold-bright); }
+.wb-card input[type="text"]::placeholder { color:var(--muted); font-style:italic; font-weight:400; }
+
+/* WEIGHT SCALE */
+.weight-scale { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 20px; }
+.weight-card { border-radius:2px; padding:22px 24px; }
+.weight-card.bread { background:var(--red-pale); border:1.5px solid var(--red); }
+.weight-card.small { background:var(--teal-pale); border:1.5px solid var(--teal); }
+.weight-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
+.weight-card.bread .weight-label { color:var(--red); }
+.weight-card.small .weight-label { color:var(--teal); }
+.weight-card textarea { width:100%; border:1.5px solid rgba(0,0,0,0.1); border-radius:2px; padding:12px 14px; font-family:'Lora',serif; font-size:14px; background:white; resize:vertical; min-height:80px; line-height:1.65; }
+.weight-card textarea:focus { outline:none; border-color:var(--gold-bright); }
+.weight-card textarea::placeholder { color:var(--muted); font-style:italic; font-size:13px; }
+
+.wb-check-list { list-style:none; }
+.wb-check-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:15px; color:var(--ink-light); line-height:1.6; }
+.wb-check-list li:last-child { border-bottom:none; }
+.wb-check-list input[type="checkbox"] { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; margin-top:2px; }
+
+.key-insights { background:var(--navy-mid); border-radius:2px; padding:32px 40px; margin:20px 0; }
+.key-insights-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:16px; }
+.key-insights ul { list-style:none; }
+.key-insights ul li { color:rgba(255,255,255,0.8); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:14px; line-height:1.7; padding-left:20px; position:relative; }
+.key-insights ul li::before { content:'—'; position:absolute; left:0; color:var(--gold-bright); font-weight:700; }
+.key-insights ul li:last-child { border-bottom:none; }
+
+.purpose-builder { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); border-radius:2px; padding:32px 36px; margin:20px 0; border:1px solid rgba(212,160,23,0.2); }
+.purpose-builder-label { font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+.purpose-builder h4 { font-family:'Playfair Display',serif; font-size:20px; color:white; margin-bottom:18px; }
+.purpose-builder label { display:block; font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:6px; }
+.purpose-builder textarea, .purpose-builder input[type="text"] { width:100%; background:rgba(255,255,255,0.07); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:12px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:16px; }
+.purpose-builder textarea { min-height:64px; }
+.purpose-builder textarea:focus, .purpose-builder input:focus { outline:none; border-color:var(--gold-bright); }
+.purpose-builder textarea::placeholder, .purpose-builder input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.purpose-statement-preview { background:rgba(255,255,255,0.04); border:1px dashed rgba(212,160,23,0.4); border-radius:2px; padding:20px 22px; margin-top:8px; }
+.purpose-statement-preview p { font-family:'Playfair Display',serif; font-size:16px; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.7; }
+
+.scenario-card { background:var(--purple-pale); border:1.5px solid var(--purple-light); border-radius:2px; padding:24px 28px; margin:16px 0 20px; }
+.scenario-label { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--purple-light); margin-bottom:10px; }
+.scenario-card p { font-size:15px; color:var(--ink-light); line-height:1.8; margin-bottom:0; }
+
+.wb-contract { background:var(--navy); border-radius:2px; padding:44px; margin:36px 0; border:2px solid var(--gold-bright); }
+.wb-contract-badge { display:inline-block; background:var(--gold); color:var(--navy); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px; }
+.wb-contract h3 { font-family:'Playfair Display',serif; color:white; font-size:30px; font-weight:900; margin-bottom:10px; }
+.wb-contract > p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:28px; font-style:italic; }
+.wb-contract label { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px; }
+.wb-contract textarea, .wb-contract input[type="text"] { width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:white; resize:vertical; line-height:1.7; margin-bottom:20px; }
+.wb-contract textarea { min-height:72px; }
+.wb-contract textarea:focus, .wb-contract input:focus { outline:none; border-color:var(--gold-bright); }
+.wb-contract textarea::placeholder, .wb-contract input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; font-size:14px; }
+.wb-sig { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+
+.final-block { background:var(--gold-pale); border:1.5px solid var(--gold-bright); border-radius:2px; padding:36px; margin:36px 0; }
+.final-block h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--navy); margin-bottom:16px; }
+.final-block p { font-size:15px; color:var(--ink-light); line-height:1.85; margin-bottom:14px; }
+.final-block textarea { width:100%; border:1.5px solid var(--border); border-radius:2px; padding:14px 16px; font-family:'Lora',serif; font-size:15px; color:var(--ink); background:white; resize:vertical; min-height:90px; line-height:1.7; margin-top:8px; }
+.final-block textarea:focus { outline:none; border-color:var(--gold-bright); }
+.final-block textarea::placeholder { color:var(--muted); font-style:italic; font-size:14px; }
+
+.book-footer { background:var(--chapter-bg); padding:52px 40px; text-align:center; }
+.book-footer .logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold-light); letter-spacing:2px; margin-bottom:8px; }
+.book-footer .tagline { color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+.book-footer p { color:rgba(255,255,255,0.25); font-family:'DM Sans',sans-serif; font-size:12px; line-height:1.7; }
+
+@media(max-width:700px) {
+  .cover-content{grid-template-columns:1fr;} .cover-right{display:none;}
+  .cover-inner{padding:60px 28px 40px;} .wb-body{padding:40px 20px 60px;}
+  .wb-part{margin:0 0 40px;padding:28px 24px;}
+  .wb-row-3,.wb-row-2,.weight-scale{grid-template-columns:1fr;}
+  .wb-sig{grid-template-columns:1fr;} .wb-contract{padding:28px 24px;}
+  .workbook-meta{flex-wrap:wrap;gap:24px;} .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="book-nav no-print">
+  <div class="nav-brand">The Power of LIFE Series &nbsp;·&nbsp; <strong>Episode 55 Worksheet</strong></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-links">
+      <a href="#part1">Discover</a>
+      <a href="#part2">Define</a>
+      <a href="#part3">Pressure Test</a>
+      <a href="#part4">Protect</a>
+    </div>
+    <button class="btn-nav" onclick="window.print()">🖨 Save PDF</button>
+  </div>
+</nav>
+<div class="progress-bar no-print"><div class="progress-fill" id="progress"></div></div>
+
+<!-- COVER -->
+<div class="cover-page" id="top">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-badge">⭐ Premium Member Worksheet</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;">Manuel C. Chinyereuba</div>
+    </div>
+    <div class="cover-content">
+      <div>
+        <span class="cover-eyebrow">Episode 55 · The Power of LIFE Podcast</span>
+        <h1 class="cover-title">Behind the<br><span class="accent">Fridge</span></h1>
+        <p class="cover-subtitle">Your complete audit of the frustration you've been blaming or wallowing over — and the exact plan to finally move it.</p>
+        <div class="cover-divider"></div>
+        <div class="cover-author-name">Manuel C. Chinyereuba</div>
+        <div class="cover-author-title">Coach · Speaker · Host, The Power of LIFE Podcast</div>
+        <div class="workbook-meta">
+          <div class="workbook-stat"><span class="num">4</span><span class="lbl">Parts</span></div>
+          <div class="workbook-stat"><span class="num">9</span><span class="lbl">Exercises</span></div>
+          <div class="workbook-stat"><span class="num">2</span><span class="lbl">Traps Named</span></div>
+          <div class="workbook-stat"><span class="num">7</span><span class="lbl">Day Window</span></div>
+        </div>
+      </div>
+      <div class="cover-right">
+        <div class="cover-ghost">55</div>
+        <div class="cover-series">The Power of LIFE Podcast<br>Living In Full Expression</div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-tagline">Living In Full Expression</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">Copyright © 2026 Manuel C. Chinyereuba</div>
+    </div>
+  </div>
+</div>
+
+<!-- OPENING -->
+<div style="max-width:720px;margin:0 auto;padding:70px 40px 20px;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Before You Begin</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:20px;">How to Use This Worksheet</h2>
+  <p style="font-style:italic;font-size:18px;color:var(--ink-light);line-height:1.75;margin-bottom:20px;">This is the coaching session the episode prepared you for — in written form, with room to go further than a single listening allows. Four parts. Nine exercises. One frustration named honestly, weighed accurately, and moved by the end of it.</p>
+  <p style="color:var(--ink-light);margin-bottom:16px;">The parts move in sequence for a reason. Part One is where you name what's actually frustrating you and get honest about how much of your energy has gone into blame instead of action. Part Two turns that honesty into a real plan. Part Three pressure tests the plan against the exact moments most likely to stall it. Part Four makes this a habit, not a one-time fridge move.</p>
+  <p style="color:var(--ink-light);margin-bottom:30px;">Write what is actually true, not the version that makes the delay sound reasonable. Naming who or what you've been blaming is not about guilt. It's about seeing clearly where your energy has actually been going, so you can redirect it.</p>
+
+  <div class="analogy-box">
+    <div class="analogy-label">🧊 The Fridge — Hold This Throughout</div>
+    <p>A loaf of bread fell behind a refrigerator. Moving the fridge wasn't optional, because the bread was needed for breakfast, and left there, it would spoil, smell, and draw insects. Behind it was also a lost spoon, given up on days earlier, and a layer of dust that had been building for a long time.</p>
+    <p>This worksheet is how you find out exactly what's behind your own fridge, whether it's genuinely bread or something that can wait, and what you might discover once you finally move it.</p>
+  </div>
+
+  <div class="key-insights" style="margin-top:28px;">
+    <div class="key-insights-label">What This Session Will Produce</div>
+    <ul>
+      <li>Something <strong>named</strong> — the specific frustration currently sitting in your life, stated plainly instead of vaguely</li>
+      <li>Something <strong>weighed</strong> — an honest read on whether this is bread, with real consequences, or something that can genuinely wait</li>
+      <li>Something <strong>traced</strong> — where your energy has actually been going: toward blame and wallowing, or toward the action itself</li>
+      <li>Something <strong>committed</strong> — one specific action, with a deadline, that finally moves the fridge this week</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== PART ONE ==================== -->
+<div class="wb-body" id="part1">
+  <div class="wb-part">
+    <div class="wb-part-label">Part One</div>
+    <h3>Discover — Naming What's Actually Behind It</h3>
+    <p>Before you can move anything, you need to see clearly what's frustrating you, how much it actually matters, and where your energy has really been going.</p>
+  </div>
+
+  <!-- EXERCISE 1 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">1</div>
+      <div>
+        <div class="wb-ex-title">The Fridge Audit</div>
+        <div class="wb-ex-sub">Naming the current frustrations you've mostly just been irritated by.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This exercise begins with an honest inventory. Not the general complaint. The specific, actual frustration.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the current frustration, disappointment, or delay sitting in your life right now, the one you've mostly just been irritated by, without asking what it might actually be pointing you toward?</p>
+        <p class="dir">Name it specifically. Not "things haven't been going my way." The actual event, the actual person, the actual delay.</p>
+      </div>
+
+      <div class="wb-row wb-row-2">
+        <div class="wb-card">
+          <div class="wb-card-label">The Frustration, Named Specifically</div>
+          <textarea placeholder="The actual event, disappointment, or delay currently sitting in your life, stated plainly..."></textarea>
+        </div>
+        <div class="wb-card">
+          <div class="wb-card-label">What I've Concluded About It So Far</div>
+          <textarea placeholder="That it's bad luck, unfair, a sign something's permanently wrong, or something else entirely..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-warning">
+        <p><strong>Notice This</strong>If your conclusion is a verdict about yourself or your life in general, rather than a specific read on this one event, that's often a sign the story has grown bigger than the actual situation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 2 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">2</div>
+      <div>
+        <div class="wb-ex-title">The Weight Test — Bread or Something Small</div>
+        <div class="wb-ex-sub">Deciding honestly how urgently this actually needs your action.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Not every frustration deserves the same urgency. This exercise is where you decide, honestly, which kind you're dealing with.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>If you leave this exactly where it is, what genuinely happens? Does it spoil, compound, or cost you more the longer it sits? Or can it actually wait without real harm?</p>
+        <p class="dir">Be honest rather than dramatic. Not everything is bread. But some things genuinely are, and pretending otherwise is its own kind of avoidance.</p>
+      </div>
+
+      <div class="weight-scale">
+        <div class="weight-card bread">
+          <div class="weight-label">🔴 If This Is Bread</div>
+          <textarea placeholder="The real, specific consequences of leaving this frustration unaddressed. What actually gets worse, and how quickly..."></textarea>
+        </div>
+        <div class="weight-card small">
+          <div class="weight-label">🟢 If This Can Genuinely Wait</div>
+          <textarea placeholder="What makes this safe to address later, without real cost. Be honest, not just relieved to postpone it..."></textarea>
+        </div>
+      </div>
+
+      <div class="wb-insight">
+        <p><strong>Notice This</strong>If you're not sure which category this falls into, ask what happens after one more week of leaving it exactly as it is. The answer usually tells you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 3 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">3</div>
+      <div>
+        <div class="wb-ex-title">The Blame and Wallow Check</div>
+        <div class="wb-ex-sub">Tracing where your energy has actually been going.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>Blame and wallowing feel active. In practice, they are often a sophisticated way of delaying the action the moment is actually asking for. This exercise names both plainly.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>Who or what have you been blaming for this frustration, and how much energy has that actually cost you? Have you also been wallowing, replaying the disappointment rather than acting on it?</p>
+        <p class="dir">This is not about guilt. It's about seeing clearly where the energy has gone, so you can redirect it toward the actual task.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>Who or What I've Been Blaming</label>
+        <textarea placeholder="Named honestly, whether it's another person, circumstance, timing, or yourself..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>How Much Time I've Spent Wallowing Instead of Acting</label>
+        <textarea placeholder="An honest estimate, hours, days, or longer, spent replaying this rather than moving toward the actual required action..."></textarea>
+      </div>
+
+      <div class="pull-quote">"Every minute spent deciding whose fault the bread falling was, was a minute the bread spent sitting behind a dusty fridge, getting closer to spoiling."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART TWO ==================== -->
+<div class="wb-body" id="part2">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Two</div>
+    <h3>Define — Building Your Plan to Move It</h3>
+    <p>Part Two turns what you named in Part One into a specific plan, with real words attached, for finally moving the fridge.</p>
+  </div>
+
+  <!-- EXERCISE 4 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num gold">4</div>
+      <div>
+        <div class="wb-ex-title">Move the Fridge — Your Working Builder</div>
+        <div class="wb-ex-sub">One page. The frustration, the stakes, and the required action.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>This is the working document everything else refers back to. Keep it specific. A vague intention to "deal with it eventually" rarely becomes an actual Tuesday.</p>
+
+      <div class="purpose-builder">
+        <div class="purpose-builder-label">Your Move the Fridge Plan</div>
+        <h4>Name It, Weigh It, Move It</h4>
+
+        <label>The Frustration</label>
+        <textarea placeholder="Transcribed from Exercise 1, stated plainly..."></textarea>
+
+        <label>Why This Is Bread, Not Something Small</label>
+        <textarea placeholder="Transcribed from Exercise 2, the real, specific stakes of leaving it..."></textarea>
+
+        <label>The Required Action</label>
+        <textarea placeholder="The specific, concrete action that actually moves this forward, not a vague intention..."></textarea>
+
+        <label>The Deadline</label>
+        <input type="text" placeholder="The specific day, within the next seven days, this action happens.">
+      </div>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>What Would Make This Undeniable, Not Just Intended</label>
+        <textarea placeholder="A specific mechanism, calendar block, accountability check, that makes it far harder to quietly let this slip past the deadline..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 5 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num">5</div>
+      <div>
+        <div class="wb-ex-title">The Words — Separating the Event From the Story</div>
+        <div class="wb-ex-sub">Drafting the sentence that reframes the frustration as a prompt.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The event and the meaning you've assigned to it are two separate things. This exercise puts that separation into words you can return to.</p>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>If you had to say it in one breath, what is the sentence that reminds you this frustration might be a prompt, not a punishment?</p>
+        <p class="dir">Write it the way you would actually say it to yourself in the moment of irritation, not the way it would sound on a poster.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My Reframe, Spoken Plainly</label>
+        <textarea rows="3" placeholder="This isn't a verdict. It's an interruption, and it's asking me to move [the required action]. What I find once I do might matter more than the inconvenience of doing it..."></textarea>
+      </div>
+
+      <div class="purpose-statement-preview">
+        <p>Read it back out loud once before moving on. If it steadies you rather than just sounding nice, it's ready.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART THREE ==================== -->
+<div class="wb-body" id="part3">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Three</div>
+    <h3>Pressure Test — Testing the Plan Against Real Life</h3>
+    <p>A plan survives easily in writing. It does not survive as easily against real reluctance, a returning blame reflex, or a disappointing result, unless you've already thought it through.</p>
+  </div>
+
+  <!-- EXERCISE 6 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">6</div>
+      <div>
+        <div class="wb-ex-title">Scenario One — When You Genuinely Don't Feel Like It</div>
+        <div class="wb-ex-sub">When the action feels heavier than you expected, even though it matters.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>The deadline from Exercise 4 arrives, and you genuinely don't feel like doing the work. It's inconvenient, tiring, or simply unpleasant, even though you know the stakes are real.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>What I Will Remind Myself in That Moment</label>
+        <textarea placeholder="Not feeling like it was never the requirement. What's actually at stake if you leave it, transcribed from Exercise 2, to reread right then..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 7 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">7</div>
+      <div>
+        <div class="wb-ex-title">Scenario Two — The Blame Reflex Returns</div>
+        <div class="wb-ex-sub">When irritation flares up again mid-action.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>You're in the middle of taking the required action, and the old irritation resurfaces. You catch yourself, once again, mentally assigning blame instead of simply continuing the task.</p>
+      </div>
+
+      <div class="wb-coaching">
+        <div class="wb-coaching-label">Coaching Prompt</div>
+        <p>What is the shortest, simplest thing you can say to yourself to notice the blame reflex and return to the task without needing to fully resolve the irritation first?</p>
+        <p class="dir">You don't need to stop feeling frustrated. You only need to keep moving despite it.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>My One-Line Redirect</label>
+        <textarea placeholder="A short, real phrase you can say to yourself the moment blame resurfaces, that pulls you back to the task..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE 8 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num red">8</div>
+      <div>
+        <div class="wb-ex-title">Scenario Three — Nothing Significant Turns Up</div>
+        <div class="wb-ex-sub">When moving the fridge doesn't reveal a spoon.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <div class="scenario-card">
+        <div class="scenario-label">The Scenario</div>
+        <p>You take the action. You move the fridge. And this time, there's no lost spoon waiting behind it, just the bread you needed, and maybe a bit of a mess. It would be easy to feel like the lesson didn't apply this time.</p>
+      </div>
+
+      <div class="wb-field">
+        <label>Why This Was Still Worth Doing, Even Without a Discovery</label>
+        <textarea placeholder="The bread itself was worth retrieving. The mess itself was worth cleaning. Not every act of moving forward comes with a bonus discovery, and that doesn't make it less necessary..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART FOUR ==================== -->
+<div class="wb-body" id="part4">
+  <div class="wb-part">
+    <div class="wb-part-label">Part Four</div>
+    <h3>Protect — Making This a Practice, Not a Moment</h3>
+    <p>One moved fridge is a good start. It is not the whole shift. Part Four turns this worksheet into an ongoing practice, so the next frustration gets read for its message quickly, instead of sitting in blame for weeks.</p>
+  </div>
+
+  <!-- EXERCISE 9 -->
+  <div class="wb-ex">
+    <div class="wb-ex-header">
+      <div class="wb-ex-num teal">9</div>
+      <div>
+        <div class="wb-ex-title">The Weekly Fridge Check — Building the Habit</div>
+        <div class="wb-ex-sub">The simple, recurring practice that catches frustration early next time.</div>
+      </div>
+    </div>
+    <div class="wb-ex-body">
+      <p>The goal is not to move one fridge and stop. The goal is to build the habit of quickly asking what a frustration might be pointing toward, before blame and wallowing eat the time that action needs.</p>
+
+      <ul class="wb-check-list">
+        <li><input type="checkbox"><span><strong>Within 7 Days:</strong> Take the required action named in Exercise 4, by the deadline you set, whether or not you feel like it.</span></li>
+        <li><input type="checkbox"><span><strong>The Day After:</strong> Write down what actually happened, and whether anything unexpected turned up behind it.</span></li>
+        <li><input type="checkbox"><span><strong>Every Week:</strong> Ask yourself one question. "What's currently frustrating me that I've been blaming or wallowing over instead of weighing and acting on?"</span></li>
+        <li><input type="checkbox"><span><strong>Every Month:</strong> Revisit your Fridge Audit from Exercise 1. Has a new frustration surfaced that deserves the same honest weighing?</span></li>
+        <li><input type="checkbox"><span><strong>Whenever Blame Resurfaces:</strong> Use the one-line redirect from Exercise 7 before letting irritation cost you more time than the task itself.</span></li>
+      </ul>
+
+      <div class="wb-field" style="margin-top:20px;">
+        <label>My Accountability Person — Name and How I Will Reach Them This Week</label>
+        <textarea placeholder="Someone who can ask you, in seven days, whether you actually took the required action. Named specifically..."></textarea>
+      </div>
+
+      <div class="wb-field">
+        <label>The Biggest Threat to This Practice — Named in Advance</label>
+        <textarea placeholder="The specific thing most likely to keep you in blame or wallowing instead of moving. Named here so it cannot catch you unprepared..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT CONTRACT -->
+  <div class="wb-contract">
+    <div class="wb-contract-badge">Commitment Contract</div>
+    <h3>I Move the Fridge</h3>
+    <p>Complete every field. Read it back aloud when you are done. This is the moment the frustration gets a deadline instead of just a feeling.</p>
+
+    <label>The Frustration, Named Directly</label>
+    <textarea rows="2" placeholder="Transcribed from Exercise 1..."></textarea>
+
+    <label>Why This Is Bread, Not Something Small</label>
+    <textarea placeholder="Transcribed from Exercise 2, the real, specific stakes of leaving it as it is..."></textarea>
+
+    <label>Where My Energy Has Actually Been Going</label>
+    <textarea placeholder="Transcribed from Exercise 3, named honestly, without guilt..."></textarea>
+
+    <label>My Required Action and Deadline</label>
+    <textarea placeholder="Transcribed from Exercise 4, the specific action and the specific day it happens..."></textarea>
+
+    <label>My Reframe — Transcribed From Exercise 5</label>
+    <textarea placeholder="The sentence that reminds me this is a prompt, not a punishment, ready before I need it..."></textarea>
+
+    <label>What This Protects Going Forward</label>
+    <textarea rows="2" placeholder="Not what I hope might happen. What I know becomes possible, in this specific frustration and in how I meet every future one, once I stop paying for blame..."></textarea>
+
+    <div class="wb-sig">
+      <div><label>Your Name</label><input type="text" placeholder="Sign here"></div>
+      <div><label>Date</label><input type="text" placeholder="Today's date"></div>
+    </div>
+  </div>
+
+  <!-- FINAL REFLECTION -->
+  <div class="final-block">
+    <h3>Before You Close This</h3>
+    <p>Neither of us felt like moving that fridge. Blaming each other felt easier, in the moment, than doing the actual work. But the bread was going to spoil regardless of how justified the irritation felt.</p>
+    <p>What we found behind it, a spoon we'd given up on and a mess we hadn't known we'd been ignoring, wasn't guaranteed. We didn't move the fridge because we expected a reward. We moved it because the bread mattered, and the discovery came anyway.</p>
+    <p>Living in Full Expression means learning to read frustration for its message, not just its inconvenience, and having the discipline to act on it instead of losing days to blame and wallowing.</p>
+    <p style="font-style:italic;color:var(--muted);">Before you close this session — write the one thing you now know, that you did not know when you opened it.</p>
+    <textarea placeholder="The thing I now know — that cannot be unfelt, and that has shifted how I see the frustration currently sitting in my life..."></textarea>
+  </div>
+
+  <div style="text-align:center;padding:48px 0 32px;border-top:1px solid var(--border);margin-top:36px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 20px;">The fridge will still feel heavy to move. That was never going to change. You now know exactly what's behind it, exactly how urgently it needs your attention, and exactly what you'll say to yourself when you don't feel like acting. The only thing left is the seven days.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);">Go see what's behind your fridge.<br>Live in full expression.</p>
+  </div>
+</div>
+
+<div class="book-footer">
+  <div class="logo">THE LIFE PODCAST</div>
+  <div class="tagline">Living In Full Expression</div>
+  <p>Behind the Fridge — Episode 55 Premium Worksheet<br>Manuel C. Chinyereuba · The Power of LIFE Series · Copyright © 2026<br>This document is for personal use only.</p>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  var t=document.body.scrollHeight-window.innerHeight;
+  var p=t>0?(window.scrollY/t)*100:0;
+  var el=document.getElementById('progress');
+  if(el)el.style.width=p+'%';
+});
+document.querySelectorAll('textarea').forEach(function(ta){
+  ta.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=(this.scrollHeight+2)+'px';
+  });
+});
+</script>
+</body>
+</html>
